@@ -45,7 +45,8 @@
   --line-height-h4: 1.2;
   --line-height-body: 1.6;
 
-  --space-element: 2.5rem;
+  /* Rhythmus-System: 1.0x (Mikro/Standard) & 1.6x (Makro/Trennwert) */
+  --space-element: 1em; 
   --space-section: 12rem;
   --margin-inline: 7vw;
 }
@@ -132,7 +133,7 @@ ul li,
 }
 
 .lead-text {
-  font-size: 20px;
+  font-size: calc(var(--font-body) * 1.15);
   font-weight: 470;
   line-height: 1.4;
 }
@@ -144,8 +145,8 @@ ul li,
 
 .product-lead-h1 {
   text-align: center !important;
-  font-size: 42px !important;
-  line-height: 1.3;
+  font-size: var(--font-h1) !important;
+  line-height: var(--line-height-h1);
   font-weight: bold;
 }
 
@@ -190,40 +191,40 @@ picture img {
 }
 
 /* ==========================================
-   3. VERTIKALE ABSTÄNDE
+   3. VERTIKALE ABSTÄNDE & FLUSS
    ========================================== */
 
 /* --- Absätze & Textvarianten --- */
 p,
 .j-module.n.j-text p {
   margin-top: 0 !important;
-  margin-bottom: 1em !important;
+  margin-bottom: var(--space-element) !important;
 }
 
 p.p2 {
-  margin-bottom: 2em !important;
+  margin-bottom: calc(var(--space-element) * 2) !important;
 }
 
 p.p3 {
-  margin-bottom: 3em !important;
+  margin-bottom: calc(var(--space-element) * 3) !important;
 }
 
 .lead-text {
-  margin-top: 1em !important;
-  margin-bottom: 1em !important;
+  margin-top: var(--space-element) !important;
+  margin-bottom: var(--space-element) !important;
 }
 
 .product-intro {
-  margin-top: 1.5rem !important;
-  margin-bottom: 1em !important;
+  margin-top: calc(var(--space-element) * 1.5) !important;
+  margin-bottom: var(--space-element) !important;
 }
 
-/* --- Überschriften (Abstand nach unten) --- */
+/* --- Überschriften (Abstand nach oben & unten) --- */
 h1,
 .page-header h1,
 .page-title h1 {
   margin-top: 0 !important;
-  margin-bottom: 10px !important;
+  margin-bottom: calc(var(--space-element) * 0.4) !important;
 }
 
 h2,
@@ -257,19 +258,21 @@ h4,
 
 .product-lead-h1 {
   margin-block: calc(var(--space-element) * 1.8) !important;
-  padding-inline: 7px;
+  padding-inline: 0.5em;
 }
 
 /* ==========================================
-   1. GLOBALE FIGURE-REGELN (Normale Bilder)
+   4. BILDER & MODUL-SEKTIONEN
    ========================================== */
+
+/* Normale Bilder (Stand-Alone) */
 figure {
   margin-top: calc(var(--space-element) * 1.6) !important; 
   margin-bottom: var(--space-element) !important;
 }
 
 figure.compact {
-  margin-top: 1em !important; 
+  margin-top: var(--space-element) !important; 
 }
 
 figure figcaption {
@@ -277,13 +280,11 @@ figure figcaption {
   margin-bottom: 0 !important;
 }
 
-/* ==========================================
-   2. BASE FLEXBOX GRID (.split-section & .unitainer)
-   ========================================== */
+/* Base Flexbox Grid (.split-section & .unitainer) */
 .unitainer,
 .split-section {
   display: flex;
-  gap: 30px !important;
+  gap: calc(var(--space-element) * 1.2) !important;
   margin-top: calc(var(--space-element) * 1.6) !important;
   margin-bottom: var(--space-element) !important;
 }
@@ -299,7 +300,7 @@ figure figcaption {
   flex-direction: row;
 }
 
-/* Columns */
+/* Spalten-Logik */
 .image-column,
 figure.image-column {
   margin: 0 auto;
@@ -309,6 +310,7 @@ figure.image-column {
 
 .text-column {
   flex-grow: 1;
+  margin-bottom: -0.3em; /* Kompensiert den Zeilenhöhen-Überhang der Grundlinie */
 }
 
 .image-column img {
@@ -318,29 +320,33 @@ figure.image-column {
   transform: translateZ(0);
 }
 
-/* ==========================================
-   3. INNERES RESET & RESPONSIVE OFFSET
-   ========================================== */
-
-/* Inneres Margin/Padding für das Bild komplett zurücksetzen */
+/* Inneres Reset für Split-Section */
 .split-section figure.image-column,
 .split-section figure {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Regelt den gap für Mobilgeräte < 720px */
+/* Typografie-Offset für exakte Bündigkeit der 1. Zeile */
 .split-section .text-column p:first-child {
-  margin-top: 0em !important;
+  margin-top: -0.45em !important;
 }
 
+/* Entfernt den überflüssigen Margin des letzten Absatzes in der Section */
+.split-section .text-column p:last-child {
+  margin-bottom: 0 !important;
+  display: block;
+}
 
-/* Mobile Styles (< 720px) */
+/* ==========================================
+   5. BREAKPOINTS & RESPONSIVE DESIGN (< 720px)
+   ========================================== */
 @media (max-width: 719px) {
   .unitainer,
   .split-section {
     flex-direction: column;
-    gap: var(--space-element) !important; /* Vertikaler Abstand via Flexbox-Gap */
+   /* Vertikaler Abstand via Flexbox-Gap */
+    gap: calc(var(--space-element) * 1.3) !important;
   }
 
   .unitainer .image-column,
@@ -352,27 +358,20 @@ figure.image-column {
   .split-section .text-column {
     order: 2;
   }
-
-  .j-module.n.j-htmlCode .unitainer,
-  .j-module.n.j-htmlCode .split-section {
-    margin-bottom: 23px !important;
-  }
 }
 
+/* Sonder-Module & Akkordeon */
 .sprueche-gruen,
 .pull-quote {
   margin-block: var(--space-section) !important;
   margin-inline: var(--margin-inline);
 }
 
-/* --- Akkordeon --- */
 .akkordeon-text dd,
 .akkordeon-text-easteregg dd {
   margin-top: 0 !important;
   margin-bottom: 5rem !important;
 }
-
-
 /* ------------------------------------------
    LAYOUT & CONTAINER WRAPPER FIX
    ------------------------------------------ */
