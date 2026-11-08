@@ -18,11 +18,68 @@
      13. KORREKTUREN JIMDO SYSTEMSEITEN
      14. SONSTIGES & UTILITIES
      ========================================== */
+
 /* ==========================================================================
-   0. KORREKTUREN FÜR V2 
+   0. V2 LAYOUT & WRAPPER-SYSTEM
    ========================================================================== */
-.v2 .content-options h2:not(.j-blog-headline):not(.j-blog-comment-counter) {
-  padding-top: 0 !important;
+
+/* --- HAUPT-CONTAINER RESETS (100% ohne Störungen) --- */
+.v2, 
+.v2 body,
+.v2 #content_area,
+.v2 .jtpl-main,
+.v2 .jtpl-section-main {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Alle Jimdo-Standard-Module im V2-Kontext zurücksetzen */
+.v2 .j-module {
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+
+/* --- 1. FULLWIDTH-ELEMENTE (Bis max. 1920px zentriert) --- */
+.v2 .site-header,
+.v2 .page-header,
+.v2 .page-title,
+.v2 .page-title-credo,
+.v2 .site-footer {
+  width: 100% !important;
+  max-width: 1920px !important;
+  margin-inline: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+
+/* --- 2. DEIN EIGENER WRAPPER & JIMDO-PRODUKTE (Standard-Seitenrand) --- */
+.v2 .v2-wrapper,
+.v2 .j-module.j-product {
+  width: 100% !important;
+  max-width: 1920px !important;
+  margin-inline: auto !important;
+  padding-inline: var(--margin-inline) !important;
+  box-sizing: border-box !important;
+}
+
+
+/* --- 3. BREAKOUTS INNERHALB DEINES WRAPPERS --- */
+/* (Falls innerhalb deines Wrappers Widgets/Bilder volle Breite brauchen) */
+.v2 .v2-wrapper .img-tainer-100,
+.v2 .v2-wrapper .roadtrain-widget-dt,
+.v2 .v2-wrapper .fw {
+  width: calc(100% + (var(--margin-inline) * 2)) !important;
+  max-width: none !important;
+  margin-left: calc(var(--margin-inline) * -1) !important;
+  margin-right: calc(var(--margin-inline) * -1) !important;
+  box-sizing: border-box !important;
 }
 /* ==========================================
    1. DESIGN TOKENS & VARIABLEN
@@ -1416,7 +1473,14 @@ body {
     position: relative;
     padding-inline: 2px;
   }
-
+/* --- FULLWIDTH-ELEMENTE (AUSSERHALB DES WRAPPERS) --- */
+.v2 .mai-line {
+  width: 100% !important;
+  max-width: 1920px !important;
+  margin-inline: auto !important;
+  padding-inline: 5px !important;
+  box-sizing: border-box !important;
+}
   .page-title-credo h1,
   .page-title-credo h2 {
     position: absolute;
