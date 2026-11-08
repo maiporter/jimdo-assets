@@ -395,6 +395,11 @@ figure.image-column {
   display: block;
 }
 
+.text-column > h2:first-child,
+.text-column > h3:first-child,
+.text-column > h4:first-child {
+  margin-top: 0 !important;
+}
 /* ==========================================
    5. BREAKPOINTS & RESPONSIVE DESIGN (< 720px)
    ========================================== */
