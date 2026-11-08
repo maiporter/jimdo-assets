@@ -322,7 +322,6 @@ h4,
    4. BILDER & MODUL-SEKTIONEN
    ========================================== */
 
-/* Normale Bilder (Stand-Alone) */
 figure {
   margin-top: calc(var(--space-element) * 1.6) !important; 
   margin-bottom: var(--space-element) !important;
@@ -337,7 +336,6 @@ figure figcaption {
   margin-bottom: 0 !important;
 }
 
-/* Base Flexbox Grid (.split-section & .unitainer) */
 .unitainer,
 .split-section {
   display: flex;
@@ -407,18 +405,29 @@ figure.image-column {
   .unitainer,
   .split-section {
     flex-direction: column;
-   /* Vertikaler Abstand via Flexbox-Gap */
+    /* Vertikaler Abstand via Flexbox-Gap */
     gap: calc(var(--space-element) * 1.3) !important;
+    align-items: center; /* Zentriert die Spalteninhalte */
   }
 
   .unitainer .image-column,
   .split-section .image-column {
     order: 1;
+    margin: 0 auto !important; /* Zentriert den Bild-Container */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Zentriert das Bild bei fester max-width */
   }
 
   .unitainer .text-column,
   .split-section .text-column {
     order: 2;
+    width: 100%; /* Volle Breite für den Textblock */
+  }
+
+  .j-module.n.j-htmlCode .unitainer,
+  .j-module.n.j-htmlCode .split-section {
+    margin-bottom: 23px !important;
   }
 }
 
