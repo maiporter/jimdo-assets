@@ -19,12 +19,11 @@
      14. SONSTIGES & UTILITIES
      ========================================== */
 /* ==========================================================================
-   0. KORREKTUREN FÜR V2
+   0. KORREKTUREN FÜR V2 
    ========================================================================== */
 .v2 .content-options h2:not(.j-blog-headline):not(.j-blog-comment-counter) {
   padding-top: 0 !important;
 }
-
 /* ==========================================
    1. DESIGN TOKENS & VARIABLEN
    ========================================== */
@@ -261,7 +260,9 @@ h4,
   padding-inline: 7px;
 }
 
-/* --- Medien & Zitate --- */
+/* ==========================================
+   1. GLOBALE FIGURE-REGELN (Normale Bilder)
+   ========================================== */
 figure {
   margin-top: calc(var(--space-element) * 1.6) !important; 
   margin-bottom: var(--space-element) !important;
@@ -271,19 +272,91 @@ figure.compact {
   margin-top: 1em !important; 
 }
 
+figure figcaption {
+  margin-top: calc(var(--space-element) * 0.3) !important;
+  margin-bottom: 0 !important;
+}
+
+/* ==========================================
+   2. BASE FLEXBOX GRID (.split-section & .unitainer)
+   ========================================== */
+.unitainer,
 .split-section {
+  display: flex;
+  gap: 30px !important;
   margin-top: calc(var(--space-element) * 1.6) !important;
   margin-bottom: var(--space-element) !important;
 }
 
-@media (max-width: 719px) {
-  .split-section figure {
-    margin-bottom: var(--space-element) !important;
-  }
+.unitainer.text-left,
+.unitainer-text-left,
+.split-section.text-left,
+.split-section-text-left,
+.unitainer.text-right,
+.unitainer-text-right,
+.split-section.text-right,
+.split-section-text-right {
+  flex-direction: row;
 }
-figure figcaption {
-  margin-top: calc(var(--space-element) * 0.3) !important;
-  margin-bottom: 0 !important;
+
+/* Columns */
+.image-column,
+figure.image-column {
+  margin: 0 auto;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.text-column {
+  flex-grow: 1;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+}
+
+/* ==========================================
+   3. INNERES RESET & RESPONSIVE OFFSET
+   ========================================== */
+
+/* Inneres Margin/Padding für das Bild komplett zurücksetzen */
+.split-section figure.image-column,
+.split-section figure {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Regelt den gap für Mobilgeräte < 720px */
+.split-section .text-column p:first-child {
+  margin-top: 0em !important;
+}
+
+
+/* Mobile Styles (< 720px) */
+@media (max-width: 719px) {
+  .unitainer,
+  .split-section {
+    flex-direction: column;
+    gap: var(--space-element) !important; /* Vertikaler Abstand via Flexbox-Gap */
+  }
+
+  .unitainer .image-column,
+  .split-section .image-column {
+    order: 1;
+  }
+
+  .unitainer .text-column,
+  .split-section .text-column {
+    order: 2;
+  }
+
+  .j-module.n.j-htmlCode .unitainer,
+  .j-module.n.j-htmlCode .split-section {
+    margin-bottom: 23px !important;
+  }
 }
 
 .sprueche-gruen,
@@ -561,10 +634,7 @@ body {
     }
   }
 
-  /* Standard-Browserabstand zurücksetzen, figure hier nur für SEO und Barrierefreiheit */
-.split-section figure {
-  margin: 0;
-}
+
 
   /* ==========================================
      4. NAVIGATION & FOOTER
@@ -1173,88 +1243,7 @@ body {
     }
   }
 
- /* Base Flexbox Grid */
-.unitainer,
-.split-section {
-  display: flex;
-  gap: 30px !important;
-}
-
-
-.unitainer.text-left,
-.unitainer-text-left,
-.split-section.text-left,
-.split-section-text-left {
-  flex-direction: row;
-}
-
-.unitainer.text-right,
-.unitainer-text-right,
-.split-section.text-right,
-.split-section-text-right {
-  flex-direction: row;
-}
-
-.split-section figure.image-column,
-.split-section figure {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-}
-
-.split-section .text-column p:first-child {
-  margin-top: -0.45em !important;
-}
-/* Columns */
-.image-column,
-figure.image-column {
-  margin: 0 auto;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.text-column {
-  flex-grow: 1;
-}
-
-.image-column img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: translateZ(0);
-}
-
-/* Desktop Styles */
-@media (min-width: 720px) {
-  .split-section .text-column p:first-child {
-    margin-top: -7px;
-  }
-}
-
-/* Mobile Styles */
-@media (max-width: 719px) {
-  .unitainer,
-  .split-section {
-    flex-direction: column;
-    gap: 0 !important;
-  }
-
-  .unitainer .image-column,
-  .split-section .image-column {
-    order: 1;
-    margin-bottom: 0 !important;
-  }
-
-  .unitainer .text-column,
-  .split-section .text-column {
-    order: 2;
-  }
-
-  .j-module.n.j-htmlCode .unitainer,
-  .j-module.n.j-htmlCode .split-section {
-    margin-bottom: 23px !important;
-  }
-}
+ 
   .img-tainer {
     display: flex;
     overflow: hidden;
