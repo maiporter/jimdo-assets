@@ -1577,7 +1577,7 @@ body {
     margin-top: 12px;
     border-radius: 0;
     font-size: 16px;
-    font-family: "Nunito", sans-serif;
+    font-family: "Open Sans", sans-serif;
     color: #ffffff;
     font-weight: 600;
     height: auto;
@@ -1593,7 +1593,26 @@ body {
   /* ==========================================
      11. ALLGEMEINE KORREKTUREN
      ========================================== */
+/* Zur Kasse-Button */
+.j-cart .j-cart--hover-popup--call-to-action-button,
+a.j-cart--hover-popup--call-to-action-button {
+	background-color: #58845c !important;
+	border-color: #58845c !important;
+	color: #fff !important;
+	font-size: 18px !important;
+	border-width: 0.8px !important;
+	border-style: solid !important;
+	border-radius: 0px !important;
+}
 
+.j-cart .j-cart--hover-popup--call-to-action-button:hover,
+.j-cart .j-cart--hover-popup--call-to-action-button:focus,
+.j-cart .j-cart--hover-popup--call-to-action-button:active {
+	background-color: #5c8b5f !important; /* Etwas dunkleres Grün für Hover */
+	border-color: #5c8b5f !important;
+	color: #fff !important;
+}
+/*--------------------------------------*/
   .jtpl-sidebar {
     display: none !important;
   }
