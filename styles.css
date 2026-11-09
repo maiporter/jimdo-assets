@@ -18,7 +18,255 @@
      13. KORREKTUREN JIMDO SYSTEMSEITEN
      14. SONSTIGES & UTILITIES
      ========================================== */
+/* 1. Haupt-Container / Modal-Overlay (Ecken: 0) */
+.ui-dialog.ui-widget {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+    font-family: "Open Sans", sans-serif !important;
+    max-width: 550px !important;
+    padding: 16px !important;
+}
 
+.cc-individual-cookie-settings-texts h2 {
+    margin-top: 5px !important;
+}
+
+/* Blur-Hintergrund für die restliche Seite */
+.ui-widget-overlay {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* 2. Titelbereich & Schließen-Button */
+.ui-dialog-titlebar {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 0 12px 0 !important;
+}
+
+.ui-dialog-titlebar-close {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+}
+
+/* 3. Texte & Überschriften */
+#cc-individual-cookie-settings h2 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin-bottom: 8px !important;
+}
+
+#cc-individual-cookie-settings p {
+    font-size: 14px !important;
+    color: #4b5563 !important;
+    line-height: 1.6 !important;
+}
+
+#cc-individual-cookie-settings .links a {
+    color: #6ea372 !important;
+    text-decoration: underline !important;
+    font-size: 13px !important;
+    margin-right: 12px !important;
+}
+
+#cc-individual-cookie-settings .links a:hover {
+    color: #76b47e !important;
+}
+
+/* 4. Kategorien (Ecken: 0) & Toggle-Schalter (Rundungen BEHALTEN) */
+.cc-individual-cookie-settings-categories .category-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 16px 0 !important;
+}
+
+.cc-individual-cookie-settings-categories .category {
+    display: flex !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    border-radius: 0 !important; /* Kategorien ohne Radius */
+    padding-left: 4px !important;
+    padding-top: 12px !important;
+}
+
+/* Margin-top für Buttons in Kategorien killen */
+.cc-individual-cookie-settings-categories .category button {
+    margin-top: 0 !important;
+}
+
+.cc-individual-cookie-settings-categories .toggle {
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+}
+
+/* Toggles behalten abgerundete Form */
+.cc-individual-cookie-settings-categories .toggle .fill {
+    display: inline-block !important;
+    width: 40px !important;
+    height: 22px !important;
+    background-color: #d1d5db !important;
+    border-radius: 20px !important; /* Rundung für Toggle-Schiene */
+    position: relative !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.cc-individual-cookie-settings-categories .toggle .ball {
+    display: block !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important; /* Rundung für Toggle-Kugel */
+    position: absolute !important;
+    top: 2px !important;
+    left: 2px !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* Aktive Toggles (Zulassen) */
+.cc-individual-cookie-settings-categories .toggle[data-value="all"] .fill {
+    background-color: #6ea372 !important;
+}
+
+.cc-individual-cookie-settings-categories .toggle[data-value="all"] .ball {
+    transform: translateX(18px) !important;
+}
+
+/* 5. Aktions-Buttons unten (Ecken: 0) */
+.cc-individual-cookie-settings-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 20px !important;
+}
+
+.cc-individual-cookie-settings-actions .btn {
+    width: 100% !important;
+    padding: 13px 16px !important;
+    border-radius: 0 !important; /* Buttons ohne Radius */
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    text-align: center !important;
+    border: none !important;
+    
+    /* Passiv */
+    background-color: #6ea372 !important;
+    color: #ffffff !important;
+}
+
+/* Aktiv (Mouseover) */
+.cc-individual-cookie-settings-actions .btn:hover {
+    background-color: #76b47e !important;
+    color: #EEEEEE !important;
+}
+
+/* ==========================================
+   6. RESPONSIVE OPTIMIERUNG FÜR MOBILGERÄTE
+   ========================================== */
+@media (max-width: 600px), (max-height: 800px) {
+    /* Das Hintergrund-Overlay von Jimdo unter den Banner legen */
+    .ui-widget-overlay {
+        z-index: 999990 !important;
+    }
+
+    /* Äußerer Dialog-Container: Fixiert & Höchste Ebene */
+    div.ui-dialog.ui-widget,
+    body div.ui-dialog.ui-widget {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        bottom: auto !important;
+        right: auto !important;
+        transform: translate(-50%, -50%) !important;
+        
+        margin: 0 !important;
+        width: 90vw !important;
+        max-width: 340px !important;
+        height: auto !important;
+        max-height: 90vh !important;
+        padding: 14px !important;
+        box-sizing: border-box !important;
+        
+        z-index: 999999 !important;
+        pointer-events: auto !important;
+        overflow-y: auto !important; /* Scrollbar auf den Gesamtdialog legen */
+    }
+
+    /* Innerer Container: Höhenbeschränkungen von Jimdo aufheben */
+    #cc-individual-cookie-settings,
+    .cc-individual-cookie-settings {
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
+    /* Überschrift & Beschreibungstext platzsparend halten */
+    #cc-individual-cookie-settings h2 {
+        font-size: 16px !important;
+        margin-bottom: 4px !important;
+    }
+
+    #cc-individual-cookie-settings p {
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        max-height: none !important; /* Kein eigenes Scrollen im Text mehr, um Streifenbildung zu verhindern */
+        overflow: visible !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Kategorieliste & Abstände straffen */
+    .cc-individual-cookie-settings-categories .category-list {
+        margin: 6px 0 !important;
+    }
+
+    .cc-individual-cookie-settings-categories .category {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .cc-individual-cookie-settings-categories .name {
+        font-size: 12px !important;
+    }
+
+    /* Toggles verkleinern */
+    .cc-individual-cookie-settings-categories .toggle .fill {
+        width: 32px !important;
+        height: 18px !important;
+    }
+
+    .cc-individual-cookie-settings-categories .toggle .ball {
+        width: 14px !important;
+        height: 14px !important;
+        top: 2px !important;
+        left: 2px !important;
+    }
+
+    .cc-individual-cookie-settings-categories .toggle[data-value="all"] .ball {
+        transform: translateX(14px) !important;
+    }
+
+    /* Untere Buttons schlanker machen */
+    .cc-individual-cookie-settings-actions {
+        gap: 6px !important;
+        margin-top: 12px !important;
+    }
+
+    .cc-individual-cookie-settings-actions .btn {
+        padding: 9px 10px !important;
+        font-size: 13px !important;
+        pointer-events: auto !important;
+    }
+}
 /* ==========================================================================
    0. V2 LAYOUT & WRAPPER-SYSTEM
    ========================================================================== */
@@ -1877,6 +2125,11 @@ a.j-cart--hover-popup--call-to-action-button {
   /* ==========================================
      13. KORREKTUREN JIMDO SYSTEMSEITEN
      ========================================== */
+
+.ui-widget button {
+	font-family: "open sans" sansserif !important;
+
+}
 
   .jimdo-systemseiten #cc-inner,
   .jimdo-systemseiten #cc-checkout-wrapper,
