@@ -1,0 +1,34 @@
+ZENTRALE HTML-VORLAGE
+<div class="site-footer">
+  <div class="main-navigation">
+    <a href="https://www.maiporter.de/shop">SHOP</a>
+    <a href="https://www.maiporter.de/info">INFO</a>
+  </div>
+  <svg class="mai-line line-3" width="100%" height="4">
+    <line class="svg-line" x1="0" y1="4" x2="100%" y2="4"></line>
+  </svg>
+</div>
+<div style="height: 8px; background: transparent"></div>
+
+WIDGET HTML & SCRIPT
+<footer id="global-footer"></footer>
+<script>
+  /* <![CDATA[ */
+  fetch("/navigation/footer")
+    .then((res) => res.text())
+    .then((data) => {
+      const doc = new DOMParser().parseFromString(data, "text/html");
+      const footer = doc.querySelector(".site-footer");
+      if (footer) {
+        document.getElementById("global-footer").appendChild(footer);
+        const current = window.location.pathname;
+        footer.querySelectorAll(".main-navigation a").forEach((link) => {
+          const href = new URL(link.href).pathname;
+          if (current === href || current.startsWith(href + "/")) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  /*]]>*/
+</script>

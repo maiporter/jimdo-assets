@@ -1,0 +1,2615 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="p:domain_verify" content="70360d24e0f175a1d41a9dcfe5ffa55d" />
+<meta name="google-site-verification" content="qTwkeG180GXxksPt5-s4OrRAqf9ZHurl4aWBwAeRqqE" />
+<meta property="og:description" content="Komfortabler als mit einem Boxtrailer kann man in der Stadt nicht unterwegs sein!" />
+<meta
+  property="og:image"
+  content="https://image.jimcdn.com/app/cms/image/transf/none/path/s51992d3512f99730/backgroundarea/i219168a47b427f8e/version/1603484321/image.jpg" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="1500" />
+<meta
+  property="og:image:secure_url"
+  content="https://image.jimcdn.com/app/cms/image/transf/none/path/s51992d3512f99730/backgroundarea/i219168a47b427f8e/version/1603484321/image.jpg" />
+<meta property="og:url" content="https://www.maiporter.de/" />
+<meta property="og:site_name" content="MaiPorter - Experts in Boxtrailers" />
+<meta name="referrer" content="same-origin" />
+<link rel="shortcut icon" href="https://u.jimcdn.com/cms/o/s51992d3512f99730/img/favicon.png?t=1712467304" />
+<link rel="canonical" href="https://www.maiporter.de/" />
+<link
+  rel="stylesheet"
+  href="https://u.jimcdn.com/cms/o/s51992d3512f99730/userlayout/css/newsletter-styles-rapidmail.css?t=1725548452" />
+<link rel="preload" href="/navigation/header" as="fetch" crossorigin="anonymous" />
+
+<style>
+  /* <![CDATA[ */
+  /* ==========================================
+     Inhaltsverzeichnis
+     ==========================================
+     0. KORREKTUREN FÜR V2
+     1. DESIGN TOKENS & VARIABLEN
+     2. GLOBAL RESET & BASE TYPOGRAPHY
+     3. GRID & SPALTEN-SYSTEM (12 Spalten)
+     3.1. BILDER UND MEDIEN
+     4. NAVIGATION & FOOTER
+     5. LAYOUT & KOMPONENTEN
+     6. SONDER-KLASSEN & JIMDO OVERRIDES
+     7. BILDCONTAINER & MEDIEN
+     8. TRENNLINIEN & CONTAINER
+     9. LINKS & INTERAKTIONEN
+     10. BUTTONS & CALL-TO-ACTION
+     11. ALLGEMEINE KORREKTUREN
+     12. JIMDO ELEMENTE KORREKTUR
+     13. KORREKTUREN JIMDO SYSTEMSEITEN
+     14. SONSTIGES & UTILITIES
+     ========================================== */
+  /* ==========================================================================
+   0 KORREKTUREN FÜR V2
+   ========================================================================== */
+  .v2 .content-options h2:not(.j-blog-headline):not(.j-blog-comment-counter) {
+    padding-top: 0 !important;
+  }
+  /* ==========================================
+     1. DESIGN TOKENS & VARIABLEN
+     ========================================== */
+  :root {
+    /* Desktop Schriftgrößen */
+    --font-h1: 4.2rem;
+    --font-h2: 3.2rem;
+    --font-h3: 2.4rem;
+    --font-h4: 1.8rem;
+    --font-body: 1.8rem;
+
+    /* Schriftschnitte (gelten überall) */
+    --weight-h1: 300;
+    --weight-h2: 400;
+    --weight-h3: 500;
+    --weight-h4: 610;
+
+    /* Zeilenabstände */
+    --line-height-h1: 1.2;
+    --line-height-h2: 1.3;
+    --line-height-h3: 1.2;
+    --line-height-h4: 1.2;
+    --line-height-body: 1.6;
+
+    /* Abstände & Layout */
+    --space-element: 2.5rem;
+    --space-section: 12rem;
+    --margin-inline: 7vw; /* Seitenabstand Desktop */
+  }
+
+  /* Tablet (bis 1023px) */
+  @media (max-width: 1023px) {
+    :root {
+      --font-h1: 3.4rem;
+      --font-h2: 2.6rem;
+      --font-h3: 2rem;
+      --font-h4: 1.6rem;
+      --font-body: 1.6rem;
+
+      --space-section: 8rem;
+      --margin-inline: 4vw; /* Seitenabstand Tablet */
+    }
+  }
+
+  /* Smartphone (bis 719px) */
+  @media (max-width: 719px) {
+    :root {
+      --font-h1: 2.6rem;
+      --font-h2: 2.1rem;
+      --font-h3: 1.7rem;
+      --font-h4: 1.5rem;
+      --font-body: 1.5rem;
+
+      --space-section: 6rem;
+      --margin-inline: 15px; /* Seitenabstand Smartphone */
+    }
+  }
+
+  /* ------------------------------------------
+    ANWENDUNG MIT VOLLEN JIMDO-SELEKTOREN
+   ------------------------------------------ */
+
+  /* --- H1 --- */
+  h1,
+  .page-header h1,
+  .page-title h1 {
+    font-size: var(--font-h1) !important;
+    text-align: center !important;
+    font-weight: var(--weight-h1) !important;
+    line-height: var(--line-height-h1) !important;
+    margin-bottom: var(--space-element) !important;
+  }
+
+  /* --- H2 (Shop-Erweiterung) --- */
+  h2,
+  .j-module.n.j-text h2,
+  .cc-shop-product-desc h2,
+  .cc-shop-product-desc h2 *,
+  .cc-shop-product-desc h4.fn {
+    font-size: var(--font-h2) !important;
+    font-weight: var(--weight-h2) !important;
+    line-height: var(--line-height-h2) !important;
+    letter-spacing: 0.02rem !important;
+    margin-bottom: calc(var(--space-element) * 0.7) !important;
+  }
+
+  /* --- H3 (Shop-Erweiterung) --- */
+  h3,
+  .j-module.n.j-text h3,
+  .cc-shop-product-desc h3,
+  .cc-shop-product-desc h3 *,
+  .cc-shop-detail-description h3 {
+    font-size: var(--font-h3) !important;
+    font-weight: var(--weight-h3) !important;
+    line-height: var(--line-height-h3) !important;
+    letter-spacing: 0.04rem !important;
+    margin-bottom: calc(var(--space-element) * 0.5) !important;
+  }
+
+  /* --- H4 (Gezielt gegen Jimdos Mobile-Shop-Override) --- */
+  h4,
+  .j-module.n.j-text h4,
+  .cc-shop-product-desc h4,
+  .j-module .cc-shop-product-desc h4,
+  .j-module .cc-shop-product-desc h4 *,
+  .j-static-page .cc-shop-product-desc h4,
+  .j-static-page .cc-shop-product-desc h4 * {
+    font-size: var(--font-h4) !important;
+    font-weight: var(--weight-h4) !important;
+    line-height: var(--line-height-h4) !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: calc(var(--space-element) * 0.3) !important;
+  }
+
+  /* --- Fließtext --- */
+  p,
+  ul li,
+  .j-module.n.j-text,
+  .content-options {
+    font-size: var(--font-body) !important;
+    line-height: var(--line-height-body) !important;
+  }
+
+  /* ------------------------------------------
+   LAYOUT & CONTAINER WRAPPER FIX
+   ------------------------------------------ */
+
+  .wrapper,
+  .container,
+  .main,
+  .outer-wrapper,
+  #content_area,
+  .jtpl-section-main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  html,
+  body,
+  .jtpl-content,
+  .jtpl-content__inner,
+  #content_area,
+  .fw-column,
+  .jtpl-main {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-weight: 400 !important;
+  }
+
+  .cc-imagewrapper,
+  .cc-m-image-align-1 {
+    margin-top: 80px !important;
+  }
+
+  .jtpl-section-main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  header.jtpl-header {
+    margin-bottom: 0;
+    margin-top: 0 !important;
+  }
+
+  /* FIX: Seitenrand dynamisch über --margin-inline wiederherstellen */
+  .jtpl-section-main__inner {
+    padding-left: var(--margin-inline) !important;
+    padding-right: var(--margin-inline) !important;
+    box-sizing: border-box !important;
+  }
+
+  div.flexmodul,
+  div.n {
+    padding: 0 !important;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure figcaption {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #434343;
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  p.p2 {
+    margin-top: 2em;
+  }
+
+  p.p3 {
+    margin-top: 3em;
+  }
+
+  .lead-text {
+    font-size: 20px;
+    font-weight: 470;
+    line-height: 1.4;
+    margin-top: 18px;
+  }
+
+  .j-module b,
+  .j-module strong,
+  .j-static-page b,
+  .j-static-page strong {
+    font-weight: 600 !important;
+  }
+
+  /* ==========================================
+     3. GRID & SPALTEN-SYSTEM (12 Spalten)
+     ========================================== */
+
+  #content_area {
+    max-width: 1920px !important;
+    width: 100%;
+    margin: 0 auto !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .col-12 {
+    width: 100%;
+    margin-inline: auto;
+  }
+  .col-11 {
+    width: 91.666%;
+    margin-inline: auto;
+  }
+  .col-10 {
+    width: 83.333%;
+    margin-inline: auto;
+  }
+  .col-09,
+  .col-9 {
+    width: 75%;
+    margin-inline: auto;
+  }
+  .col-08,
+  .col-8 {
+    width: 66.666%;
+    margin-inline: auto;
+  }
+  .col-07,
+  .col-7 {
+    width: 58.333%;
+    margin-inline: auto;
+  }
+  .col-06,
+  .col-6 {
+    width: 50%;
+    margin-inline: auto;
+  }
+  .col-05,
+  .col-5 {
+    width: 41.666%;
+    margin-inline: auto;
+  }
+  .col-04,
+  .col-4 {
+    width: 33.333%;
+    margin-inline: auto;
+  }
+  .col-03,
+  .col-3 {
+    width: 25%;
+    margin-inline: auto;
+  }
+  .col-02,
+  .col-2 {
+    width: 16.666%;
+    margin-inline: auto;
+  }
+  .col-01,
+  .col-1 {
+    width: 8.333%;
+    margin-inline: auto;
+  }
+
+  .grid-12 > .col-12 {
+    grid-column: span 12;
+    width: 100%;
+  }
+  .grid-12 > .col-11 {
+    grid-column: span 11;
+    width: 100%;
+  }
+  .grid-12 > .col-10 {
+    grid-column: span 10;
+    width: 100%;
+  }
+  .grid-12 > .col-09,
+  .grid-12 > .col-9 {
+    grid-column: span 9;
+    width: 100%;
+  }
+  .grid-12 > .col-08,
+  .grid-12 > .col-8 {
+    grid-column: span 8;
+    width: 100%;
+  }
+  .grid-12 > .col-07,
+  .grid-12 > .col-7 {
+    grid-column: span 7;
+    width: 100%;
+  }
+  .grid-12 > .col-06,
+  .grid-12 > .col-6 {
+    grid-column: span 6;
+    width: 100%;
+  }
+  .grid-12 > .col-05,
+  .grid-12 > .col-5 {
+    grid-column: span 5;
+    width: 100%;
+  }
+  .grid-12 > .col-04,
+  .grid-12 > .col-4 {
+    grid-column: span 4;
+    width: 100%;
+  }
+  .grid-12 > .col-03,
+  .grid-12 > .col-3 {
+    grid-column: span 3;
+    width: 100%;
+  }
+  .grid-12 > .col-02,
+  .grid-12 > .col-2 {
+    grid-column: span 2;
+    width: 100%;
+  }
+  .grid-12 > .col-01,
+  .grid-12 > .col-1 {
+    grid-column: span 1;
+    width: 100%;
+  }
+
+  @media (max-width: 1440px) {
+    .col-08,
+    .col-8 {
+      width: 75%;
+    }
+    .col-06,
+    .col-6 {
+      width: 65%;
+    }
+    .grid-12 > .col-04,
+    .grid-12 > .col-4 {
+      grid-column: span 6;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .col-08,
+    .col-8 {
+      width: 85%;
+    }
+    .col-06,
+    .col-6 {
+      width: 75%;
+    }
+  }
+
+  @media (max-width: 719px) {
+    #content_area {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    [class*="col-"],
+    .grid-12 > [class*="col-"] {
+      width: 100% !important;
+      grid-column: span 12 !important;
+    }
+
+    .text-block {
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Standard-Browserabstand zurücksetzen, figure hier nur für SEO und Barrierefreiheit */
+  .split-section figure {
+    margin: 0;
+  }
+  /* ==========================================================================
+   3.1 BILDER & MEDIEN (Vertikales Grid)
+   ========================================================================== */
+
+  figure {
+    margin-top: 0 !important;
+    margin-bottom: var(--space-element) !important;
+  }
+
+  figure figcaption {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+    color: #434343 !important;
+    margin-top: calc(var(--space-element) * 0.3) !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Tablet (bis 1023px) */
+  @media (max-width: 1023px) {
+    figure figcaption {
+      font-size: 1.4rem !important;
+    }
+  }
+
+  /* Smartphone (bis 719px) */
+  @media (max-width: 719px) {
+    figure figcaption {
+      font-size: 1.3rem !important;
+    }
+  }
+  /* ==========================================
+     4. NAVIGATION & FOOTER
+     ========================================== */
+
+  #global-header {
+    min-height: 180px;
+  }
+
+  .maiporter-logo {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    height: 84px !important;
+    padding-bottom: 60px;
+  }
+
+  .main-navigation {
+    display: flex;
+    bottom: 3.7px;
+    justify-content: space-around;
+    align-items: baseline;
+    position: relative;
+    z-index: 2;
+  }
+
+  .main-navigation a {
+    text-decoration: none !important;
+    letter-spacing: 0.07em;
+    font-family: "Nunito", sans-serif;
+    text-transform: uppercase;
+    padding: 0 20px;
+    line-height: 0.35;
+    transition:
+      transform 0.3s ease,
+      font-size 0.3s ease;
+    display: inline-block;
+    transform-origin: bottom;
+    font-size: 18px;
+  }
+
+  .main-navigation a:hover:not(.active) {
+    transform: scale(1.1);
+  }
+
+  .main-navigation a.active {
+    font-size: 21.5px;
+  }
+
+  .site-footer {
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .maiporter-logo {
+      height: 110px !important;
+      padding-bottom: 70px;
+    }
+
+    .main-navigation a {
+      font-size: 22px;
+    }
+
+    .main-navigation a.active {
+      font-size: 26px !important;
+    }
+  }
+
+  /* ==========================================
+     5. LAYOUT & KOMPONENTEN
+     ========================================== */
+
+  .j-module.n.j-text,
+  footer.jtpl-footer.footer-options,
+  .cc-shop-product-desc,
+  .unitainer {
+    margin-inline: var(--margin-inline);
+  }
+
+  .j-module.n.j-text,
+  .akkordeon-text,
+  .unitainer,
+  .img-tainer {
+    margin-bottom: var(--space-section);
+  }
+
+  ul {
+    padding-inline: 3.3rem;
+  }
+
+  .j-module.n.j-text ul,
+  .description ul {
+    list-style-type: none;
+  }
+
+  .j-module.n.j-text ul li,
+  .description ul li {
+    list-style-position: outside;
+    text-indent: -1.1em;
+    margin-left: 1.1em;
+  }
+
+  .j-module.n.j-text ul li::before,
+  .description ul li::before {
+    content: "– ";
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  ul.nostyle {
+    list-style: none !important;
+    margin-block: 1em;
+    padding-left: 2.6em;
+  }
+
+  ul.nostyle li {
+    text-indent: 0;
+    margin: 0;
+  }
+
+  ul.nostyle li::before {
+    content: none !important;
+  }
+
+  /* ==========================================
+     6. SONDER-KLASSEN & JIMDO OVERRIDES
+     ========================================== */
+
+  .sprueche-gruen {
+    text-align: center;
+    font-style: italic;
+    font-weight: 380;
+    font-family: "Open Sans", sans-serif;
+    font-size: calc(var(--font-h2) * 0.9);
+    color: #62a047;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+    box-sizing: border-box;
+    margin-block: var(--space-section);
+    margin-inline: var(--margin-inline);
+  }
+
+  .akkordeon-text dt,
+  .akkordeon-text-easteregg dt {
+    margin-inline: calc(var(--margin-inline) * 1.2) !important;
+  }
+
+  .akkordeon-text dd,
+  .akkordeon-text-easteregg dd {
+    margin-left: calc(var(--margin-inline) * 1.3) !important;
+    padding-inline: 6px;
+    margin-bottom: 5rem;
+  }
+
+  .akkordeon-text p {
+    margin-left: 2rem;
+  }
+
+  .product-lead-h1 {
+    text-align: center !important;
+    font-size: var(--font-body) !important;
+    margin-block: calc(var(--space-element) * 1.8);
+    padding-inline: 7px;
+    font-size: 42px !important;
+    line-height: 1.3;
+    font-weight: bold;
+  }
+
+  .product-intro {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: var(--font-body);
+  }
+  /* ==========================================
+     Credo-Container Schriften
+    ========================================== */
+  /* Family & Zeilenhöhe */
+  #cc-m-9507311775 .page-title-credo h2,
+  #cc-m-9582535275 .page-title-credo h2 {
+    font-family: "Kalam", sans-serif !important;
+    line-height: 0.2 !important;
+  }
+  #cc-m-9507308875 .page-title-credo h2 {
+    font-family: "Oranienbaum", serif !important;
+    line-height: 0.2 !important;
+  }
+  /* ------------------------------------------
+    Schriftgrößen
+     ------------------------------------------ */
+  /* MIKARUS */
+  #cc-m-9507308875 .page-title-credo h1 {
+    font-size: 39px !important;
+  }
+
+  #cc-m-9507308875 .page-title-credo h2 {
+    font-size: 32px !important;
+  }
+
+  @media (max-width: 1023px) {
+    #cc-m-9507308875 .page-title-credo h1 {
+      font-size: 37px !important;
+    }
+
+    #cc-m-9507308875 .page-title-credo h2 {
+      font-size: 30px !important;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #cc-m-9507308875 .page-title-credo h1 {
+      font-size: 30px !important;
+    }
+
+    #cc-m-9507308875 .page-title-credo h2 {
+      font-size: 27px !important;
+    }
+  }
+  /* STARTSEITE & BOXEN OVERVIEW */
+  #cc-m-9507311775 .page-title-credo h1,
+  #cc-m-9582535275 .page-title-credo h1 {
+    font-size: 44px !important;
+  }
+
+  #cc-m-9507311775 .page-title-credo h2,
+  #cc-m-982535275 .page-title-credo h2 {
+    font-size: 31px !important;
+  }
+
+  @media (max-width: 1023px) {
+    #cc-m-9507311775 .page-title-credo h1,
+    #cc-m-9582535275 .page-title-credo h1 {
+      font-size: 42px !important;
+    }
+
+    #cc-m-9507311775 .page-title-credo h2,
+    #cc-m-9582535275 .page-title-credo h2 {
+      font-size: 26px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #cc-m-9507311775 .page-title-credo h1,
+    #cc-m-9582535275 .page-title-credo h1 {
+      font-size: 40px !important;
+    }
+
+    #cc-m-9507311775 .page-title-credo h2,
+    #cc-m-9582535275 .page-title-credo h2 {
+      font-size: 24px !important;
+    }
+  }
+
+  footer.jtpl-footer.footer-options {
+    font-size: calc(var(--font-body) * 0.95);
+    line-height: 1.5;
+  }
+
+  .footer-logo-space {
+    height: 60px;
+  }
+
+  li.cc-shop-product-pool.j-product-pool.j-product-pool-status-1.cc-shop-product-pool-variant-1,
+  li.cc-product-delivery-time-info.j-product-delivery-time.cc-delivery-time-variant-1.j-product-delivery-time-status-1,
+  div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-info {
+    font-size: calc(var(--font-body) * 0.95);
+    line-height: 1;
+  }
+
+  /* ==========================================
+     7. BILDCONTAINER & MEDIEN
+     ========================================== */
+
+  .media-frame {
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    margin-block: 50px;
+    max-width: 100%;
+  }
+
+  .media-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 85vh;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  }
+
+  .img-square {
+    max-width: 600px !important;
+    max-height: 70vh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+  }
+
+  .media-frame-20 {
+    width: 20%;
+  }
+  .media-frame-30 {
+    width: 30%;
+  }
+  .media-frame-40 {
+    width: 40%;
+  }
+  .media-frame-50 {
+    width: 50%;
+  }
+  .media-frame-60 {
+    width: 60%;
+  }
+  .media-frame-70 {
+    width: 70%;
+  }
+  .media-frame-80 {
+    width: 80%;
+  }
+  .media-frame-90 {
+    width: 90%;
+  }
+  .media-frame-100 {
+    width: 100%;
+  }
+
+  @media (max-width: 1440px) {
+    .media-frame-40 {
+      width: 50%;
+    }
+    .media-frame-50 {
+      width: 65%;
+    }
+    .media-frame-60 {
+      width: 75%;
+    }
+    .media-frame-70 {
+      width: 85%;
+    }
+    .media-frame-80 {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 719px) {
+    .media-frame-20,
+    .media-frame-30,
+    .media-frame-40,
+    .media-frame-50,
+    .media-frame-60,
+    .media-frame-70,
+    .media-frame-80,
+    .media-frame-90 {
+      width: 100% !important;
+    }
+  }
+
+  .wiper-frame {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    aspect-ratio: 16 / 10 !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    --pos: 38px;
+    touch-action: pan-y !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  .wiper-frame picture,
+  .wiper-frame img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+
+  .wiper-frame img {
+    object-fit: cover !important;
+    pointer-events: none !important;
+  }
+
+  .wiper-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    clip-path: inset(0 calc(100% - var(--pos)) 0 0) !important;
+    pointer-events: none !important;
+  }
+
+  .wiper-line {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: var(--pos) !important;
+    width: 4px !important;
+    background-color: #888888 !important;
+    opacity: 0.7 !important;
+    z-index: 3 !important;
+    transform: translateX(-50%) !important;
+    pointer-events: none !important;
+  }
+
+  .wiper-button {
+    position: absolute !important;
+    top: 50% !important;
+    left: var(--pos) !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-image: url("https://img-mp.maiporter.de/wiper-handle.png") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    z-index: 4 !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: none !important;
+  }
+
+  .wiper-touch-zone {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: var(--pos) !important;
+    width: 200px !important;
+    transform: translateX(-50%) !important;
+    z-index: 5 !important;
+    cursor: ew-resize !important;
+    touch-action: none !important;
+  }
+
+  @media (max-width: 600px) {
+    .wiper-button {
+      width: 55px !important;
+      height: 55px !important;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .wiper-frame {
+      aspect-ratio: 11 / 10 !important;
+      --pos: 28px;
+    }
+    .wiper-button {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  }
+
+  @media (max-width: 413px) {
+    .wiper-frame {
+      --pos: 26px;
+    }
+    .wiper-button {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+
+  .slider-frame {
+    width: 100%;
+    margin: 40px auto;
+    max-width: 900px;
+    position: relative;
+  }
+
+  .slider {
+    background: #ffffff;
+    position: relative;
+    cursor: pointer;
+    touch-action: pan-y;
+    overflow: hidden;
+  }
+
+  .slides {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slide-track {
+    display: flex !important;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .slide {
+    min-width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+
+  .slide img,
+  .slide picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .slider-arrow {
+    opacity: 0.3;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
+
+  .slider-arrow.is-active {
+    opacity: 0.1 !important;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  @media (hover: hover) {
+    .slider-arrow:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .arrow-prev {
+    left: 15px;
+  }
+  .arrow-next {
+    right: 15px;
+  }
+
+  .slider-arrow svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  .thumbs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .thumbs picture {
+    width: var(--thumb-width, 100px);
+    max-width: var(--thumb-max-width, 22%);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .thumbs img {
+    width: 100%;
+    display: block;
+    aspect-ratio: var(--thumb-ratio, 4 / 3);
+    object-fit: cover;
+  }
+
+  .thumbs picture.active {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  .is-morpher .slide-track {
+    display: grid !important;
+    grid-template-areas: "stack" !important;
+    min-height: 1px;
+  }
+
+  .is-morpher .slide {
+    grid-area: stack;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1s linear !important;
+  }
+
+  .is-morpher .slide.active {
+    opacity: 1 !important;
+    z-index: 10 !important;
+  }
+
+  .is-morpher .slide.last-active {
+    opacity: 1 !important;
+    z-index: 5 !important;
+  }
+
+  .is-standard .slide-track {
+    display: flex !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .is-standard .slide {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  @media (max-width: 719px) {
+    .slider-frame {
+      max-width: 500px;
+    }
+
+    .thumbs picture {
+      width: var(--thumb-width-mobile, 70px);
+      max-width: var(--thumb-max-width, 22%);
+    }
+
+    .thumbs img {
+      aspect-ratio: var(--thumb-ratio-mobile, var(--thumb-ratio, 130 / 149));
+    }
+
+    .slider-arrow {
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+    }
+  }
+
+  /* Base Flexbox Grid */
+  .unitainer,
+  .split-section {
+    display: flex;
+    gap: 30px !important;
+  }
+
+  /* Alignments (genau passend zu deinen HTML-Klassen) */
+  .unitainer.text-left,
+  .unitainer-text-left,
+  .split-section.text-left,
+  .split-section-text-left {
+    flex-direction: row;
+  }
+
+  .unitainer.text-right,
+  .unitainer-text-right,
+  .split-section.text-right,
+  .split-section-text-right {
+    flex-direction: row; /* Behält Standard-Reihenfolge bei */
+  }
+
+  /* Columns */
+  .image-column,
+  figure.image-column {
+    margin: 0 auto;
+    padding: 0;
+    flex-shrink: 0; /* Verhindert Stauchen */
+  }
+
+  .text-column {
+    flex-grow: 1; /* Löst das max-width Abstandsproblem */
+  }
+
+  .image-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: translateZ(0);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 720px) {
+    .split-section .text-column p:first-child {
+      margin-top: -7px;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 719px) {
+    .unitainer,
+    .split-section {
+      flex-direction: column;
+      gap: 0 !important;
+    }
+
+    .unitainer .image-column,
+    .split-section .image-column {
+      order: 1;
+      margin-bottom: 0 !important;
+    }
+
+    .unitainer .text-column,
+    .split-section .text-column {
+      order: 2;
+    }
+
+    .j-module.n.j-htmlCode .unitainer,
+    .j-module.n.j-htmlCode .split-section {
+      margin-bottom: 23px !important;
+    }
+  }
+  .img-tainer {
+    display: flex;
+    overflow: hidden;
+    margin-inline: auto;
+  }
+
+  .j-module.j-htmlCode .img-tainer {
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .img-tainer img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #img-tainer-sp {
+    max-width: 250px;
+    margin-inline: auto;
+    margin-top: 18px;
+    margin-bottom: 12px;
+  }
+
+  #img-tainer-sp img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .img-tainer-20,
+  .img-tainer-30,
+  .img-tainer-40 {
+    max-width: 40vw;
+  }
+  .img-tainer-50 {
+    max-width: 50vw;
+  }
+  .img-tainer-60 {
+    max-width: 60vw;
+  }
+  .img-tainer-70 {
+    max-width: 70vw;
+  }
+  .img-tainer-80 {
+    max-width: 80vw;
+  }
+  .img-tainer-90 {
+    max-width: 90vw;
+  }
+  .img-tainer-100 {
+    max-width: 100vw;
+  }
+
+  .textfield-70 {
+    display: block;
+    margin-inline: auto;
+    max-width: 70vw;
+    padding: 12px 16px;
+    box-sizing: border-box;
+  }
+
+  .textfield-80 {
+    display: block;
+    margin-inline: auto;
+    max-width: 80vw;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1440px) {
+    .img-tainer-40 {
+      max-width: 45vw;
+    }
+    .img-tainer-50 {
+      max-width: 55vw;
+    }
+    .img-tainer-60 {
+      max-width: 65vw;
+    }
+    .img-tainer-70 {
+      max-width: 77vw;
+    }
+    .img-tainer-80 {
+      max-width: 82vw;
+    }
+    .img-tainer-90 {
+      max-width: 95vw;
+    }
+    .textfield-70 {
+      max-width: 77vw;
+    }
+    .textfield-80 {
+      max-width: 82vw;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    #img-tainer-sp {
+      max-width: 200px;
+    }
+    .img-tainer-40 {
+      max-width: 50vw;
+    }
+    .img-tainer-50 {
+      max-width: 60vw;
+    }
+    .img-tainer-60 {
+      max-width: 70vw;
+    }
+    .img-tainer-70 {
+      max-width: 85vw;
+    }
+    .img-tainer-80 {
+      max-width: 90vw;
+    }
+    .img-tainer-90 {
+      max-width: 100vw;
+    }
+    .textfield-70 {
+      max-width: 85vw;
+    }
+    .textfield-80 {
+      max-width: 90vw;
+    }
+  }
+
+  @media (max-width: 719px) {
+    .img-tainer img {
+      width: 100%;
+    }
+    .img-tainer-40,
+    .img-tainer-50,
+    .img-tainer-60,
+    .img-tainer-70,
+    .img-tainer-80,
+    .img-tainer-90 {
+      max-width: 100vw;
+    }
+    .textfield-70,
+    .textfield-80 {
+      max-width: 100vw;
+    }
+  }
+
+  /* ==========================================
+     8. TRENNLINIEN & CONTAINER
+     ========================================== */
+
+  .mai-line.line-1 line {
+    stroke: black;
+    stroke-width: 1;
+  }
+  .mai-line.line-2 line {
+    stroke: black;
+    stroke-width: 2;
+  }
+  .mai-line.line-3 line {
+    stroke: black;
+    stroke-width: 3;
+  }
+  .mai-line.line-4 line {
+    stroke: black;
+    stroke-width: 4;
+  }
+
+  .page-title-credo,
+  .site-header,
+  .site-footer,
+  .product-divider-container,
+  .page-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    padding-inline: 2px;
+  }
+
+  .page-title-credo h1,
+  .page-title-credo h2 {
+    position: absolute;
+    box-sizing: border-box;
+    text-align: center !important;
+    font-variant: small-caps;
+    white-space: normal !important;
+    width: 100%;
+  }
+  .page-title {
+    font-variant: small-caps;
+  }
+  .page-title-credo h1 {
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .page-title-credo h2 {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .site-header .mai-line,
+  .site-footer .mai-line,
+  .page-title-credo .mai-line,
+  .product-divider-container .mai-line,
+  .page-title .mai-line {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .product-divider-container .mai-line.line-3,
+  .page-title .mai-line.line-3 {
+    position: absolute;
+    top: 0;
+  }
+
+  .site-header,
+  .page-title-credo {
+    height: 180px;
+  }
+
+  .site-footer {
+    height: 50px;
+  }
+
+  .product-divider-container,
+  .page-title {
+    min-height: 60px;
+  }
+
+  .site-footer .main-navigation {
+    position: relative;
+    bottom: -16.3px;
+  }
+
+  /* ==========================================
+     9. LINKS & INTERAKTIONEN
+     ========================================== */
+
+  .akkordeon-text dt a,
+  .akkordeon-text-easteregg dt a {
+    display: inline-block;
+    cursor: pointer !important;
+  }
+
+  .akkordeon-schalter-klein {
+    font-size: 21px;
+  }
+
+  /* ==========================================
+     10. BUTTONS & CALL-TO-ACTION
+     ========================================== */
+
+  button,
+  .j-shop-addtocard-response--backward.is-close,
+  .j-shop-addtocard-response--forwart.ist-checkout {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #6ea372;
+    border: none;
+    margin-top: 12px;
+    border-radius: 0;
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    height: auto;
+    opacity: 1;
+  }
+
+  button:hover,
+  .j-shop-addtocard-response--backward.is-close,
+  .j-shop-addtocard-response--forwart.ist-checkout:hover {
+    background-color: #76b47e;
+  }
+
+  /* ==========================================
+     11. ALLGEMEINE KORREKTUREN
+     ========================================== */
+
+  .jtpl-sidebar {
+    display: none !important;
+  }
+
+  blockquote:has(ul),
+  blockquote:has(ol) {
+    margin-inline: 0 !important;
+  }
+
+  .j-module h1,
+  .j-module h2,
+  .j-module h3,
+  .j-module h4,
+  #cc-checkout-address-head-same {
+    font-family: "open sans", sans-serif !important;
+  }
+
+  div[class*="j-"] h1,
+  div[class*="j-"] h2,
+  div[class*="j-"] h3,
+  div[class*="j-"] h4,
+  div[class*="j-"] h5,
+  div[class*="j-"] h6 {
+    color: #000000 !important;
+  }
+
+  .jtpl-main {
+    overflow-x: visible;
+  }
+
+  #cc-m-gallery-9510761875 {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .j-module.n.j-text ul:last-child {
+    margin-top: 0 !important;
+  }
+
+  .j-module.n.j-text:last-child ul:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .overview-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1344px;
+    margin: 120px auto 20px auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+  }
+
+  .overview-item {
+    flex: 1 1 calc(33.333% - (2 * 32px) / 3);
+    max-width: 424px;
+    min-width: 250px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .overview-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 11px;
+  }
+
+  .textlinks-bilder,
+  .overview-container__textlink {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: baseline;
+    box-sizing: border-box !important;
+    width: 100%;
+    padding: 0 4px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    color: inherit;
+    font-size: 17px;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .overview-container .textlinks-bilder,
+  .overview-container .overview-container__textlink {
+    text-decoration: none;
+  }
+
+  .overview-container.product-description .textlinks-bilder,
+  .overview-container--product-description .overview-container__textlink {
+    text-decoration: underline;
+  }
+
+  .overview-container.product-description,
+  .overview-container--product-description {
+    margin-top: 50px;
+  }
+
+  .desktop-note {
+    max-width: 1344px;
+    margin: 0 auto 80px auto;
+    padding: 0 32px;
+    text-align: left;
+    font-size: 14px;
+    color: #666;
+  }
+
+  @media (max-width: 1100px) {
+    .overview-item {
+      flex: 1 1 calc(50% - 16px);
+      max-width: 424px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .overview-container {
+      padding: 0 16px;
+    }
+    .overview-item {
+      flex: 1 1 100%;
+      max-width: 500px;
+    }
+  }
+
+  @media (max-width: 414px) {
+    .overview-item {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+
+  /* ==========================================
+     12. JIMDO ELEMENTE KORREKTUR
+     ========================================== */
+
+  .slide img,
+  .slide picture {
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  .jtpl-footer {
+    padding: 60px !important;
+  }
+
+  @media (min-width: 930px) {
+    .cc-FloatingButtonBarContainer {
+      bottom: 20px !important;
+      left: 20px !important;
+    }
+  }
+
+  .content-options .j-rss h3 a:link,
+  .content-options .j-rss h3 a:visited {
+    font-weight: normal !important;
+  }
+
+  #contentfooter a[data-meta-link="withdrawal_button"] {
+    border: 1px solid currentColor !important;
+    border-radius: 2px !important;
+    padding: 8px 10px !important;
+    font-weight: 500 !important;
+    margin-top: 15px !important;
+  }
+
+  .cc-FloatingButtonBarContainer li a {
+    background: #7f7f7f !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .cc-product-delivery-time-info::before,
+  .cc-shop-product-pool-variant-1,
+  .j-product__info__free-shipping-countries,
+  .bx-caption,
+  .bx-controls-auto,
+  #cc-website-logo {
+    display: none !important;
+  }
+
+  .j-product-weight::before {
+    content: "\1F3CB\FE0F";
+    display: inline-block;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    vertical-align: -1px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .cc-shop-product-desc {
+    margin-bottom: 30px;
+  }
+
+  body[data-url^="https://www.maiporter.de/j/"] {
+    padding-inline: 60px !important;
+  }
+
+  .j-cart.is-empty {
+    display: none !important;
+  }
+
+  .jtpl-navigation__label {
+    top: 0 !important;
+    position: absolute !important;
+    z-index: 9999 !important;
+  }
+
+  .j-checkout__heading {
+    font-family: "open sans", sans-serif !important;
+  }
+
+  .jtpl-navigation__borders,
+  .jtpl-navigation__borders::after,
+  .jtpl-navigation__borders::before {
+    border-color: #9e9e9e;
+  }
+
+  @media (max-width: 767px) {
+    .j-calltoaction-wrapper.j-calltoaction-align-2 .j-calltoaction-link {
+      max-width: max-content !important;
+      min-width: 0 !important;
+      width: auto !important;
+      display: inline-block !important;
+      white-space: nowrap !important;
+    }
+
+    .j-calltoaction-wrapper.j-calltoaction-align-2 {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+    }
+
+    .cc-shop-addtocard.cc-no-clickable-arrow {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: auto !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+
+  /* ==========================================
+     13. KORREKTUREN JIMDO SYSTEMSEITEN
+     ========================================== */
+
+  .jimdo-systemseiten #cc-inner,
+  .jimdo-systemseiten #cc-checkout-wrapper,
+  .jimdo-systemseiten #cc-shop-shipping-free-text {
+    padding-top: 60px;
+  }
+
+  .content-options h1:not(.cc-within-single-module-element):not(.j-blog-headline) {
+    padding-top: 50px;
+  }
+
+  .content-options h2:not(.j-blog-headline):not(.j-blog-comment-counter) {
+    padding-top: 40px !important;
+  }
+
+  .j-checkout__button,
+  input#cc-checkout-submit-0 {
+    padding: 15px 20px !important;
+    background-color: #6ea372 !important;
+    border: none !important;
+    margin-top: 12px !important;
+    border-radius: 0 !important;
+    font-size: 16px !important;
+    font-family: "open sans", sans-serif !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    height: auto !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    box-shadow: none !important;
+    line-height: normal !important;
+  }
+
+  .j-checkout__button:hover,
+  input#cc-checkout-submit-0:hover {
+    background-color: #76b47e !important;
+  }
+
+  #cc-checkout-steps li::before,
+  #cc-checkout-steps li a::before {
+    display: none !important;
+  }
+
+  #cc-checkout-steps {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    margin-top: 35px !important;
+    padding: 0 !important;
+    list-style: none !important;
+    border-bottom: 0 !important;
+  }
+
+  #cc-checkout-steps li {
+    text-align: center !important;
+    font-family: "open sans", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #999 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    min-width: 120px !important;
+    padding: 0 !important;
+  }
+
+  #cc-checkout-steps li,
+  #cc-checkout-steps li span {
+    border-radius: 0 !important;
+  }
+
+  #cc-checkout-steps li span {
+    border: none !important;
+    display: block !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .j-checkout__payment-options {
+    border-top: 0 !important;
+  }
+
+  #cc-checkout-steps li.cc-checkout-steps-current span {
+    background-color: #6ea372 !important;
+    color: #ffffff !important;
+    padding: 8px 12px !important;
+    display: inline-block !important;
+    border-radius: 4px !important;
+  }
+
+  #cc-checkout-steps li:not(.cc-checkout-steps-current) span {
+    margin-top: 6px !important;
+  }
+
+  #cc-checkout-steps li.cc-checkout-steps-current * {
+    all: unset !important;
+    font-family: "open sans", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    background-color: #6ea372 !important;
+    padding: 8px 12px !important;
+    display: inline-block !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.4 !important;
+  }
+
+  #cc-checkout-steps li > a {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  @media (max-width: 800px) {
+    #cc-checkout-steps {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+
+    #cc-checkout-steps li:not(.cc-checkout-steps-current) span,
+    #cc-checkout-steps li:not(.cc-checkout-steps-current) a span {
+      text-align: left !important;
+      padding-left: 0 !important;
+    }
+
+    #cc-checkout-steps li a {
+      padding-left: 0 !important;
+      display: block !important;
+      text-align: left !important;
+    }
+  }
+
+  /* ==========================================
+     14. SONSTIGES & UTILITIES
+     ========================================== */
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("https://img-mp.maiporter.de/fonts/open-sans/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url("https://img-mp.maiporter.de/fonts/open-sans/OpenSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  .sans {
+    font-family: "open sans", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "EmojiOne Color", sans-serif !important;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    font-family: "open sans", sans-serif, "google";
+  }
+
+  .tooltipwort {
+    border-bottom: 1px dashed #333;
+    cursor: help;
+  }
+
+  .tooltipbox {
+    position: absolute;
+    background: #fefefe;
+    border: 1px solid #eee;
+    padding: 0.6em 0.8em;
+    border-radius: 0;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: "open sans", sans-serif;
+    color: #222;
+    height: calc(1.5rem * 1.6 * 5);
+    line-height: 1.6;
+    overflow: hidden;
+    white-space: normal;
+    width: 310px;
+    z-index: 1000;
+    box-sizing: border-box;
+    opacity: 0;
+    transform:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    visibility: hidden;
+  }
+
+  .tooltipbox.visible {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+  }
+
+  .share-widget {
+    font-size: 1.05em;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-inline: 15px;
+    line-height: 1.6;
+    display: inline-block;
+  }
+  /* Entfällt das graue/blaue Tipp-Highlight auf Mobilgeräten */
+  *,
+  *::before,
+  *::after {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Entfernt das Outline NUR bei Maus-Klicks, behält es aber für Tastatur-Tabber bei */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Eigener, schöner Fokus-Rahmen für Tastatur-Nutzer */
+  :focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+  /*]]>*/
+</style>
+
+<script type="text/javascript">
+  //<![CDATA[
+  // Wiper
+  (function () {
+    function initWipers() {
+      const wipers = document.querySelectorAll(".wiper-frame");
+      wipers.forEach(function (wiper) {
+        if (wiper.dataset.wiperReady) return;
+        wiper.dataset.wiperReady = "true";
+
+        const touchZone = wiper.querySelector(".wiper-touch-zone");
+        if (!touchZone) return;
+
+        let isDragging = false;
+
+        function setPosition(pageX) {
+          const rect = wiper.getBoundingClientRect();
+          const radius = window.innerWidth <= 540 ? 20 : 30;
+
+          let x = pageX - rect.left;
+
+          const minX = radius + 3;
+          const maxX = rect.width - radius + 3;
+
+          if (x < minX) x = minX;
+          if (x > maxX) x = maxX;
+
+          wiper.style.setProperty("--pos", x + "px");
+        }
+
+        touchZone.addEventListener("pointerdown", function (e) {
+          isDragging = true;
+          touchZone.setPointerCapture(e.pointerId);
+          setPosition(e.clientX);
+        });
+
+        touchZone.addEventListener("pointermove", function (e) {
+          if (!isDragging) return;
+          setPosition(e.clientX);
+        });
+
+        const stopDragging = function (e) {
+          if (isDragging) {
+            isDragging = false;
+            try {
+              touchZone.releasePointerCapture(e.pointerId);
+            } catch (err) {}
+          }
+        };
+
+        touchZone.addEventListener("pointerup", stopDragging);
+        touchZone.addEventListener("pointercancel", stopDragging);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initWipers);
+    } else {
+      initWipers();
+    }
+  })();
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+
+  // --- SLIDER MORPHER ---
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".slider-frame.is-morpher").forEach((frame) => {
+      const slides = frame.querySelectorAll(".slide");
+      const thumbs = frame.querySelectorAll(".thumbs picture");
+      const count = slides.length;
+      if (count === 0) return;
+
+      let idx = 0;
+      let lastIdx = -1;
+      let transitionTimeout = null;
+
+      const updateMorph = (instant) => {
+        // Laufenden Timer zum Entfernen alter Klassen stoppen
+        if (transitionTimeout) clearTimeout(transitionTimeout);
+
+        slides.forEach((s, i) => {
+          s.style.transition = instant ? "none" : "opacity 1s linear";
+
+          if (i === idx) {
+            s.classList.add("active");
+            s.classList.remove("last-active");
+          } else if (i === lastIdx) {
+            s.classList.add("last-active");
+            s.classList.remove("active");
+          } else {
+            s.classList.remove("active", "last-active");
+          }
+        });
+
+        thumbs.forEach((t, i) => t.classList.toggle("active", i === idx));
+
+        // Nach Abschluss der 1s-Transition 'last-active' aufräumen
+        if (!instant) {
+          transitionTimeout = setTimeout(() => {
+            slides.forEach((s, i) => {
+              if (i !== idx) {
+                s.classList.remove("last-active", "active");
+              }
+            });
+          }, 1000);
+        }
+      };
+
+      const nextSlide = () => {
+        lastIdx = idx;
+        idx = (idx + 1) % count;
+        updateMorph(false);
+      };
+
+      const prevSlide = () => {
+        lastIdx = idx;
+        idx = (idx - 1 + count) % count;
+        updateMorph(false);
+      };
+
+      const triggerArrowFeedback = (dir) => {
+        const arrow = frame.querySelector(`.arrow-${dir}`);
+        if (arrow) {
+          arrow.classList.add("is-active");
+          setTimeout(() => arrow.classList.remove("is-active"), 150);
+        }
+      };
+
+      // --- KLICK AUF PFEILE (Stoppt Event-Bubbling!) ---
+      frame.querySelectorAll(".slider-arrow").forEach((arrow) => {
+        arrow.onclick = (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          if (arrow.classList.contains("arrow-prev")) {
+            prevSlide();
+            triggerArrowFeedback("prev");
+          } else {
+            nextSlide();
+            triggerArrowFeedback("next");
+          }
+        };
+      });
+
+      // --- KLICK-LOGIK (BILDHÄLFTEN) ---
+      const sliderBtn = frame.querySelector(".slider");
+      if (sliderBtn) {
+        sliderBtn.onclick = (e) => {
+          if (e.target.closest(".thumbs")) return;
+          if (e.target.closest(".slider-arrow")) return;
+          if (document.activeElement) document.activeElement.blur();
+
+          const rect = sliderBtn.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          x < rect.width / 2 ? prevSlide() : nextSlide();
+        };
+
+        // --- SWIPE ---
+        let touchStartX = 0,
+          touchStartY = 0;
+        sliderBtn.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          },
+          { passive: true },
+        );
+
+        sliderBtn.addEventListener(
+          "touchend",
+          (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            const absX = Math.abs(diffX);
+            const absY = Math.abs(diffY);
+
+            if (absX > absY * 0.8 && absX > 30) {
+              diffX > 0 ? prevSlide() : nextSlide();
+            }
+          },
+          { passive: true },
+        );
+      }
+
+      // --- THUMBS NAVIGATION ---
+      thumbs.forEach((t, i) => {
+        t.onclick = (e) => {
+          e.stopPropagation();
+          if (i === idx) return;
+          lastIdx = idx;
+          idx = i;
+          updateMorph(false);
+        };
+      });
+
+      // Initialisierung
+      updateMorph(true);
+    });
+  });
+
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  document.addEventListener("DOMContentLoaded", function () {
+    function updatePhoneLabel() {
+      const label = document.querySelector("#billing_telephone label.j-checkout__input-label");
+
+      if (!label) return false;
+
+      const addition = " (gerne angeben)";
+
+      if (!label.textContent.includes(addition)) {
+        label.textContent += addition;
+      }
+
+      return true;
+    }
+    if (updatePhoneLabel()) return;
+    const observer = new MutationObserver(() => {
+      if (updatePhoneLabel()) observer.disconnect();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+  //]]>
+</script>
+
+<script type="text/javascript">
+  /* <![CDATA[ */ // HEADER + NAVIGATION LOADER
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/navigation/header")
+      .then((res) => res.text())
+      .then((data) => {
+        const doc = new DOMParser().parseFromString(data, "text/html");
+        const header = doc.querySelector(".site-header");
+        const container = document.getElementById("global-header");
+
+        if (header && container) {
+          // 1. Header in den Container einsetzen
+          container.innerHTML = header.outerHTML;
+
+          // 2. Feste Mindesthöhe aufheben, da der Inhalt jetzt da ist
+          container.style.minHeight = "auto";
+
+          // 3. Aktiven Menüpunkt markieren
+          const current = window.location.pathname;
+          container.querySelectorAll(".main-navigation a").forEach((link) => {
+            const href = new URL(link.href, window.location.origin).pathname;
+            if (current === href || (href !== "/" && current.startsWith(href + "/"))) {
+              link.classList.add("active");
+            }
+          });
+        }
+      })
+      .catch((err) => console.error("Header konnte nicht geladen werden:", err));
+  });
+  /*]]>*/
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[ // FOOTER NAVIGATION
+  (function () {
+    // 1. Whitelist der Zielseiten
+    const TARGET_PAGES = [
+      "/j/checkout",
+      // Weitere System-Pfade hier eintragen
+    ];
+
+    // 2. Prüfung ob aktuelle Seite eine Zielseite ist
+    const shouldAddFooter = TARGET_PAGES.some((path) => window.location.pathname.startsWith(path));
+
+    if (!shouldAddFooter) return;
+
+    // 3. Footer nach Seitenladung hinzufügen
+    document.addEventListener("DOMContentLoaded", () => {
+      // Footer-HTML erstellen (nutzt vorhandene CSS-Klassen)
+      const footer = document.createElement("footer");
+      footer.className = "site-footer"; // Verwende dieselbe Klasse wie auf normalen Seiten
+      footer.innerHTML = `
+      <div class="main-navigation">
+        <a href="https://www.maiporter.de/shop">Shop<\/a>
+        <a href="https://www.maiporter.de/magazin">Magazin<\/a>
+        <a href="https://www.maiporter.de/media">Media<\/a>
+      <\/div>
+      <svg class="mai-line line-3" width="100%" height="4">
+        <line class="svg-line" x1="0" y1="4" x2="100%" y2="4"><\/line>
+      <\/svg>
+    `;
+
+      const buttonContainer = document.querySelector(".j-checkout__button-container");
+      if (buttonContainer) {
+        buttonContainer.parentNode.insertBefore(footer, buttonContainer.nextSibling);
+      }
+
+      // 4. Aktive Links markieren + Schriftfarbe
+      const currentPath = window.location.pathname;
+      footer.querySelectorAll(".main-navigation a").forEach((link) => {
+        const linkPath = new URL(link.href).pathname;
+        if (currentPath === linkPath || currentPath.startsWith(linkPath + "/")) {
+          link.classList.add("active");
+        }
+        // Schriftfarbe auf schwarz setzen
+        link.style.color = "#000000";
+      });
+    });
+  })();
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[ // BURGERMENÜ AUF J SYSTEMSEITEN AUSBLENDEN
+  document.addEventListener("DOMContentLoaded", function () {
+    const hideOnPages = [
+      "/orderconfirmation/",
+      "/j/checkout?startCheckout",
+      "/j/checkout/data",
+      "/j/checkout/payment",
+      "/j/checkout/overview",
+      "//j/checkout/confirmation",
+    ];
+
+    const shouldHide = hideOnPages.some((page) => window.location.href.includes(page));
+
+    if (shouldHide) {
+      const el = document.querySelector(".jtpl-navigation__label");
+      if (el) {
+        el.style.display = "none";
+      }
+    }
+  });
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[ // NACHRICHTENFORMULAR
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('form[action*="formspree.io"]');
+    if (!form) return;
+
+    const nameInput = form.querySelector("[name='name']");
+    const emailInput = form.querySelector("[name='email']");
+    const messageInput = form.querySelector("[name='message']");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (!nameInput?.value.trim() || !emailInput?.value.trim() || !messageInput?.value.trim()) {
+        alert("❌ Bitte alle Felder ausfüllen.");
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        });
+
+        if (response.ok) {
+          window.location.href = "https://www.maiporter.de/erfolg";
+        } else {
+          const data = await response.json();
+          const msg = data?.errors?.[0]?.message || "Unbekannter Fehler.";
+          alert("❌ Fehler: " + msg);
+        }
+      } catch (err) {
+        alert("❌ Es ist ein Fehler beim Senden aufgetreten.");
+        console.error(err);
+      }
+    });
+  });
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  // PADDING FÜR J SYSTEMSEITEN, REGELN ZUDEM IM CSS
+  document.addEventListener("DOMContentLoaded", function () {
+    // Hole die aktuelle URL
+    const currentURL = window.location.href;
+
+    // Prüfe, ob die URL mit "https://www.maiporter.de/j/" beginnt
+    if (currentURL.startsWith("https://www.maiporter.de/j/")) {
+      // Setze ein data-url-Attribut mit der aktuellen URL
+      document.body.setAttribute("data-url", currentURL);
+    }
+  });
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  // WEITERLEITUNG ZU EIGENEN SEITEN ZAHLUNG VERSAND - DATENSCHUTZ - WIDERRUF
+  (function () {
+    const redirects = {
+      "/j/shop/info/m/": "https://www.maiporter.de/versand-zahlung",
+      "/j/shop/deliveryinfo": "https://www.maiporter.de/versand-zahlung",
+      "/j/shop/withdrawal": "https://www.maiporter.de/widerrufsbelehrung",
+      "/j/privacy": "https://www.maiporter.de/datenschutz",
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname;
+      const searchParams = new URLSearchParams(window.location.search);
+
+      const isProductPage = currentPath === "/j/shop/info/m/" && searchParams.has("productId");
+
+      if (isProductPage && redirects["/j/shop/info/m/"]) {
+        window.location.href = redirects["/j/shop/info/m/"];
+      } else if (redirects[currentPath]) {
+        window.location.href = redirects[currentPath];
+      }
+
+      // Klick-Redirect bei internen Links
+      document.body.addEventListener(
+        "click",
+        function (e) {
+          const target = e.target.closest("a");
+          if (!target) return;
+
+          try {
+            const url = new URL(target.href, window.location.origin);
+            const isProductClick = url.pathname === "/j/shop/info/m/" && url.searchParams.has("productId");
+
+            if ((isProductClick && redirects["/j/shop/info/m/"]) || redirects[url.pathname]) {
+              e.preventDefault();
+              window.location.href = isProductClick ? redirects["/j/shop/info/m/"] : redirects[url.pathname];
+            }
+          } catch (err) {
+            // Fehlerhafte URLs ignorieren
+          }
+        },
+        true,
+      );
+    });
+  })();
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  function showTooltip(el) {
+    removeTooltip();
+
+    const tooltip = document.createElement("div");
+    tooltip.className = `tooltip ${el.className.replace("wort", "")}`; // Klassen übernehmen
+
+    if (el.classList.contains("tooltip-pic")) {
+      const imgUrl = el.getAttribute("data-pic");
+      tooltip.innerHTML = `<img src="${imgUrl}" alt="" loading="lazy">`;
+    } else {
+      tooltip.textContent = el.getAttribute("data-text");
+    }
+
+    document.body.appendChild(tooltip);
+    positionTooltip(el, tooltip);
+  }
+  //]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  // TOOLTIPPS 2487
+  function removeTooltip() {
+    const old = document.querySelector(".tooltipbox");
+    if (old) old.remove();
+  }
+
+  function showTooltip(el) {
+    const tooltipText = el.getAttribute("data-tooltip");
+    const tooltipPic = el.getAttribute("data-pic");
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltipbox visible";
+
+    if (tooltipPic) {
+      tooltip.innerHTML = `
+      <img src="${tooltipPic}" alt="" style="max-width:280px; height:auto; display:block; margin-bottom:0.4em;">
+      ${tooltipText ? `<div>${tooltipText}<\/div>` : ""}
+    `;
+    } else {
+      tooltip.textContent = tooltipText;
+    }
+
+    document.body.appendChild(tooltip);
+
+    const rect = el.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+
+    let top = rect.top + window.scrollY - tipRect.height - 8;
+    let left = rect.left + window.scrollX + rect.width / 2 - tipRect.width / 2;
+
+    left = Math.max(8, Math.min(left, window.innerWidth - tipRect.width - 8));
+    if (top < window.scrollY + 8) {
+      top = rect.bottom + window.scrollY + 8;
+    }
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  }
+
+  document.addEventListener("click", function (e) {
+    removeTooltip();
+    if (e.target.classList.contains("tooltipwort")) {
+      showTooltip(e.target);
+    }
+  });
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".tooltipwort").forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        removeTooltip();
+        showTooltip(el);
+      });
+      el.addEventListener("mouseleave", removeTooltip);
+    });
+  });
+  //]]>
+</script>
+
+<script defer="defer">
+  /* <![CDATA[ */
+  // EASTEREGG- UND TEXT-AKKORDEON
+  document.addEventListener("DOMContentLoaded", function () {
+    const akkordeonContainer = document.querySelectorAll(".akkordeon-text, .akkordeon-text-easteregg");
+
+    akkordeonContainer.forEach(function (container) {
+      const links = container.querySelectorAll("dt a");
+      const isEasteregg = container.classList.contains("akkordeon-text-easteregg");
+      const bgColor = isEasteregg ? "rgba(223, 251, 227, 0.7)" : "rgba(241, 245, 250, 0.7)";
+      const bgColorTransparent = "rgba(241, 245, 250, 0)";
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const dt = link.closest("dt");
+          const dd = dt.nextElementSibling;
+          const viewportWidth = window.innerWidth;
+
+          let slideDownDuration, slideUpDuration;
+          if (viewportWidth > 1200) {
+            slideDownDuration = 1200;
+            slideUpDuration = 300;
+          } else if (viewportWidth > 800) {
+            slideDownDuration = 1000;
+            slideUpDuration = 250;
+          } else if (viewportWidth > 500) {
+            slideDownDuration = 800;
+            slideUpDuration = 200;
+          } else {
+            slideDownDuration = 600;
+            slideUpDuration = 150;
+          }
+
+          if (dd.style.display === "none" || !dd.style.display) {
+            dd.style.display = "block";
+            const maxHeight = dd.scrollHeight + "px";
+            const animation = dd.animate(
+              [
+                { height: "0px", backgroundColor: bgColorTransparent },
+                { height: maxHeight, backgroundColor: bgColor },
+              ],
+              {
+                duration: slideDownDuration,
+                easing: "ease-out",
+                fill: "forwards",
+              },
+            );
+            animation.onfinish = () => {
+              dd.style.backgroundColor = bgColor;
+            };
+            link.classList.remove("closed");
+            link.classList.add("opened");
+            link.setAttribute("aria-expanded", "true");
+          } else {
+            const maxHeight = dd.scrollHeight + "px";
+            const animation = dd.animate(
+              [
+                { height: maxHeight, backgroundColor: bgColor },
+                { height: "0px", backgroundColor: bgColorTransparent },
+              ],
+              {
+                duration: slideUpDuration,
+                easing: "ease-in",
+                fill: "forwards",
+              },
+            );
+            animation.onfinish = () => {
+              dd.style.display = "none";
+              dd.style.backgroundColor = bgColorTransparent;
+            };
+            link.classList.remove("opened");
+            link.classList.add("closed");
+            link.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    });
+  });
+
+  /* ]]> */
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+  /* Wandelt H4-Produkttitel (.fn) für SEO & Hierarchie in H2 um */
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".cc-shop-product-desc h4.fn").forEach(function (el) {
+      const h2 = document.createElement("h2");
+      Array.from(el.attributes).forEach((attr) => h2.setAttribute(attr.name, attr.value));
+      h2.innerHTML = el.innerHTML;
+      el.parentNode.replaceChild(h2, el);
+    });
+  });
+  //]]>
+</script>

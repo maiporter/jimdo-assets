@@ -1,0 +1,4 @@
+TICKER ANLEITUNG
+
+Der global header auf der jeweiligen Unterseite muss inline von 180 auf 150 px runter (das erst in den globalen Head und dann 
+die Korrektur mit in das Ticker-css für die jeweilige Unterseite zu packen, hatte ich schon mal erfolglos versucht)
