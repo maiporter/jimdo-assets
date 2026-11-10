@@ -1,0 +1,65 @@
+/* Hintergrundbild */
+#boxen-background {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1920px;
+  max-width: 100vw;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: url("https://u.jimcdn.com/cms/o/s51992d3512f99730/userlayout/img/boxen-hintergrund.jpg?t=1730717852") !important;
+  background-repeat: no-repeat;
+  background-size: 185px;
+  background-position: right 166px top -108px;
+}
+@media (max-width: 399.98px) {
+  #boxen-background {
+    left: 0;
+    transform: none;
+    width: 100%;
+    background-size: 148.5px;
+    background-position: right 10px top -192px !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 459.98px) {
+  #boxen-background {
+    left: 0;
+    transform: none;
+    width: 100%;
+    background-size: 160px;
+    background-position: right 13px top -180px !important;
+  }
+}
+
+@media (min-width: 460px) and (max-width: 539.98px) {
+  #boxen-background {
+    left: 0;
+    transform: none;
+    width: 100%;
+    background-size: 151px;
+    background-position: right 40px top -147px !important;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 768px) {
+  #boxen-background {
+    left: 0;
+    transform: none;
+    width: 100%;
+    background-size: 160px;
+    background-position: right 30px top -170px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #boxen-background {
+    left: 0;
+    transform: none;
+    width: 100%;
+    background-size: 163px;
+    background-position: right 56px top -125px !important;
+  }
+}

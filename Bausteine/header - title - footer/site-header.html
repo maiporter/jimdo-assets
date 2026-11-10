@@ -1,0 +1,45 @@
+ZENTRALE HTML-VORLAGE
+<div class="site-header" data-nosnippet="">
+  <a href="/"
+    ><img
+      src="https://img-mp.maiporter.de/maiporter-experts-in-boxtrailers-logo.png?t=1729592088"
+      alt="MAIPORTER Logo"
+      class="maiporter-logo"
+  /></a>
+  <div class="main-navigation">
+    <a href="/shop">SHOP</a>
+    <a href="/info">INFO</a>
+  </div>
+  <svg class="mai-line line-3" width="100%" height="4.5">
+    <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
+  </svg>
+</div>
+<!-- svg auf height="4.5" und Linie ebenfalls bei y1="4.5" und y2="4.5" bewirkt, dass die eigentlich zu dicke Linie unten abgeschnitten
+wird. Das ist für exakte Positionierung am Boden des Containers erforderlich.  -->
+
+WIDGET HTML & SCRIPT
+<div id="global-header" style="min-height: 180px"></div>
+<script type="text/javascript">
+  /* <![CDATA[ */
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/navigation/header")
+      .then((res) => res.text())
+      .then((data) => {
+        const container = document.getElementById("global-header");
+        if (!container) return;
+
+        const doc = new DOMParser().parseFromString(data, "text/html");
+        const header = doc.querySelector(".site-header");
+        container.innerHTML = header ? header.outerHTML : data;
+        const current = window.location.pathname;
+        container.querySelectorAll(".main-navigation a").forEach((link) => {
+          const linkPath = link.pathname;
+          if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
+            link.classList.add("active");
+          }
+        });
+      })
+      .catch((err) => console.error("Header-Fehler:", err));
+  });
+  /*]]>*/
+</script>

@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>styles & script sind für beide, html muss für slider noch geschrieben werden</title>
+    <style>
+      /* ============================================================
+      SLIDER & MORPHER
+      ============================================================ */
+            /* --- BASIS --- */
+            .slider-frame {
+              width: 100%;
+              margin: 40px auto;
+              max-width: 900px;
+              position: relative;
+            }
+
+            .slider {
+              background: #ffffff;
+              position: relative;
+              cursor: pointer;
+              touch-action: pan-y;
+            }
+
+            /* Der heilige Gral: Dieser Container hält die Pfeile am Bild fest */
+            .slides {
+              position: relative;
+              width: 100%;
+              overflow: hidden;
+            }
+
+            .slide img,
+            .slide picture img {
+              display: block;
+              width: 100%;
+              height: auto;
+              user-select: none;
+              -webkit-tap-highlight-color: transparent;
+            }
+
+            /* --- SYSTEM 1: MORPHER (Stapeln) --- */
+            .is-morpher .slide-track {
+              display: grid !important;
+              grid-template-areas: "stack" !important;
+              /* Wir nehmen das feste Aspect-Ratio raus, falls es stört,
+             oder passen es an. Probiere 'auto', wenn Bilder variieren */
+              min-height: 1px;
+            }
+
+            .is-morpher .slide {
+              grid-area: stack;
+              opacity: 0;
+              z-index: 1;
+              transition: opacity 1s linear !important;
+            }
+
+            .is-morpher .slide.active {
+              opacity: 1 !important;
+              z-index: 10 !important;
+            }
+            .is-morpher .slide.last-active {
+              opacity: 1 !important;
+              z-index: 5 !important;
+            }
+
+            /* --- SYSTEM 2: STANDARD (Schieben) --- */
+            .is-standard .slide-track {
+              display: flex !important;
+              transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+
+            .is-standard .slide {
+              min-width: 100%;
+              max-width: 100%;
+            }
+
+            /* --- PFEILE (Slider-Arrows) --- */
+            .slider-arrow {
+              /* DIESER REGLER STEUERT ALLES (0.0 bis 1.0) */
+              opacity: 0.3;
+
+              /* Das hier lässt du einfach "fest" eingestellt */
+              background: rgba(0, 0, 0, 0.3);
+
+              /* --- BASIS STUFF (Finger weg, einfach so lassen) --- */
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 100;
+              cursor: pointer;
+              border: none;
+              color: white;
+              transition: all 0.3s ease;
+              user-select: none; /* Verhindert das Markieren */
+              -webkit-user-select: none; /* Für Safari */
+              -moz-user-select: none; /* Für Firefox */
+            }
+
+            /* --- KLICK-EFFEKT --- */
+            .slider-arrow.is-active {
+              opacity: 0.1 !important;
+              transform: translateY(-50%) scale(0.9);
+            }
+
+
+      @media (hover: hover) {
+        .slider-arrow:hover {
+          opacity: 0.5;
+        }
+      }
+            }
+
+            .arrow-prev {
+              left: 15px;
+            }
+            .arrow-next {
+              right: 15px;
+            }
+
+            .slider-arrow svg {
+              width: 20px;
+              height: 20px;
+              fill: white;
+            }
+
+            /* --- THUMBNAILS (Jetzt mit festem Abstand) --- */
+            .thumbs {
+              display: flex;
+              justify-content: center;
+              gap: 12px;
+              margin-top: 20px; /* Hier steuern wir den Abstand zum Bild */
+              padding-bottom: 10px;
+            }
+
+            .thumbs picture {
+              /* WICHTIG: Die Variable muss VOR dem festen Wert stehen */
+              width: var(--thumb-width, 100px);
+              max-width: var(--thumb-max-width, 22%);
+              opacity: 0.4;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+
+            .thumbs img {
+              width: 100%;
+              display: block;
+              /* Hier wird das Seitenverhältnis variabel */
+              aspect-ratio: var(--thumb-ratio, 4 / 3);
+              object-fit: cover;
+            }
+
+            .thumbs picture.active {
+              opacity: 1;
+              transform: scale(1.08);
+            }
+
+            /* --- RESPONSIVE --- */
+            @media (max-width: 719px) {
+              .slider-frame {
+                max-width: 500px;
+              }
+
+              .thumbs picture {
+                /* Hier nutzen wir jetzt auch die Variablen! */
+                /* Wir geben aber einen kleineren Standardwert (70px) mit an */
+                width: var(--thumb-width-mobile, 70px);
+                max-width: var(--thumb-max-width, 22%);
+              }
+
+              .thumbs img {
+                /* Wenn keine mobile Ratio gesetzt ist, nimm die normale */
+                aspect-ratio: var(--thumb-ratio-mobile, var(--thumb-ratio, 130 / 149));
+              }
+
+              .slider-arrow {
+                width: 30px;
+                height: 30px;
+                pointer-events: none;
+              }
+            }
+    </style>
+  </head>
+  <body>
+    ``das html ist für morpher, für slider gibt es das noch nicht
+    <div class="slider-frame is-morpher">
+      <div class="slider">
+        <div class="slides">
+          <div class="slider-arrow arrow-prev">
+            <svg viewbox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+            </svg>
+          </div>
+
+          <div class="slider-arrow arrow-next">
+            <svg viewbox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+            </svg>
+          </div>
+
+          <div class="slide-track">
+            <div class="slide">
+              <picture>
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild1-mb.webp" type="image/webp" />
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild1-mb.jpg" />
+                <source srcset="https://img-mp.maiporter.de/bild1-dt.webp" type="image/webp" />
+                <img src="https://img-mp.maiporter.de/bild1-dt.jpg" alt="1" fetchpriority="high" />
+              </picture>
+            </div>
+
+            <div class="slide">
+              <picture>
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild2-mb.webp" type="image/webp" />
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild2-mb.jpg" />
+                <source srcset="https://img-mp.maiporter.de/bild2-dt.webp" type="image/webp" />
+                <img src="https://img-mp.maiporter.de/bild2-dt.jpg" alt="" loading="lazy" />
+              </picture>
+            </div>
+
+            <div class="slide">
+              <picture>
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild3-mb.webp" type="image/webp" />
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild3-mb.jpg" />
+                <source srcset="https://img-mp.maiporter.de/bild3-dt.webp" type="image/webp" />
+                <img src="https://img-mp.maiporter.de/bild3-dt.jpg" alt="" loading="lazy" />
+              </picture>
+            </div>
+
+            <div class="slide">
+              <picture>
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild4-mb.webp" type="image/webp" />
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild4-mb.jpg" />
+                <source srcset="https://img-mp.maiporter.de/bild4-dt.webp" type="image/webp" />
+                <img src="https://img-mp.maiporter.de/bild4-dt.jpg" alt="" loading="lazy" />
+              </picture>
+            </div>
+            ``der Klon des 1. Bildes (erforderlich für's morphen):
+            <div class="slide">
+              <picture>
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild1-mb.webp?v=2" type="image/webp" />
+                <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/bild1-mb.jpg?v=2" />
+                <source srcset="https://img-mp.maiporter.de/bild1-dt.webp?v=2" type="image/webp" />
+                <img src="https://img-mp.maiporter.de/bild1-dt.jpg?v=2" alt="" loading="lazy" />
+              </picture>
+            </div>
+          </div>
+        </div>
+
+        <div class="thumbs">
+          <picture class="active">
+            <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/-1-thumb-mb.jpg" />
+            <img src="https://img-mp.maiporter.de/-1-dt.jpg" alt="" />
+          </picture>
+          <picture>
+            <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/-2-mb.jpg" />
+            <img src="https://img-mp.maiporter.de/-2-dt.jpg" alt="" />
+          </picture>
+          <picture class="active">
+            <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/-3-thumb-mb.jpg" />
+            <img src="https://img-mp.maiporter.de/-3-dt.jpg" alt="" />
+          </picture>
+          <picture>
+            <source media="(max-width: 719px)" srcset="https://img-mp.maiporter.de/-4-mb.jpg" />
+            <img src="https://img-mp.maiporter.de/-4-dt.jpg" alt="" />
+          </picture>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //<![CDATA[
+      // --- SLIDER MORPHER ---
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".slider-frame.is-morpher").forEach((frame) => {
+          const slides = frame.querySelectorAll(".slide");
+          const thumbs = frame.querySelectorAll(".thumbs picture");
+          const count = slides.length;
+          if (count === 0) return;
+
+          let idx = 0,
+            lastIdx = 0;
+
+          // --- HILFSFUNKTIONEN FÜR NAVIGATION ---
+          const nextSlide = () => {
+            lastIdx = idx;
+            idx = (idx + 1) % count;
+            updateMorph(false);
+            triggerArrowFeedback("next");
+          };
+          const prevSlide = () => {
+            lastIdx = idx;
+            idx = (idx - 1 + count) % count;
+            updateMorph(false);
+            triggerArrowFeedback("prev");
+          };
+
+          const triggerArrowFeedback = (dir) => {
+            const arrow = frame.querySelector(`.arrow-${dir}`);
+            if (arrow) {
+              arrow.classList.add("is-active");
+              setTimeout(() => arrow.classList.remove("is-active"), 150);
+            }
+          };
+
+          const updateMorph = (instant) => {
+            slides.forEach((s, i) => {
+              s.style.transition = instant ? "none" : "opacity 1s linear";
+              s.classList.remove("active", "last-active");
+              if (i === idx) s.classList.add("active");
+              if (i === lastIdx) s.classList.add("last-active");
+            });
+            // Loop-Back Logik (falls das letzte Bild geklont ist)
+            if (idx === count - 1 && !instant) {
+              setTimeout(() => {
+                if (idx === count - 1) {
+                  lastIdx = 0;
+                  idx = 0;
+                  updateMorph(true);
+                }
+              }, 1000);
+            }
+            thumbs.forEach((t, i) => t.classList.toggle("active", i === idx));
+          };
+
+          // --- KLICK-LOGIK (BILDHÄLFTEN) ---
+          const sliderBtn = frame.querySelector(".slider");
+          if (sliderBtn) {
+            sliderBtn.onclick = (e) => {
+              if (e.target.closest(".thumbs")) return;
+              if (document.activeElement) document.activeElement.blur();
+
+              const rect = sliderBtn.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              x < rect.width / 2 ? prevSlide() : nextSlide();
+            };
+
+            // --- SWIPE-LOGIK (MIT TOLERANZ FÜR SCHRÄGE WISCHER) ---
+            let touchStartX = 0,
+              touchStartY = 0;
+            sliderBtn.addEventListener(
+              "touchstart",
+              (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+              },
+              { passive: true },
+            );
+
+            sliderBtn.addEventListener(
+              "touchend",
+              (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const diffX = touchEndX - touchStartX;
+                const diffY = touchEndY - touchStartY;
+
+                const absX = Math.abs(diffX);
+                const absY = Math.abs(diffY);
+
+                // Erkennt waagerecht auch bei Schräglage (X muss nur etwas dominanter sein als Y)
+                if (absX > absY * 0.8 && absX > 30) {
+                  diffX > 0 ? prevSlide() : nextSlide();
+                }
+              },
+              { passive: true },
+            );
+          }
+
+          // --- PFEILTASTEN-STEUERUNG ---
+          window.addEventListener("keydown", (e) => {
+            const rect = frame.getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            if (!isInViewport) return;
+
+            if (e.key === "ArrowLeft") prevSlide();
+            if (e.key === "ArrowRight") nextSlide();
+          });
+
+          // --- THUMBS NAVIGATION ---
+          thumbs.forEach((t, i) => {
+            t.onclick = (e) => {
+              e.stopPropagation();
+              if (i === idx) return;
+              lastIdx = idx;
+              idx = i;
+              updateMorph(false);
+            };
+          });
+
+          updateMorph(true);
+        });
+      });
+      //]]>
+    </script>
+  </body>
+</html>
