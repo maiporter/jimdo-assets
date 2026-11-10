@@ -3,184 +3,290 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vorlage</title>
-
-    <!-- 1. Die kopierten Jimdo-Basis-Stylesheets für die lokale Vorschau -->
+    <title>MaiPorter - SEITENTITEL</title>
     <link rel="stylesheet" href="../css/jimdo-layout.css" />
     <link rel="stylesheet" href="../css/jimdo-web.css" />
-
-    <!-- 2. Deine eigenen Styles aus dem Repo -->
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <w-2>
-      <!doctype html>
-      <html lang="de">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Document</title>
-        </head>
-        <body>
-          <div id="global-header" style="min-height: 180px"></div>
-          <script type="text/javascript">
-            /* <![CDATA[ */
-            document.addEventListener("DOMContentLoaded", function () {
-              fetch("/navigation/header")
-                .then((res) => res.text())
-                .then((data) => {
-                  const container = document.getElementById("global-header");
-                  if (!container) return;
+    <div id="global-header" style="min-height: 180px"></div>
 
-                  const doc = new DOMParser().parseFromString(data, "text/html");
-                  const header = doc.querySelector(".site-header");
-                  container.innerHTML = header ? header.outerHTML : data;
-                  const current = window.location.pathname;
-                  container.querySelectorAll(".main-navigation a").forEach((link) => {
-                    const linkPath = link.pathname;
-                    if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
-                      link.classList.add("active");
-                    }
-                  });
-                })
-                .catch((err) => console.error("Header-Fehler:", err));
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+        const headerUrl = isLocal ? "../navigation/site-header.html" : "/navigation/header";
+        fetch(headerUrl)
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP Fehler Status: " + res.status);
+            return res.text();
+          })
+          .then((data) => {
+            const container = document.getElementById("global-header");
+            if (!container) return;
+
+            const doc = new DOMParser().parseFromString(data, "text/html");
+            const header = doc.querySelector(".site-header");
+            container.innerHTML = header ? header.outerHTML : data;
+            const current = window.location.pathname;
+            container.querySelectorAll(".main-navigation a").forEach((link) => {
+              const linkPath = link.pathname;
+              if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
+                link.classList.add("active");
+              }
             });
-            /*]]>*/
-          </script>
-          <div class="page-title">
-            <h1>Diebstahlschutz</h1>
+          })
+          .catch((err) => {
+            console.warn("Header konnte lokal nicht geladen werden:", err.message);
+          });
+      });
+      /*]]>*/
+    </script>
 
-            <div>
-              <svg class="mai-line line-1" width="100%" height="5">
-                <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
-              </svg>
-            </div>
-          </div>
-          <p class="lead-text">
-            Boxtrailer sind daf&uuml;r da, ihre Beladung gegen Diebstahl zu sch&uuml;tzen. Doch ausgerechnet daran scheitern die
-            meisten und vergeben so die Daseinsberechtigung einer ansonsten grandios praktischen Fahrradanh&auml;nger-Bauform.
-          </p>
-          <p>
-            So wie die meisten Boxtrailer-Hersteller haben wir auch bei MaiPorter die erste Zeit &uuml;bliche
-            Aluminium-Leichtbauboxen als Ladebox verwendet. Bis wir eines Tages mal getestet haben, wie aufbruchsicher die
-            tats&auml;chlich sind. Nicht nur mit der damals von uns verwendeten, sondern mit verschiedenen, die sich in unserer
-            Werkstatt so angesammelt hatten.
-          </p>
-          <h2 class="">Schutz gegen Aufbruch</h2>
-          <h3 class="">Schutz gegen Aufbruch</h3>
-          <h4 class="">Schutz gegen Aufbruch</h4>
-          <figure class="col-04">
-            <picture
-              ><source
-                srcset="
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-424.avif   424w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-750.avif   750w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-1150.avif 1150w
-                "
-                type="image/avif"
-                sizes="(max-width: 719px) 100vw, (max-width: 1200px) 25vw, 424px" />
+    <!-- SEITENINHALT -->
+    <div class="page-title">
+      <h1>VORLAGE</h1>
+      <div>
+        <svg class="mai-line line-1" width="100%" height="5">
+          <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
+        </svg>
+      </div>
+    </div>
+    <div class="v2-wrapper">
+      <div class="overview-container">
+        <!-- Element 1 -->
+        <div class="overview-item">
+          <a href="https://www.maiporter.de/UNTERSEITE" title="TITEL">
+            <picture>
               <source
                 srcset="
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-424.webp   424w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-750.webp   750w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-1150.webp 1150w
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
                 "
-                type="image/webp"
-                sizes="(max-width: 719px) 100vw, (max-width: 1200px) 25vw, 424px" />
-              <img
-                src="https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-424.jpg"
-                sizes="(max-width: 719px) 100vw, (max-width: 1200px) 25vw, 424px"
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/avif" />
+              <source
                 srcset="
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-424.jpg   424w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-750.jpg   750w,
-                  https://img-mp.maiporter.de/maiporter-m-stream-2011-2015-1150.jpg 1150w
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
                 "
-                alt="Der erste MaiPorter-Modell M-Stream 2011 bis 2015"
-                width="424"
-                height="auto"
-            /></picture>
-            <figcaption>Der erste MaiPorter von 2011</figcaption>
-          </figure>
-          <p>
-            So wie die meisten Boxtrailer-Hersteller haben wir auch bei MaiPorter die erste Zeit &uuml;bliche
-            Aluminium-Leichtbauboxen als Ladebox verwendet. Bis wir eines Tages mal getestet haben, wie aufbruchsicher die
-            tats&auml;chlich sind. Nicht nur mit der damals von uns verwendeten, sondern mit verschiedenen, die sich in unserer
-            Werkstatt so angesammelt hatten.
-          </p>
-          <div class="split-section split-section-text-right">
-            <figure class="column image-column" style="flex-basis: 15%; min-width: 200px; max-width: 250px">
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/webp" />
               <img
-                style="width: 100%; height: auto"
-                src="https://img-mp.maiporter.de/spannverschluss.jpg"
-                alt="Spannverschluss an einer Alubox in Nahaufnahme mit Bohrung" />
-            </figure>
-            <div class="column text-column" style="flex-basis: 85%">
-              <p>
-                Dass sich die Drahtb&uuml;gel der au&szlig;erhalb der Box befindlichen Schlie&szlig;mechanik mit einem 20 cm
-                Mini-Bolzenschneider aufknipsen lassen, war zwar schon vorher klar. Aber der Schreck, wie leicht, leise und
-                sekundenschnell sich die Spannverschl&uuml;sse selbst mit einem einfachen Schraubendreher aufhebeln, teils sogar
-                mit blo&szlig;en H&auml;nden aufrei&szlig;en lie&szlig;en, war dennoch mehr als gro&szlig;. Damit h&auml;tten wir
-                nicht gerechnet! Erst jetzt d&auml;mmerte uns: An ernsthaften Aufbruchschutz hatte bei der Konstruktion der
-                Schl&ouml;sser f&uuml;r Leichtbau-Boxen niemals jemand gedacht. Die Abschlie&szlig;barkeit ist hier nur ein
-                Nice-to-have, keinesfalls eine Hauptfunktion.
-              </p>
-            </div>
-          </div>
-          <h3>Enthalten</h3>
-          <ul>
-            <li>
-              2 R&uuml;ckleuchten 'Axa Juno Battery Auto Off'. Je 2&nbsp;Batterien AAA reichen bis zu 50&nbsp;Stunden,
-              automatische Abschaltung nach 5&nbsp;Minuten Stillstand. F&uuml;r Fahrradanh&auml;nger vorgeschriebene Reflektoren
-              mit Pr&uuml;fzeichen&nbsp;Z sind bereits integriert.
-            </li>
-            <li>5 Gurtband&ouml;sen Edelstahl</li>
-            <li>1 x Ballastmatte 1.200&nbsp;g, eine zweite wird empfohlen</li>
-            <li>Stellf&uuml;&szlig;chen</li>
-            <li>Abspanngummi f&uuml;r den Deckel und Einh&auml;ngepunkt&nbsp;KLICK</li>
-            <li>4 Schl&uuml;ssel</li>
-            <li>
-              Ausf&uuml;hrliches, bebildertes Handbuch (70 Seiten A5) inklusive jeder Menge Alltagstipps aus unserer Praxis
-              f&uuml;r Ihre bestm&ouml;gliche Produkterfahrung.
-            </li>
-          </ul>
-          <h3>Nicht enthalten</h3>
-          <ul>
-            <li>Fahrgestell</li>
-            <li>Fahrradseitiger Teil der Weber-Kupplung</li>
-            <li>Lackierung</li>
-            <li>Nadelfilzausstattung</li>
-            <li>Antirutschmatte</li>
-            <li>Gep&auml;cknetz</li>
-          </ul>
-          <h3>Technische Daten</h3>
-          <ul class="nostyle">
-            <li>Ma&szlig;e innen:&nbsp;845 &times; 445 &times; 345 mm</li>
-            <li>Gewicht: 7,6 kg + Gewicht der Antirutschmatte Ihrer Wahl&nbsp;+ 1,2 kg Ballastmatte</li>
-            <li>Volumen: 135 Liter</li>
-          </ul>
-          <p class="p2">
-            Die zul&auml;ssige Zuladung finden Sie in den technischen Daten des Fahrgestells Mikarus&nbsp;Universal.
-          </p>
-          <h3>Garantien</h3>
-          <ul class="nostyle">
-            <li>5 Jahre (R&uuml;ckleuchten 2 Jahre)</li>
-            <li>30-Tage-Geld-zur&uuml;ck-Garantie</li>
-          </ul>
-          <p>Unsere vollst&auml;ndigen Garantiebedingungen finden Sie im Bereich 'Magazin'.</p>
-          <p>&nbsp;</p>
-          <p>
-            <strong
-              >Bei Bestellung der Z Box BASE mit Lackierung oder Nadelfilzausstattung verz&ouml;gert sich die Lieferzeit
-              abh&auml;ngig von Auftragslage und Lagersituation, gerne anfragen.</strong
-            >
-          </p>
-          <p class="p3">
-            <strong>Exklusive Fahrgestell, d</strong
-            ><strong>ie Montage von R&uuml;ckleuchten und Stellf&uuml;&szlig;chen erfolgt kundenseitig.</strong>
-          </p>
-          <p class="p3">&nbsp;</p>
-        </body>
-      </html>
-    </w-2>
+                src="https://placehold.co/424x318/jpg"
+                srcset="
+                  https://placehold.co/424x318/jpg   424w,
+                  https://placehold.co/750x563/jpg   750w,
+                  https://placehold.co/1150x863/jpg 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                alt="ALT-TEXT"
+                width="424"
+                height="318"
+                fetchpriority="high"
+                decoding="async"
+                data-nosnippet="" />
+            </picture>
+          </a>
+          <a href="https://www.maiporter.de/UNTERSEITE" class="overview-container__textlink">TEXTLINK</a>
+        </div>
+
+        <!-- Element 2 -->
+        <div class="overview-item">
+          <a href="https://www.maiporter.de/UNTERSEITE" title="TITEL">
+            <picture>
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/avif" />
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/webp" />
+              <img
+                src="https://placehold.co/424x318/jpg"
+                srcset="
+                  https://placehold.co/424x318/jpg   424w,
+                  https://placehold.co/750x563/jpg   750w,
+                  https://placehold.co/1150x863/jpg 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                alt="ALT-TEXT"
+                width="424"
+                height="318"
+                fetchpriority="high"
+                decoding="async"
+                data-nosnippet="" />
+            </picture>
+          </a>
+          <a href="https://www.maiporter.de/UNTERSEITE" class="overview-container__textlink">TEXTLINK</a>
+        </div>
+
+        <!-- Element 3 -->
+        <div class="overview-item">
+          <a href="https://www.maiporter.de/UNTERSEITE" title="TITEL">
+            <picture>
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/avif" />
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/webp" />
+              <img
+                src="https://placehold.co/424x318/jpg"
+                srcset="
+                  https://placehold.co/424x318/jpg   424w,
+                  https://placehold.co/750x563/jpg   750w,
+                  https://placehold.co/1150x863/jpg 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                alt="ALT-TEXT"
+                width="424"
+                height="318"
+                fetchpriority="high"
+                decoding="async"
+                data-nosnippet="" />
+            </picture>
+          </a>
+          <a href="https://www.maiporter.de/UNTERSEITE" class="overview-container__textlink">TEXTLINK</a>
+        </div>
+
+        <!-- Element 4 -->
+        <div class="overview-item">
+          <a href="https://www.maiporter.de/UNTERSEITE" title="TITEL">
+            <picture>
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/avif" />
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/webp" />
+              <img
+                src="https://placehold.co/424x318/jpg"
+                srcset="
+                  https://placehold.co/424x318/jpg   424w,
+                  https://placehold.co/750x563/jpg   750w,
+                  https://placehold.co/1150x863/jpg 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                alt="ALT-TEXT"
+                width="424"
+                height="318"
+                fetchpriority="high"
+                decoding="async"
+                data-nosnippet="" />
+            </picture>
+          </a>
+          <a href="https://www.maiporter.de/UNTERSEITE" class="overview-container__textlink">TEXTLINK</a>
+        </div>
+
+        <!-- Element 5 -->
+        <div class="overview-item">
+          <a href="https://www.maiporter.de/UNTERSEITE" title="TITEL">
+            <picture>
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/avif" />
+              <source
+                srcset="
+                  https://placehold.co/424x318/png   424w,
+                  https://placehold.co/750x563/png   750w,
+                  https://placehold.co/1150x863/png 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                type="image/webp" />
+              <img
+                src="https://placehold.co/424x318/jpg"
+                srcset="
+                  https://placehold.co/424x318/jpg   424w,
+                  https://placehold.co/750x563/jpg   750w,
+                  https://placehold.co/1150x863/jpg 1150w
+                "
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 424px"
+                alt="ALT-TEXT"
+                width="424"
+                height="318"
+                fetchpriority="high"
+                decoding="async"
+                data-nosnippet="" />
+            </picture>
+          </a>
+          <a href="https://www.maiporter.de/UNTERSEITE" class="overview-container__textlink">TEXTLINK</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER CONTAINER & SKRIPT -->
+    <footer id="global-footer"></footer>
+
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+
+        const footerUrl = isLocal ? "../navigation/site-footer.html" : "/navigation/footer";
+
+        fetch(footerUrl)
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP Fehler Status: " + res.status);
+            return res.text();
+          })
+          .then((data) => {
+            const doc = new DOMParser().parseFromString(data, "text/html");
+            const footer = doc.querySelector(".site-footer");
+            const container = document.getElementById("global-footer");
+
+            if (footer && container) {
+              container.appendChild(footer);
+              const current = window.location.pathname;
+              footer.querySelectorAll(".main-navigation a").forEach((link) => {
+                const href = new URL(link.href, window.location.origin).pathname;
+                if (current === href || (href !== "/" && current.startsWith(href + "/"))) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          })
+          .catch((err) => {
+            console.warn("Footer konnte lokal nicht geladen werden:", err.message);
+          });
+      });
+      /*]]>*/
+    </script>
   </body>
 </html>

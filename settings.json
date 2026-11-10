@@ -12,5 +12,9 @@
   },
   "[jsx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.wait": 100,
+  "liveServer.settings.ignoreFiles": [".vscode/**", "**/*.scss", "**/.git/**"],
+  "liveServer.settings.donotShowInfoMsg": true
 }
