@@ -19,6 +19,12 @@
      13. KORREKTUREN JIMDO SYSTEMSEITEN
      14. SONSTIGES & UTILITIES
      ==================tt======================== */
+/* ==========================================
+   0. BASE / ROOT SETUP
+   ========================================== */
+html {
+  font-size: 62.5% !important; /* 1rem = 10px Basis */
+}
 
 /* ==========================================
    0. V2 LAYOUT & WRAPPER-SYSTEM
@@ -1983,6 +1989,36 @@ div[class*="j-"] h6 {
 /* ==========================================
      12. JIMDO ELEMENTE KORREKTUR
      ========================================== */
+/* ------------------------------------------
+   Jimdo Footer
+   ------------------------------------------ */
+.jtpl-footer,
+#contentfooter {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  color: #333333; /* Standard-Textfarbe im Footer */
+  line-height: 1.6;
+}
+
+.jtpl-footer a,
+#contentfooter a {
+  color: #333333 !important; /* Wunschfarbe für Links (z. B. Schwarz/Dunkelgrau) */
+  text-decoration: none; /* Unterstreichung entfernen (optional) */
+  transition: color 0.2s ease;
+}
+
+.jtpl-footer a:hover,
+#contentfooter a:hover {
+  text-decoration: underline;
+}
+
+.jtpl-footer a.cc-button,
+#contentfooter a[href*="widerrufen"] {
+  border: 1px solid #333333;
+  padding: 6px 12px;
+  display: inline-block;
+}
+/* _______________________________________________________________________ */
 
 .slide img,
 .slide picture {

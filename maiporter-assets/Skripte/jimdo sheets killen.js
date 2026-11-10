@@ -1,7 +1,8 @@
-(function () {
+<script>
+  (function () {
   function killJimdoStyles() {
     // Das sind die echten Dateinamen aus deinen Entwicklertools:
-    const jimdoFiles = ["web.css"];
+    const jimdoFiles = ["web.css, layout.css"];
 
     // 1. Aus dem DOM löschen und deaktivieren
     document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
@@ -31,3 +32,4 @@
     setTimeout(killJimdoStyles, 100);
   }
 })();
+</script>
