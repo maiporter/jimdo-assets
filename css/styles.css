@@ -36,6 +36,1764 @@ html {
 .v2 #content_area,
 .v2 .jtpl-main,
 .v2 .jtpl-section-main {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Alle Jimdo-Standard-Module im V2-Kontext zurücksetzen */
+.v2 .j-module {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* --- 1. FULLWIDTH-ELEMENTE (Bis max. 1920px zentriert) --- */
+.v2 .site-header,
+.v2 .page-header,
+.v2 .page-title,
+.v2 .page-title-credo,
+.v2 .site-footer {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* --- 2. DEIN EIGENER WRAPPER & JIMDO-PRODUKTE (Standard-Seitenrand) --- */
+.v2 .v2-wrapper,
+.v2 .j-module.j-product {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: var(--margin-inline);
+  box-sizing: border-box;
+}
+
+/* --- 3. BREAKOUTS INNERHALB DEINES WRAPPERS --- */
+/* (Falls innerhalb deines Wrappers Widgets/Bilder volle Breite brauchen) */
+.v2 .v2-wrapper .img-tainer-100,
+.v2 .v2-wrapper .roadtrain-widget-dt,
+.v2 .v2-wrapper .fw {
+  width: calc(100% + (var(--margin-inline) * 2));
+  max-width: none;
+  margin-left: calc(var(--margin-inline) * -1);
+  margin-right: calc(var(--margin-inline) * -1);
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   1. DESIGN TOKENS & VARIABLEN
+   ========================================== */
+:root {
+  --font-h1: 4.2rem;
+  --font-h2: 3.2rem;
+  --font-h3: 2.4rem;
+  --font-h4: 1.8rem;
+  --font-body: 1.8rem;
+
+  --weight-h1: 300;
+  --weight-h2: 400;
+  --weight-h3: 500;
+  --weight-h4: 610;
+
+  --line-height-h1: 1.2;
+  --line-height-h2: 1.3;
+  --line-height-h3: 1.2;
+  --line-height-h4: 1.2;
+  --line-height-body: 1.6;
+
+  /* Rhythmus-System: 1.0x (Mikro/Standard) & 1.6x (Makro/Trennwert) */
+  --space-element: 1em;
+  --space-section: 12rem;
+  --margin-inline: 7vw;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --font-h1: 3.4rem;
+    --font-h2: 2.6rem;
+    --font-h3: 2rem;
+    --font-h4: 1.6rem;
+    --font-body: 1.6rem;
+
+    --space-section: 8rem;
+    --margin-inline: 4vw;
+  }
+}
+
+@media (max-width: 719px) {
+  :root {
+    --font-h1: 2.6rem;
+    --font-h2: 2.1rem;
+    --font-h3: 1.7rem;
+    --font-h4: 1.5rem;
+    --font-body: 1.5rem;
+
+    --space-section: 6rem;
+    --margin-inline: 15px;
+  }
+}
+
+/* Globaler Standard für Schriftart (wo nicht explizit angegeben) */
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* ==========================================
+   2. TYPOGRAFIE
+   ========================================== */
+h1,
+.page-header h1,
+.page-title h1 {
+  font-size: var(--font-h1);
+  text-align: center;
+  font-weight: var(--weight-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2,
+.j-module.n.j-text h2,
+.cc-shop-product-desc h2,
+.cc-shop-product-desc h2 *,
+.cc-shop-product-desc h4.fn {
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: 0.02rem;
+}
+
+h3,
+.j-module.n.j-text h3,
+.cc-shop-product-desc h3,
+.cc-shop-product-desc h3 *,
+.cc-shop-detail-description h3 {
+  font-size: var(--font-h3);
+  font-weight: var(--weight-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: 0.04rem;
+}
+
+h4,
+.j-module.n.j-text h4,
+.cc-shop-product-desc h4,
+.j-module .cc-shop-product-desc h4,
+.j-module .cc-shop-product-desc h4 *,
+.j-static-page .cc-shop-product-desc h4,
+.j-static-page .cc-shop-product-desc h4 * {
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-height-h4);
+  letter-spacing: 0.08em;
+}
+
+p,
+ul li,
+.j-module.n.j-text,
+.content-options {
+  font-size: var(--font-body);
+  line-height: var(--line-height-body);
+}
+
+.lead-text {
+  font-size: calc(var(--font-body) * 1.15);
+  font-weight: 470;
+  line-height: 1.4;
+}
+
+.product-intro {
+  text-align: center;
+  font-size: var(--font-body);
+}
+
+.product-lead-h1 {
+  text-align: center;
+  font-size: var(--font-h1);
+  line-height: var(--line-height-h1);
+  font-weight: bold;
+}
+
+figure figcaption {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #434343;
+}
+
+@media (max-width: 1023px) {
+  figure figcaption {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 719px) {
+  figure figcaption {
+    font-size: 1.3rem;
+  }
+}
+
+.sprueche-gruen,
+.pull-quote {
+  text-align: center;
+  font-style: italic;
+  font-weight: 380;
+  font-family: "Open Sans", sans-serif;
+  font-size: calc(var(--font-h2) * 0.9);
+  color: #62a047;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================
+   3. VERTIKALE ABSTÄNDE & FLUSS
+   ========================================== */
+
+/* --- Absätze & Textvarianten --- */
+p,
+.j-module.n.j-text p {
+  margin-top: 0;
+  margin-bottom: var(--space-element);
+}
+
+p.p2 {
+  margin-bottom: calc(var(--space-element) * 2);
+}
+
+p.p3 {
+  margin-bottom: calc(var(--space-element) * 3);
+}
+
+.lead-text {
+  margin-top: var(--space-element);
+  margin-bottom: var(--space-element);
+}
+
+.product-intro {
+  margin-top: calc(var(--space-element) * 1.5);
+  margin-bottom: var(--space-element);
+}
+
+/* --- Überschriften (Abstand nach oben & unten) --- */
+h1,
+.page-header h1,
+.page-title h1 {
+  margin-top: 0;
+  margin-bottom: calc(var(--space-element) * 0.4);
+}
+
+h2,
+.j-module.n.j-text h2,
+.cc-shop-product-desc h2,
+.cc-shop-product-desc h2 *,
+.cc-shop-product-desc h4.fn {
+  margin-top: 1.5em;
+  margin-bottom: calc(var(--space-element) * 0.7);
+}
+
+h3,
+.j-module.n.j-text h3,
+.cc-shop-product-desc h3,
+.cc-shop-product-desc h3 *,
+.cc-shop-detail-description h3 {
+  margin-top: 1.3em;
+  margin-bottom: calc(var(--space-element) * 0.5);
+}
+
+h4,
+.j-module.n.j-text h4,
+.cc-shop-product-desc h4,
+.j-module .cc-shop-product-desc h4,
+.j-module .cc-shop-product-desc h4 *,
+.j-static-page .cc-shop-product-desc h4,
+.j-static-page .cc-shop-product-desc h4 * {
+  margin-top: 1.2em;
+  margin-bottom: calc(var(--space-element) * 0.3);
+}
+
+.product-lead-h1 {
+  margin-block: calc(var(--space-element) * 1.8);
+  padding-inline: 0.5em;
+}
+
+/* ==========================================
+   4. BILDER & MODUL-SEKTIONEN
+   ========================================== */
+
+figure {
+  margin-top: calc(var(--space-element) * 1.6);
+  margin-bottom: var(--space-element);
+}
+
+figure.compact {
+  margin-top: var(--space-element);
+}
+
+figure figcaption {
+  margin-top: calc(var(--space-element) * 0.3);
+  margin-bottom: 0;
+}
+
+.unitainer,
+.split-section {
+  display: flex;
+  gap: calc(var(--space-element) * 1.2);
+  margin-top: calc(var(--space-element) * 1.6);
+  margin-bottom: var(--space-element);
+}
+
+.unitainer.text-left,
+.unitainer-text-left,
+.split-section.text-left,
+.split-section-text-left,
+.unitainer.text-right,
+.unitainer-text-right,
+.split-section.text-right,
+.split-section-text-right {
+  flex-direction: row;
+}
+
+/* Spalten-Logik */
+.image-column,
+figure.image-column {
+  margin: 0 auto;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.text-column {
+  flex-grow: 1;
+  margin-bottom: -0.3em; /* Kompensiert den Zeilenhöhen-Überhang der Grundlinie */
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+}
+
+/* Inneres Reset für Split-Section */
+.split-section figure.image-column,
+.split-section figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Typografie-Offset für exakte Bündigkeit der 1. Zeile */
+.split-section .text-column p:first-child {
+  margin-top: -0.45em;
+}
+
+/* Entfernt den überflüssigen Margin des letzten Absatzes in der Section */
+.split-section .text-column p:last-child {
+  margin-bottom: 0;
+  display: block;
+}
+
+.text-column > h2:first-child,
+.text-column > h3:first-child,
+.text-column > h4:first-child {
+  margin-top: 0;
+}
+
+/* ==========================================
+   5. BREAKPOINTS & RESPONSIVE DESIGN (< 720px)
+   ========================================== */
+@media (max-width: 719px) {
+  .unitainer,
+  .split-section {
+    flex-direction: column;
+    /* Vertikaler Abstand via Flexbox-Gap */
+    gap: calc(var(--space-element) * 1.3);
+    align-items: center; /* Zentriert die Spalteninhalte */
+  }
+
+  .unitainer .image-column,
+  .split-section .image-column {
+    order: 1;
+    margin: 0 auto; /* Zentriert den Bild-Container */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Zentriert das Bild bei fester max-width */
+  }
+
+  .unitainer .text-column,
+  .split-section .text-column {
+    order: 2;
+    width: 100%; /* Volle Breite für den Textblock */
+  }
+
+  .j-module.n.j-htmlCode .unitainer,
+  .j-module.n.j-htmlCode .split-section {
+    margin-bottom: 23px;
+  }
+}
+
+/* Sonder-Module & Akkordeon */
+.sprueche-gruen,
+.pull-quote {
+  margin-block: var(--space-section);
+  margin-inline: var(--margin-inline);
+}
+
+.akkordeon-text dd,
+.akkordeon-text-easteregg dd {
+  margin-top: 0;
+  margin-bottom: 5rem;
+}
+
+/* ------------------------------------------
+   LAYOUT & CONTAINER WRAPPER FIX
+   ------------------------------------------ */
+
+.wrapper,
+.container,
+.main,
+.outer-wrapper,
+#content_area,
+.jtpl-section-main {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+.jtpl-content,
+.jtpl-content__inner,
+#content_area,
+.fw-column,
+.jtpl-main {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.cc-imagewrapper,
+.cc-m-image-align-1 {
+  margin-top: 80px;
+}
+
+.jtpl-section-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+header.jtpl-header {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* FIX: Seitenrand dynamisch über --margin-inline wiederherstellen */
+.jtpl-section-main__inner {
+  padding-left: var(--margin-inline);
+  padding-right: var(--margin-inline);
+  box-sizing: border-box;
+}
+
+div.flexmodul,
+div.n {
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.j-module b,
+.j-module strong,
+.j-static-page b,
+.j-static-page strong {
+  font-weight: 600;
+}
+
+/* ==========================================
+     3.1 GRID & SPALTEN-SYSTEM (12 Spalten)
+     ========================================== */
+
+#content_area {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.col-12 {
+  width: 100%;
+  margin-inline: auto;
+}
+.col-11 {
+  width: 91.666%;
+  margin-inline: auto;
+}
+.col-10 {
+  width: 83.333%;
+  margin-inline: auto;
+}
+.col-09,
+.col-9 {
+  width: 75%;
+  margin-inline: auto;
+}
+.col-08,
+.col-8 {
+  width: 66.666%;
+  margin-inline: auto;
+}
+.col-07,
+.col-7 {
+  width: 58.333%;
+  margin-inline: auto;
+}
+.col-06,
+.col-6 {
+  width: 50%;
+  margin-inline: auto;
+}
+.col-05,
+.col-5 {
+  width: 41.666%;
+  margin-inline: auto;
+}
+.col-04,
+.col-4 {
+  width: 33.333%;
+  margin-inline: auto;
+}
+.col-03,
+.col-3 {
+  width: 25%;
+  margin-inline: auto;
+}
+.col-02,
+.col-2 {
+  width: 16.666%;
+  margin-inline: auto;
+}
+.col-01,
+.col-1 {
+  width: 8.333%;
+  margin-inline: auto;
+}
+
+.grid-12 > .col-12 {
+  grid-column: span 12;
+  width: 100%;
+}
+.grid-12 > .col-11 {
+  grid-column: span 11;
+  width: 100%;
+}
+.grid-12 > .col-10 {
+  grid-column: span 10;
+  width: 100%;
+}
+.grid-12 > .col-09,
+.grid-12 > .col-9 {
+  grid-column: span 9;
+  width: 100%;
+}
+.grid-12 > .col-08,
+.grid-12 > .col-8 {
+  grid-column: span 8;
+  width: 100%;
+}
+.grid-12 > .col-07,
+.grid-12 > .col-7 {
+  grid-column: span 7;
+  width: 100%;
+}
+.grid-12 > .col-06,
+.grid-12 > .col-6 {
+  grid-column: span 6;
+  width: 100%;
+}
+.grid-12 > .col-05,
+.grid-12 > .col-5 {
+  grid-column: span 5;
+  width: 100%;
+}
+.grid-12 > .col-04,
+.grid-12 > .col-4 {
+  grid-column: span 4;
+  width: 100%;
+}
+.grid-12 > .col-03,
+.grid-12 > .col-3 {
+  grid-column: span 3;
+  width: 100%;
+}
+.grid-12 > .col-02,
+.grid-12 > .col-2 {
+  grid-column: span 2;
+  width: 100%;
+}
+.grid-12 > .col-01,
+.grid-12 > .col-1 {
+  grid-column: span 1;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .col-08,
+  .col-8 {
+    width: 75%;
+  }
+  .col-06,
+  .col-6 {
+    width: 65%;
+  }
+  .grid-12 > .col-04,
+  .grid-12 > .col-4 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 1024px) {
+  .col-08,
+  .col-8 {
+    width: 85%;
+  }
+  .col-06,
+  .col-6 {
+    width: 75%;
+  }
+}
+
+@media (max-width: 719px) {
+  #content_area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  [class*="col-"],
+  .grid-12 > [class*="col-"] {
+    width: 100%;
+    grid-column: span 12;
+  }
+
+  .text-block {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
+
+/* ==========================================
+     4. NAVIGATION & FOOTER
+     ========================================== */
+
+#global-header {
+  min-height: 180px;
+}
+
+.maiporter-logo {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  height: 84px;
+  padding-bottom: 60px;
+}
+
+.main-navigation {
+  display: flex;
+  bottom: 3.7px;
+  justify-content: space-around;
+  align-items: baseline;
+  position: relative;
+  z-index: 2;
+}
+
+.main-navigation a {
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  font-family: "open sans", sans-serif;
+  text-transform: uppercase;
+  padding: 0 20px;
+  line-height: 0.35;
+  transition:
+    transform 0.3s ease,
+    font-size 0.3s ease;
+  display: inline-block;
+  transform-origin: bottom;
+  font-size: 18px;
+}
+
+.main-navigation a:hover:not(.active) {
+  transform: scale(1.1);
+}
+
+.main-navigation a.active {
+  font-size: 21.5px;
+}
+
+.site-footer {
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .maiporter-logo {
+    height: 110px;
+    padding-bottom: 70px;
+  }
+
+  .main-navigation a {
+    font-size: 22px;
+  }
+
+  .main-navigation a.active {
+    font-size: 26px;
+  }
+}
+
+/* ==========================================
+     5. LAYOUT & KOMPONENTEN
+     ========================================== */
+
+.v2-wrapper,
+.j-module.n.j-text,
+footer.jtpl-footer.footer-options,
+.cc-shop-product-desc,
+.unitainer {
+  margin-inline: var(--margin-inline);
+}
+
+.akkordeon-text,
+.unitainer,
+.img-tainer {
+  margin-bottom: var(--space-section);
+}
+
+ul {
+  padding-inline: 3.3rem;
+}
+
+.j-module.n.j-text ul,
+.description ul {
+  list-style-type: none;
+}
+
+.j-module.n.j-text ul li,
+.description ul li {
+  list-style-position: outside;
+  text-indent: -1.1em;
+  margin-left: 1.1em;
+}
+
+.j-module.n.j-text ul li::before,
+.description ul li::before {
+  content: "– ";
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+ul.nostyle {
+  list-style: none;
+  margin-block: 1em;
+  padding-left: 2.6em;
+}
+
+ul.nostyle li {
+  text-indent: 0;
+  margin: 0;
+}
+
+ul.nostyle li::before {
+  content: none;
+}
+
+/* ==========================================
+     6. SONDER-KLASSEN & JIMDO OVERRIDES
+     ========================================== */
+
+.akkordeon-text dt,
+.akkordeon-text-easteregg dt {
+  margin-inline: calc(var(--margin-inline) * 1.2);
+}
+
+.akkordeon-text dd,
+.akkordeon-text-easteregg dd {
+  margin-left: calc(var(--margin-inline) * 1.3);
+  padding-inline: 6px;
+}
+
+.akkordeon-text p {
+  margin-left: 2rem;
+}
+
+/* ==========================================
+     Credo-Container Schriften
+    ========================================== */
+/* Family & Zeilenhöhe */
+#cc-m-9507311775 .page-title-credo h2,
+#cc-m-9582535275 .page-title-credo h2 {
+  font-family: "Kalam", sans-serif;
+  line-height: 0.2;
+}
+#cc-m-9507308875 .page-title-credo h2 {
+  font-family: "Oranienbaum", serif;
+  line-height: 0.2;
+}
+/* ------------------------------------------
+    Schriftgrößen
+     ------------------------------------------ */
+/* MIKARUS */
+#cc-m-9507308875 .page-title-credo h1 {
+  font-size: 39px;
+}
+
+#cc-m-9507308875 .page-title-credo h2 {
+  font-size: 32px;
+}
+
+@media (max-width: 1023px) {
+  #cc-m-9507308875 .page-title-credo h1 {
+    font-size: 37px;
+  }
+
+  #cc-m-9507308875 .page-title-credo h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1023px) {
+  #cc-m-9507308875 .page-title-credo h1 {
+    font-size: 30px;
+  }
+
+  #cc-m-9507308875 .page-title-credo h2 {
+    font-size: 27px;
+  }
+}
+/* STARTSEITE & BOXEN OVERVIEW */
+#cc-m-9507311775 .page-title-credo h1,
+#cc-m-9582535275 .page-title-credo h1 {
+  font-size: 44px;
+}
+
+#cc-m-9507311775 .page-title-credo h2,
+#cc-m-982535275 .page-title-credo h2 {
+  font-size: 31px;
+}
+
+@media (max-width: 1023px) {
+  #cc-m-9507311775 .page-title-credo h1,
+  #cc-m-9582535275 .page-title-credo h1 {
+    font-size: 42px;
+  }
+
+  #cc-m-9507311775 .page-title-credo h2,
+  #cc-m-9582535275 .page-title-credo h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  #cc-m-9507311775 .page-title-credo h1,
+  #cc-m-9582535275 .page-title-credo h1 {
+    font-size: 40px;
+  }
+
+  #cc-m-9507311775 .page-title-credo h2,
+  #cc-m-9582535275 .page-title-credo h2 {
+    font-size: 24px;
+  }
+}
+
+footer.jtpl-footer.footer-options {
+  font-size: calc(var(--font-body) * 0.95);
+  line-height: 1.5;
+}
+
+.footer-logo-space {
+  height: 60px;
+}
+
+li.cc-shop-product-pool.j-product-pool.j-product-pool-status-1.cc-shop-product-pool-variant-1,
+li.cc-product-delivery-time-info.j-product-delivery-time.cc-delivery-time-variant-1.j-product-delivery-time-status-1,
+div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-info {
+  font-size: calc(var(--font-body) * 0.95);
+  line-height: 1;
+}
+
+/* ==========================================
+     7. BILDCONTAINER & MEDIEN
+     ========================================== */
+
+.media-frame {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  margin-block: 50px;
+  max-width: 100%;
+}
+
+.media-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.img-square {
+  max-width: 600px;
+  max-height: 70vh;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 20px auto;
+}
+
+.media-frame-20 {
+  width: 20%;
+}
+.media-frame-30 {
+  width: 30%;
+}
+.media-frame-40 {
+  width: 40%;
+}
+.media-frame-50 {
+  width: 50%;
+}
+.media-frame-60 {
+  width: 60%;
+}
+.media-frame-70 {
+  width: 70%;
+}
+.media-frame-80 {
+  width: 80%;
+}
+.media-frame-90 {
+  width: 90%;
+}
+.media-frame-100 {
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .media-frame-40 {
+    width: 50%;
+  }
+  .media-frame-50 {
+    width: 65%;
+  }
+  .media-frame-60 {
+    width: 75%;
+  }
+  .media-frame-70 {
+    width: 85%;
+  }
+  .media-frame-80 {
+    width: 95%;
+  }
+}
+
+@media (max-width: 719px) {
+  .media-frame-20,
+  .media-frame-30,
+  .media-frame-40,
+  .media-frame-50,
+  .media-frame-60,
+  .media-frame-70,
+  .media-frame-80,
+  .media-frame-90 {
+    width: 100%;
+  }
+}
+
+.wiper-frame {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  --pos: 38px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.wiper-frame picture,
+.wiper-frame img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.wiper-frame img {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.wiper-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  pointer-events: none;
+}
+
+.wiper-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 4px;
+  background-color: #888888;
+  opacity: 0.7;
+  z-index: 3;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.wiper-button {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  width: 60px;
+  height: 60px;
+  background-image: url("https://img-mp.maiporter.de/wiper-handle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.wiper-touch-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 200px;
+  transform: translateX(-50%);
+  z-index: 5;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+@media (max-width: 600px) {
+  .wiper-button {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (max-width: 540px) {
+  .wiper-frame {
+    aspect-ratio: 11 / 10;
+    --pos: 28px;
+  }
+  .wiper-button {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 413px) {
+  .wiper-frame {
+    --pos: 26px;
+  }
+  .wiper-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.slider-frame {
+  width: 100%;
+  margin: 40px auto;
+  max-width: 900px;
+  position: relative;
+}
+
+.slider {
+  background: #ffffff;
+  position: relative;
+  cursor: pointer;
+  touch-action: pan-y;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide {
+  min-width: 100%;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img,
+.slide picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slider-arrow {
+  opacity: 0.3;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.slider-arrow.is-active {
+  opacity: 0.1;
+  transform: translateY(-50%) scale(0.9);
+}
+
+@media (hover: hover) {
+  .slider-arrow:hover {
+    opacity: 0.5;
+  }
+}
+
+.arrow-prev {
+  left: 15px;
+}
+.arrow-next {
+  right: 15px;
+}
+
+.slider-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.thumbs picture {
+  width: var(--thumb-width, 100px);
+  max-width: var(--thumb-max-width, 22%);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.thumbs img {
+  width: 100%;
+  display: block;
+  aspect-ratio: var(--thumb-ratio, 4 / 3);
+  object-fit: cover;
+}
+
+.thumbs picture.active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.is-morpher .slide-track {
+  display: grid;
+  grid-template-areas: "stack";
+  min-height: 1px;
+}
+
+.is-morpher .slide {
+  grid-area: stack;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s linear;
+}
+
+.is-morpher .slide.active {
+  opacity: 1;
+  z-index: 10;
+}
+
+.is-morpher .slide.last-active {
+  opacity: 1;
+  z-index: 5;
+}
+
+.is-standard .slide-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.is-standard .slide {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 719px) {
+  .slider-frame {
+    max-width: 500px;
+  }
+
+  .thumbs picture {
+    width: var(--thumb-width-mobile, 70px);
+    max-width: var(--thumb-max-width, 22%);
+  }
+
+  .thumbs img {
+    aspect-ratio: var(--thumb-ratio-mobile, var(--thumb-ratio, 130 / 149));
+  }
+
+  .slider-arrow {
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+  }
+}
+
+.img-tainer {
+  display: flex;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.j-module.j-htmlCode .img-tainer {
+  display: flex;
+  justify-content: center;
+}
+
+.img-tainer img {
+  max-width: 100%;
+  height: auto;
+}
+
+#img-tainer-sp {
+  max-width: 250px;
+  margin-inline: auto;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+#img-tainer-sp img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-tainer-20,
+.img-tainer-30,
+.img-tainer-40 {
+  max-width: 40vw;
+}
+.img-tainer-50 {
+  max-width: 50vw;
+}
+.img-tainer-60 {
+  max-width: 60vw;
+}
+.img-tainer-70 {
+  max-width: 70vw;
+}
+.img-tainer-80 {
+  max-width: 80vw;
+}
+.img-tainer-90 {
+  max-width: 90vw;
+}
+.img-tainer-100 {
+  max-width: 100vw;
+}
+
+.textfield-70 {
+  display: block;
+  margin-inline: auto;
+  max-width: 70vw;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.textfield-80 {
+  display: block;
+  margin-inline: auto;
+  max-width: 80vw;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+  .img-tainer-40 {
+    max-width: 45vw;
+  }
+  .img-tainer-50 {
+    max-width: 55vw;
+  }
+  .img-tainer-60 {
+    max-width: 65vw;
+  }
+  .img-tainer-70 {
+    max-width: 77vw;
+  }
+  .img-tainer-80 {
+    max-width: 82vw;
+  }
+  .img-tainer-90 {
+    max-width: 95vw;
+  }
+  .textfield-70 {
+    max-width: 77vw;
+  }
+  .textfield-80 {
+    max-width: 82vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  #img-tainer-sp {
+    max-width: 200px;
+  }
+  .img-tainer-40 {
+    max-width: 50vw;
+  }
+  .img-tainer-50 {
+    max-width: 60vw;
+  }
+  .img-tainer-60 {
+    max-width: 70vw;
+  }
+  .img-tainer-70 {
+    max-width: 85vw;
+  }
+  .img-tainer-80 {
+    max-width: 90vw;
+  }
+  .img-tainer-90 {
+    max-width: 100vw;
+  }
+  .textfield-70 {
+    max-width: 85vw;
+  }
+  .textfield-80 {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 719px) {
+  .img-tainer img {
+    width: 100%;
+  }
+  .img-tainer-40,
+  .img-tainer-50,
+  .img-tainer-60,
+  .img-tainer-70,
+  .img-tainer-80,
+  .img-tainer-90 {
+    max-width: 100vw;
+  }
+  .textfield-70,
+  .textfield-80 {
+    max-width: 100vw;
+  }
+}
+
+/* ==========================================
+     8. TRENNLINIEN & CONTAINER
+     ========================================== */
+
+.mai-line.line-1 line {
+  stroke: black;
+  stroke-width: 1;
+}
+.mai-line.line-2 line {
+  stroke: black;
+  stroke-width: 2;
+}
+.mai-line.line-3 line {
+  stroke: black;
+  stroke-width: 3;
+}
+.mai-line.line-4 line {
+  stroke: black;
+  stroke-width: 4;
+}
+
+.page-title-credo,
+.site-header,
+.site-footer,
+.page-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding-inline: 2px;
+}
+/* --- FULLWIDTH-ELEMENTE (AUSSERHALB DES WRAPPERS) --- */
+.v2 .mai-line {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 5px;
+  box-sizing: border-box;
+}
+.page-title-credo h1,
+.page-title-credo h2 {
+  position: absolute;
+  box-sizing: border-box;
+  text-align: center;
+  font-variant: small-caps;
+  white-space: normal;
+  width: 100%;
+}
+.page-title {
+  font-variant: small-caps;
+}
+.page-title-credo h1 {
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-title-credo h2 {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.site-header .mai-line,
+.site-footer .mai-line,
+.page-title-credo .mai-line,
+.page-title .mai-line {
+  position: absolute;
+  bottom: 0;
+}
+
+.page-title .mai-line.line-3 {
+  position: absolute;
+  top: 0;
+}
+
+.site-header,
+.page-title-credo {
+  height: 180px;
+}
+
+.site-footer {
+  height: 50px;
+}
+
+.page-title {
+  min-height: 90px;
+}
+
+.site-footer .main-navigation {
+  position: relative;
+  bottom: -16.3px;
+}
+
+/* ==========================================
+     9. LINKS & INTERAKTIONEN
+     ========================================== */
+
+.akkordeon-text dt a,
+.akkordeon-text-easteregg dt a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.akkordeon-schalter-klein {
+  font-size: 21px;
+}
+
+/* ==========================================
+     10. BUTTONS & CALL-TO-ACTION
+     ========================================== */
+
+button,
+.j-shop-addtocard-response--backward.is-close,
+.j-shop-addtocard-response--forwart.ist-checkout {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #6ea372;
+  border: none;
+  margin-top: 12px;
+  border-radius: 0;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  height: auto;
+  opacity: 1;
+}
+
+button:hover,
+.j-shop-addtocard-response--backward.is-close,
+.j-shop-addtocard-response--forwart.ist-checkout:hover {
+  background-color: #76b47e;
+}
+
+/* ==========================================
+     11. ALLGEMEINE KORREKTUREN
+     ========================================== */
+/* Zur Kasse-Button */
+.j-cart .j-cart--hover-popup--call-to-action-button,
+a.j-cart--hover-popup--call-to-action-button {
+  background-color: #58845c;
+  border-color: #58845c;
+  color: #fff;
+  font-size: 18px;
+  border-width: 0.8px;
+  border-style: solid;
+  border-radius: 0px;
+}
+
+.j-cart .j-cart--hover-popup--call-to-action-button:hover,
+.j-cart .j-cart--hover-popup--call-to-action-button:focus,
+.j-cart .j-cart--hover-popup--call-to-action-button:active {
+  background-color: #5c8b5f; /* Etwas dunkleres Grün für Hover */
+  border-color: #5c8b5f;
+  color: #fff;
+}
+/*--------------------------------------*/
+.jtpl-sidebar {
+  display: none;
+}
+
+blockquote:has(ul),
+blockquote:has(ol) {
+  margin-inline: 0;
+}
+
+.j-module h1,
+.j-module h2,
+.j-module h3,
+.j-module h4,
+#cc-checkout-address-head-same {
+  font-family: "open sans", sans-serif;
+}
+
+div[class*="j-"] h1,
+div[class*="j-"] h2,
+div[class*="j-"] h3,
+div[class*="j-"] h4,
+div[class*="j-"] h5,
+div[class*="j-"] h6 {
+  color: #000000;
+}
+
+.jtpl-main {
+  overflow-x: visible;
+}
+
+#cc-m-gallery-9510761875 {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.j-module.n.j-text ul:last-child {
+  margin-top: 0;
+}
+
+.j-module.n.j-text:last-child ul:last-child {
+  margin-bottom: 0;
+}
+
+.overview-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1344px;
+  margin: 120px auto 20px auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.overview-item {
+  flex: 1 1 calc(33.333% - (2 * 32px) / 3);
+  max-width: 424px;
+  min-width: 250px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.overview-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 11px;
+}
+
+.textlinks-bilder,
+.overview-container__textlink {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 4px;
+  font-family: "open sans", sans-serif;
+  font-weight: 500;
+  color: inherit;
+  font-size: 17px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.overview-container .textlinks-bilder,
+.overview-container .overview-container__textlink {
+  text-decoration: none;
+}
+
+.overview-container.product-description .textlinks-bilder,
+.overview-container--product-description .overview-container__textlink {
+  text-decoration: underline;
+}
+
+.overview-container.product-description,
+.overview-container--product-description {
+  margin-top: 50px;
+}
+
+.desktop-note {
+  max-width: 1344px;
+  margin: 0 auto 80px auto;
+  padding: 0 32px;
+  text-align: left;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 1100px) {
+  .overview-item {
+    flex: 1 1 calc(50% - 16px);
+    max-width: 424px;
+  }
+}
+
+@media (max-width: 700px) {
+  .overview-container {
+    padding: 0 16px;
+  }
+  .overview-item {
+    flex: 1 1 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 414px) {
+  .overview-item {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+/* ==========================================
+     11.1 COOKIE BANNER OVERRIDES
+     ========================================== */
+
+/* ==========================================
+     Inhaltsverzeichnis
+     ==========================================
+     0. KORREKTUREN FÜR V2
+     1. DESIGN TOKENS & VARIABLEN
+     2. TYPOGRAPHY
+     3. VERTIKALE ABSTÄNDE
+     3.1 GRID & SPALTEN-SYSTEM (12 Spalten)
+     4. NAVIGATION & FOOTER
+     5. LAYOUT & KOMPONENTEN
+     6. SONDER-KLASSEN & JIMDO OVERRIDES
+     7. BILDCONTAINER & MEDIEN
+     8. TRENNLINIEN & CONTAINER
+     9. LINKS & INTERAKTIONEN
+     10. BUTTONS & CALL-TO-ACTION
+     11. ALLGEMEINE KORREKTUREN
+     11.1 COOKIE BANNER OVERRIDES
+     12. JIMDO ELEMENTE KORREKTUR
+     13. KORREKTUREN JIMDO SYSTEMSEITEN
+     14. SONSTIGES & UTILITIES
+     ==================tt======================== */
+/* ==========================================
+   0. BASE / ROOT SETUP
+   ========================================== */
+html {
+  font-size: 62.5% !important; /* 1rem = 10px Basis */
+}
+
+/* ==========================================
+   0. V2 LAYOUT & WRAPPER-SYSTEM
+   ========================================== */
+
+/* --- HAUPT-CONTAINER RESETS (100% ohne Störungen) --- */
+.v2,
+.v2 body,
+.v2 #content_area,
+.v2 .jtpl-main,
+.v2 .jtpl-section-main {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
@@ -2334,6 +4092,422 @@ address {
 
 .sans {
   font-family: "open sans", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "EmojiOne Color", sans-serif !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+form input,
+form textarea,
+form select {
+  font-family: "open sans", sans-serif, "google";
+}
+
+.tooltipwort {
+  border-bottom: 1px dashed #333;
+  cursor: help;
+}
+
+.tooltipbox {
+  position: absolute;
+  background: #fefefe;
+  border: 1px solid #eee;
+  padding: 0.6em 0.8em;
+  border-radius: 0;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: "open sans", sans-serif;
+  color: #222;
+  height: calc(1.5rem * 1.6 * 5);
+  line-height: 1.6;
+  overflow: hidden;
+  white-space: normal;
+  width: 310px;
+  z-index: 1000;
+  box-sizing: border-box;
+  opacity: 0;
+  transform:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  visibility: hidden;
+}
+
+.tooltipbox.visible {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.share-widget {
+  font-size: 1.05em;
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-inline: 15px;
+  line-height: 1.6;
+  display: inline-block;
+}
+
+/* Entfernt das Outline NUR bei Maus-Klicks, behält es aber für Tastatur-Tabber bei */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Fokus-Rahmen für Tastatur-Nutzer */
+:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+/* ==========================================
+     12. JIMDO ELEMENTE KORREKTUR
+     ========================================== */
+/* ------------------------------------------
+   Jimdo-Footer
+   ------------------------------------------ */
+/* 1. Haupt-Footer */
+.legal-footer {
+  font-family: "open sans", sans-serif;
+  font-size: 14px;
+  color: #333333;
+  line-height: 2.1;
+  padding: 20px 60px;
+}
+.legal-footer .footer-container .footer-note {
+  font-size: 14px;
+  margin-block: 20px;
+}
+@media (max-width: 630px) {
+  .legal-footer {
+    font-size: 14px;
+    line-height: 2.1;
+    padding: 30px 30px;
+  }
+}
+/* 2. Text "1 inkl. MwSt." */
+.legal-footer .footer-note {
+  margin-bottom: 10px;
+}
+
+/* 3. Alle Links im Footer (löst das Blau-Problem!) */
+.legal-footer a {
+  color: #333333; /* Schwarz/Dunkelgrau statt Standard-Blau */
+  text-decoration: none; /* Keine Unterstreichung */
+}
+
+.legal-footer a:hover {
+  text-decoration: underline; /* Unterstreichung nur beim Drüberfahren */
+}
+
+/* 4. Trennstriche | zwischen den Links */
+.legal-footer .divider {
+  margin: 0;
+  color: #666666;
+}
+
+/* 5. Der Button "Vertrag widerrufen" (über Ihre Klasse withdrawal-btn) */
+.legal-footer a.withdrawal-btn {
+  border: 1px solid #000; /* Blauer Rahmen wie auf Ihrem Screenshot */
+  /*! color: #0000ff; */ /* Blaue Schrift */
+  padding: 6px 12px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.legal-footer a.withdrawal-btn:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
+/* _______________________________________________________________________ */
+
+.slide img,
+.slide picture {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+@media (min-width: 930px) {
+  .cc-FloatingButtonBarContainer {
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+.content-options .j-rss h3 a:link,
+.content-options .j-rss h3 a:visited {
+  font-weight: normal;
+}
+
+#contentfooter a[data-meta-link="withdrawal_button"] {
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 8px 10px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.cc-FloatingButtonBarContainer li a {
+  background: #7f7f7f;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.cc-product-delivery-time-info::before,
+.cc-shop-product-pool-variant-1,
+.j-product__info__free-shipping-countries,
+.bx-caption,
+.bx-controls-auto,
+#cc-website-logo {
+  display: none;
+}
+
+.j-product-weight::before {
+  content: "\1F3CB\FE0F";
+  display: inline-block;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  line-height: 1;
+  text-align: center;
+}
+
+.cc-shop-product-desc {
+  margin-bottom: 30px;
+}
+/* Media Checkout */
+@media (max-width: 720px) {
+  .j-checkout__calculation .j-checkout__calculation-item label,
+  .j-checkout__calculation .j-checkout__footnote--item label,
+  .j-checkout__footnote .j-checkout__calculation-item label,
+  .j-checkout__footnote .j-checkout__footnote--item label {
+    text-align: left;
+  }
+}
+#content_area #cc-checkout-wrapper {
+  padding-inline: 60px;
+}
+@media (max-width: 480px) {
+  #content_area #cc-checkout-wrapper {
+    padding-inline: 30px;
+  }
+}
+.j-cart.is-empty {
+  display: none;
+}
+
+.jtpl-navigation__label {
+  top: 0;
+  position: absolute;
+  z-index: 9999;
+}
+
+.j-checkout__heading {
+  font-family: "open sans", sans-serif;
+}
+
+.jtpl-navigation__borders,
+.jtpl-navigation__borders::after,
+.jtpl-navigation__borders::before {
+  border-color: #9e9e9e;
+}
+
+@media (max-width: 767px) {
+  .j-calltoaction-wrapper.j-calltoaction-align-2 .j-calltoaction-link {
+    max-width: max-content;
+    min-width: 0;
+    width: auto;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .j-calltoaction-wrapper.j-calltoaction-align-2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cc-shop-addtocard.cc-no-clickable-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ==========================================
+     13. KORREKTUREN JIMDO SYSTEMSEITEN
+     ========================================== */
+
+.ui-widget button {
+  font-family: "open sans" sansserif;
+}
+
+.jimdo-systemseiten #cc-inner,
+.jimdo-systemseiten #cc-checkout-wrapper,
+.jimdo-systemseiten #cc-shop-shipping-free-text {
+  padding-top: 60px;
+}
+
+.j-checkout__button,
+input#cc-checkout-submit-0 {
+  padding: 15px 20px;
+  background-color: #6ea372;
+  border: none;
+  margin-top: 12px;
+  border-radius: 0;
+  font-size: 16px;
+  font-family: "open sans", sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  height: auto;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-transform: none;
+  letter-spacing: normal;
+  box-shadow: none;
+  line-height: normal;
+}
+
+.j-checkout__button:hover,
+input#cc-checkout-submit-0:hover {
+  background-color: #76b47e;
+}
+
+#cc-checkout-steps li::before,
+#cc-checkout-steps li a::before {
+  display: none;
+}
+
+#cc-checkout-steps {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 35px;
+  padding: 0;
+  list-style: none;
+  border-bottom: 0;
+}
+
+#cc-checkout-steps li {
+  text-align: center;
+  font-family: "open sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #999;
+  border: none;
+  box-shadow: none;
+  background: #fff;
+  min-width: 120px;
+  padding: 0;
+}
+
+#cc-checkout-steps li,
+#cc-checkout-steps li span {
+  border-radius: 0;
+}
+
+#cc-checkout-steps li span {
+  border: none;
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.j-checkout__payment-options {
+  border-top: 0;
+}
+
+#cc-checkout-steps li.cc-checkout-steps-current span {
+  background-color: #6ea372;
+  color: #ffffff;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+#cc-checkout-steps li:not(.cc-checkout-steps-current) span {
+  margin-top: 6px;
+}
+
+#cc-checkout-steps li.cc-checkout-steps-current * {
+  all: unset;
+  font-family: "open sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #6ea372;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+#cc-checkout-steps li > a {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+@media (max-width: 800px) {
+  #cc-checkout-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  #cc-checkout-steps li:not(.cc-checkout-steps-current) span,
+  #cc-checkout-steps li:not(.cc-checkout-steps-current) a span {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  #cc-checkout-steps li a {
+    padding-left: 0;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* ==========================================
+     14. SONSTIGES & UTILITIES
+     ========================================== */
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("https://img-mp.maiporter.de/fonts/open-sans/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("https://img-mp.maiporter.de/fonts/open-sans/OpenSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
+}
+
+address {
+  font-style: normal;
+}
+
+.sans {
+  font-family: "open sans", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "EmojiOne Color", sans-serif;
 }
 
 html {
