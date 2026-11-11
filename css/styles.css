@@ -44,11 +44,10 @@ html {
 }
 
 /* --- 1. FULLWIDTH-ELEMENTE (Bis max. 1920px zentriert) --- */
-.v2 .site-header,
-.v2 .page-header,
-.v2 .page-title,
-.v2 .page-title-credo,
-.v2 .page-footer {
+.page-header,
+.page-title,
+.page-title-credo,
+.page-footer {
   width: 100%;
   max-width: 1920px;
   margin-inline: auto;
@@ -58,7 +57,7 @@ html {
 }
 
 /* --- 2. DEIN EIGENER WRAPPER & JIMDO-PRODUKTE (Standard-Seitenrand) --- */
-.v2 .v2-wrapper,
+.v2-wrapper,
 .v2 .j-module.j-product {
   width: 100% !important;
   max-width: 1920px !important;
@@ -69,9 +68,9 @@ html {
 
 /* --- 3. BREAKOUTS INNERHALB DEINES WRAPPERS --- */
 /* (Falls innerhalb deines Wrappers Widgets/Bilder volle Breite brauchen) */
-.v2 .v2-wrapper .img-tainer-100,
-.v2 .v2-wrapper .roadtrain-widget-dt,
-.v2 .v2-wrapper .fw {
+.v2-wrapper .img-tainer-100,
+.v2-wrapper .roadtrain-widget-dt,
+.v2-wrapper .fw {
   width: calc(100% + (var(--margin-inline) * 2)) !important;
   max-width: none !important;
   margin-left: calc(var(--margin-inline) * -1) !important;
@@ -1476,7 +1475,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   padding-inline: 2px;
 }
 /* --- FULLWIDTH-ELEMENTE (AUSSERHALB DES WRAPPERS) --- */
-.v2 .mai-line {
+.mai-line {
   width: 100% !important;
   max-width: 1920px !important;
   margin-inline: auto !important;
