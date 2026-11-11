@@ -6,7 +6,7 @@
      2. TYPOGRAPHY
      3. VERTIKALE ABSTÄNDE
      3.1 GRID & SPALTEN-SYSTEM (12 Spalten)
-     4. NAVIGATION & FOOTER
+     4. NAVIGATION, TITEL & FOOTER
      5. LAYOUT & KOMPONENTEN
      6. SONDER-KLASSEN & JIMDO OVERRIDES
      7. BILDCONTAINER & MEDIEN
@@ -19,91 +19,7 @@
      13. KORREKTUREN JIMDO SYSTEMSEITEN
      14. SONSTIGES & UTILITIES
      ==================tt======================== */
-/* 1. Der Header-Container mit den festen 180px Höhe */
-/* Header mit Mindesthöhe als Bezugsrahmen */
-.page-header {
-  min-height: 180px;
-  position: relative; /* Wichtig für die absolute Positionierung des Logos & Nav-Containers */
-}
 
-/* Logo-Positionierung */
-.maiporter-logo {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 15px;
-  height: 84px !important;
-  padding-bottom: 60px;
-}
-
-/* Der Navigations-Block (schließt unten am Header ab) */
-#page-nav-header,
-#page-nav-footer,
-.page-nav-block {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-/* Die SVG-Linie am Boden */
-.mai-line.line-3 {
-  display: block;
-  width: 100%;
-  height: 4.5px;
-  overflow: hidden;
-}
-
-/* Die Navigation exakt 3.7px über dem Boden */
-.main-navigation {
-  display: flex;
-  justify-content: space-around;
-  align-items: baseline;
-  position: relative;
-  bottom: 3.7px;
-  z-index: 2;
-  margin: 0;
-  padding: 0;
-}
-
-.main-navigation a {
-  text-decoration: none !important;
-  letter-spacing: 0.07em;
-  font-family: "open sans", sans-serif;
-  text-transform: uppercase;
-  padding: 0 20px;
-  line-height: 0.15;
-  transition:
-    transform 0.3s ease,
-    font-size 0.3s ease;
-  display: inline-block;
-  transform-origin: bottom;
-  font-size: 18px;
-}
-
-.main-navigation a:hover:not(.active) {
-  transform: scale(1.1);
-}
-
-.main-navigation a.active {
-  font-size: 21.5px;
-}
-
-@media (min-width: 900px) {
-  .maiporter-logo {
-    height: 110px !important;
-    padding-bottom: 70px;
-  }
-
-  .main-navigation a {
-    font-size: 25px;
-  }
-
-  .main-navigation a.active {
-    font-size: 27px !important;
-  }
-}
 /* ==========================================
    0. BASE / ROOT SETUP
    ========================================== */
@@ -226,7 +142,6 @@ body {
    2. TYPOGRAFIE
    ========================================== */
 h1,
-.page-header h1,
 .page-title h1 {
   font-size: var(--font-h1);
   text-align: center;
@@ -362,10 +277,9 @@ p.p3 {
 
 /* --- Überschriften (Abstand nach oben & unten) --- */
 h1,
-.page-header h1,
 .page-title h1 {
   margin-top: 0;
-  margin-bottom: calc(var(--space-element) * 0.4) !important;
+  margin-bottom: calc(var(--space-element) * 0.6) !important;
 }
 
 h2,
@@ -788,11 +702,14 @@ body {
 }
 
 /* ==========================================
-     4. NAVIGATION & FOOTER
-     ========================================== */
+   4. NAVIGATION, TITEL & FOOTER
+   ========================================== */
 
-#global-header {
+/* --- 4.1 HEADER & NAV-POSITIONIERUNG --- */
+.page-header {
   min-height: 180px;
+  position: relative;
+  width: 100%;
 }
 
 .maiporter-logo {
@@ -805,13 +722,35 @@ body {
   padding-bottom: 60px;
 }
 
+/* Header-Navi verankert sich ganz unten im Header */
+#page-nav-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* --- 4.2 GEMEINSAME NAVIGATIONS-REGELN (HEADER & FOOTER) --- */
+
+/* SVG-Linie: Volle Breite auf beiden Ebenen */
+.mai-line.line-3 {
+  display: block;
+  width: 100%;
+  height: 4.5px;
+  overflow: hidden;
+}
+
+/* Die Navigation mit deinen exakten Werten */
 .main-navigation {
   display: flex;
-  bottom: 3.7px;
   justify-content: space-around;
   align-items: baseline;
   position: relative;
+  bottom: 3.7px;
   z-index: 2;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .main-navigation a {
@@ -820,13 +759,14 @@ body {
   font-family: "open sans", sans-serif;
   text-transform: uppercase;
   padding: 0 20px;
-  line-height: 0.35;
+  line-height: 0.24;
   transition:
     transform 0.3s ease,
     font-size 0.3s ease;
   display: inline-block;
   transform-origin: bottom;
   font-size: 18px;
+  color: black;
 }
 
 .main-navigation a:hover:not(.active) {
@@ -837,10 +777,160 @@ body {
   font-size: 21.5px;
 }
 
-.page-footer {
-  padding-bottom: 2rem;
+/* --- 4.3 SEITENTITEL & CREDO --- */
+.page-title-credo,
+.page-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding-inline: 2px;
+  font-variant: small-caps;
 }
 
+.page-title-credo {
+  height: 180px;
+}
+.page-title {
+  height: 125px;
+}
+
+.page-title-credo h1,
+.page-title-credo h2 {
+  position: absolute;
+  box-sizing: border-box;
+  text-align: center !important;
+  font-variant: small-caps;
+  white-space: normal !important;
+  width: 100%;
+}
+
+.page-title-credo h1 {
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-title-credo h2 {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.page-footer .mai-line,
+.page-title-credo .mai-line,
+.page-title .mai-line {
+  position: absolute;
+  bottom: 0;
+}
+
+.page-title .mai-line.line-3 {
+  position: absolute;
+  top: 0;
+}
+
+/* --- 4.4 FOOTER (AUF VOLLE BREITE ZWINGEN) --- */
+
+/* Der globale Footer-Rahmen */
+.page-footer {
+  position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: 60px;
+  box-sizing: border-box;
+}
+
+/* Der nachgeladene Inhalts-Container (Der Übeltäter aus dem Inspector!) */
+#page-footer-container,
+.page-footer-content {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+/* 1. Navigations-Ziel-Container oben im Footer */
+#page-nav-footer {
+  position: relative;
+  width: 100% !important;
+  height: 35px;
+}
+
+/* Linie und Navigation auf 100% Ausdehnung setzen */
+#page-nav-footer .mai-line.line-3,
+#page-nav-footer .main-navigation {
+  position: absolute;
+  left: 0;
+  width: 100% !important;
+}
+
+#page-nav-footer .mai-line.line-3 {
+  bottom: 0;
+  z-index: 1;
+}
+
+#page-nav-footer .main-navigation {
+  bottom: 3.7px;
+  z-index: 2;
+}
+
+/* 2. Rechtlicher Footer darunter */
+.page-legal-footer {
+  width: 100% !important;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.page-legal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.page-footer-note {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.page-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.page-legal-links a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.page-legal-links a:hover {
+  color: #000;
+}
+
+.page-legal-links .divider {
+  color: #ccc;
+}
+
+/* --- FOOTER-TYPOGRAFIE ENTCOPPELN & SEPARAT EINSTELLEN --- */
+
+#page-nav-footer .main-navigation a {
+  /* Hier kannst du deine Footer-spezifische line-height einstellen: */
+  line-height: 0.6;
+
+  /* Falls du auch die Ausrichtung zur SVG-Linie unabhängig anpassen willst: */
+  /* transform: translateY(0px); */
+}
+
+/* --- 4.5 MEDIA QUERIES (DESKTOP) --- */
 @media (min-width: 900px) {
   .maiporter-logo {
     height: 110px !important;
@@ -848,28 +938,22 @@ body {
   }
 
   .main-navigation a {
-    font-size: 22px;
+    font-size: 25px;
   }
 
   .main-navigation a.active {
-    font-size: 26px !important;
+    font-size: 27px !important;
   }
 }
-
 /* ==========================================
      5. LAYOUT & KOMPONENTEN
      ========================================== */
 
-.v2-wrapper,
-footer.jtpl-footer.footer-options,
-.cc-shop-product-desc,
-.unitainer {
+.cc-shop-product-desc {
   margin-inline: var(--margin-inline);
 }
 
-.akkordeon-text,
-.unitainer,
-.img-tainer {
+.akkordeon-text {
   margin-bottom: var(--space-section);
 }
 
@@ -943,77 +1027,6 @@ ul.nostyle li::before {
 /* ------------------------------------------
     Schriftgrößen
      ------------------------------------------ */
-/* MIKARUS */
-#cc-m-9507308875 .page-title-credo h1 {
-  font-size: 39px !important;
-}
-
-#cc-m-9507308875 .page-title-credo h2 {
-  font-size: 32px !important;
-}
-
-@media (max-width: 1023px) {
-  #cc-m-9507308875 .page-title-credo h1 {
-    font-size: 37px !important;
-  }
-
-  #cc-m-9507308875 .page-title-credo h2 {
-    font-size: 30px !important;
-  }
-}
-
-@media (max-width: 1023px) {
-  #cc-m-9507308875 .page-title-credo h1 {
-    font-size: 30px !important;
-  }
-
-  #cc-m-9507308875 .page-title-credo h2 {
-    font-size: 27px !important;
-  }
-}
-/* STARTSEITE & BOXEN OVERVIEW */
-#cc-m-9507311775 .page-title-credo h1,
-#cc-m-9582535275 .page-title-credo h1 {
-  font-size: 44px !important;
-}
-
-#cc-m-9507311775 .page-title-credo h2,
-#cc-m-982535275 .page-title-credo h2 {
-  font-size: 31px !important;
-}
-
-@media (max-width: 1023px) {
-  #cc-m-9507311775 .page-title-credo h1,
-  #cc-m-9582535275 .page-title-credo h1 {
-    font-size: 42px !important;
-  }
-
-  #cc-m-9507311775 .page-title-credo h2,
-  #cc-m-9582535275 .page-title-credo h2 {
-    font-size: 26px !important;
-  }
-}
-
-@media (max-width: 767px) {
-  #cc-m-9507311775 .page-title-credo h1,
-  #cc-m-9582535275 .page-title-credo h1 {
-    font-size: 40px !important;
-  }
-
-  #cc-m-9507311775 .page-title-credo h2,
-  #cc-m-9582535275 .page-title-credo h2 {
-    font-size: 24px !important;
-  }
-}
-
-footer.jtpl-footer.footer-options {
-  font-size: calc(var(--font-body) * 0.95);
-  line-height: 1.5;
-}
-
-.footer-logo-space {
-  height: 60px;
-}
 
 li.cc-shop-product-pool.j-product-pool.j-product-pool-status-1.cc-shop-product-pool-variant-1,
 li.cc-product-delivery-time-info.j-product-delivery-time.cc-delivery-time-variant-1.j-product-delivery-time-status-1,
@@ -1025,91 +1038,6 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 /* ==========================================
      7. BILDCONTAINER & MEDIEN
      ========================================== */
-
-.media-frame {
-  display: flex;
-  justify-content: center;
-  margin-inline: auto;
-  margin-block: 50px;
-  max-width: 100%;
-}
-
-.media-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 85vh;
-  object-fit: contain;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-}
-
-.img-square {
-  max-width: 600px !important;
-  max-height: 70vh;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 20px auto;
-}
-
-.media-frame-20 {
-  width: 20%;
-}
-.media-frame-30 {
-  width: 30%;
-}
-.media-frame-40 {
-  width: 40%;
-}
-.media-frame-50 {
-  width: 50%;
-}
-.media-frame-60 {
-  width: 60%;
-}
-.media-frame-70 {
-  width: 70%;
-}
-.media-frame-80 {
-  width: 80%;
-}
-.media-frame-90 {
-  width: 90%;
-}
-.media-frame-100 {
-  width: 100%;
-}
-
-@media (max-width: 1440px) {
-  .media-frame-40 {
-    width: 50%;
-  }
-  .media-frame-50 {
-    width: 65%;
-  }
-  .media-frame-60 {
-    width: 75%;
-  }
-  .media-frame-70 {
-    width: 85%;
-  }
-  .media-frame-80 {
-    width: 95%;
-  }
-}
-
-@media (max-width: 719px) {
-  .media-frame-20,
-  .media-frame-30,
-  .media-frame-40,
-  .media-frame-50,
-  .media-frame-60,
-  .media-frame-70,
-  .media-frame-80,
-  .media-frame-90 {
-    width: 100% !important;
-  }
-}
 
 .wiper-frame {
   position: relative !important;
@@ -1386,58 +1314,6 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   }
 }
 
-.img-tainer {
-  display: flex;
-  overflow: hidden;
-  margin-inline: auto;
-}
-
-.j-module.j-htmlCode .img-tainer {
-  display: flex;
-  justify-content: center !important;
-}
-
-.img-tainer img {
-  max-width: 100%;
-  height: auto;
-}
-
-#img-tainer-sp {
-  max-width: 250px;
-  margin-inline: auto;
-  margin-top: 18px;
-  margin-bottom: 12px;
-}
-
-#img-tainer-sp img {
-  max-width: 100%;
-  height: auto;
-}
-
-.img-tainer-20,
-.img-tainer-30,
-.img-tainer-40 {
-  max-width: 40vw;
-}
-.img-tainer-50 {
-  max-width: 50vw;
-}
-.img-tainer-60 {
-  max-width: 60vw;
-}
-.img-tainer-70 {
-  max-width: 70vw;
-}
-.img-tainer-80 {
-  max-width: 80vw;
-}
-.img-tainer-90 {
-  max-width: 90vw;
-}
-.img-tainer-100 {
-  max-width: 100vw;
-}
-
 .textfield-70 {
   display: block;
   margin-inline: auto;
@@ -1454,74 +1330,15 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 }
 
 @media (max-width: 1440px) {
-  .img-tainer-40 {
-    max-width: 45vw;
-  }
-  .img-tainer-50 {
-    max-width: 55vw;
-  }
-  .img-tainer-60 {
-    max-width: 65vw;
-  }
-  .img-tainer-70 {
-    max-width: 77vw;
-  }
-  .img-tainer-80 {
-    max-width: 82vw;
-  }
-  .img-tainer-90 {
-    max-width: 95vw;
-  }
   .textfield-70 {
     max-width: 77vw;
   }
   .textfield-80 {
     max-width: 82vw;
-  }
-}
-
-@media (max-width: 1024px) {
-  #img-tainer-sp {
-    max-width: 200px;
-  }
-  .img-tainer-40 {
-    max-width: 50vw;
-  }
-  .img-tainer-50 {
-    max-width: 60vw;
-  }
-  .img-tainer-60 {
-    max-width: 70vw;
-  }
-  .img-tainer-70 {
-    max-width: 85vw;
-  }
-  .img-tainer-80 {
-    max-width: 90vw;
-  }
-  .img-tainer-90 {
-    max-width: 100vw;
-  }
-  .textfield-70 {
-    max-width: 85vw;
-  }
-  .textfield-80 {
-    max-width: 90vw;
   }
 }
 
 @media (max-width: 719px) {
-  .img-tainer img {
-    width: 100%;
-  }
-  .img-tainer-40,
-  .img-tainer-50,
-  .img-tainer-60,
-  .img-tainer-70,
-  .img-tainer-80,
-  .img-tainer-90 {
-    max-width: 100vw;
-  }
   .textfield-70,
   .textfield-80 {
     max-width: 100vw;
@@ -1549,16 +1366,6 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   stroke-width: 4;
 }
 
-.page-title-credo,
-.site-header,
-.page-footer,
-.page-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  padding-inline: 2px;
-}
 /* --- FULLWIDTH-ELEMENTE (AUSSERHALB DES WRAPPERS) --- */
 .mai-line {
   width: 100% !important;
@@ -1566,59 +1373,6 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   margin-inline: auto !important;
   padding-inline: 5px !important;
   box-sizing: border-box !important;
-}
-.page-title-credo h1,
-.page-title-credo h2 {
-  position: absolute;
-  box-sizing: border-box;
-  text-align: center !important;
-  font-variant: small-caps;
-  white-space: normal !important;
-  width: 100%;
-}
-.page-title {
-  font-variant: small-caps;
-}
-.page-title-credo h1 {
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.page-title-credo h2 {
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.site-header .mai-line,
-.page-footer .mai-line,
-.page-title-credo .mai-line,
-.page-title .mai-line {
-  position: absolute;
-  bottom: 0;
-}
-
-.page-title .mai-line.line-3 {
-  position: absolute;
-  top: 0;
-}
-
-.site-header,
-.page-title-credo {
-  height: 180px;
-}
-
-.page-footer {
-  height: 50px;
-}
-
-.page-title {
-  min-height: 90px;
-}
-
-.page-footer .main-navigation {
-  position: relative;
-  bottom: -16.3px;
 }
 
 /* ==========================================
@@ -1807,240 +1561,6 @@ div[class*="j-"] h6 {
   .overview-item {
     flex: 1 1 100%;
     width: 100%;
-  }
-}
-
-/* ==========================================
-     11.1 COOKIE BANNER OVERRIDES
-     ========================================== */
-
-.ui-dialog.ui-widget {
-  background-color: #ffffff !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 0 !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
-  font-family: "Open Sans", sans-serif !important;
-  max-width: 550px !important;
-  padding: 16px !important;
-}
-
-.cc-individual-cookie-settings-texts h2 {
-  margin-top: 5px !important;
-}
-
-.ui-widget-overlay {
-  background: rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: blur(4px) !important;
-}
-
-.ui-dialog-titlebar {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 0 12px 0 !important;
-}
-
-.ui-dialog-titlebar-close {
-  border: none !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  cursor: pointer !important;
-}
-
-#cc-individual-cookie-settings h2 {
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  color: #111827 !important;
-  margin-bottom: 8px !important;
-}
-
-#cc-individual-cookie-settings p {
-  font-size: 14px !important;
-  color: #4b5563 !important;
-  line-height: 1.6 !important;
-}
-
-#cc-individual-cookie-settings .links a {
-  color: #6ea372 !important;
-  text-decoration: underline !important;
-  font-size: 13px !important;
-  margin-right: 12px !important;
-}
-
-#cc-individual-cookie-settings .links a:hover {
-  color: #76b47e !important;
-}
-
-.cc-individual-cookie-settings-categories .category-list {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 16px 0 !important;
-}
-
-.cc-individual-cookie-settings-categories .category {
-  display: flex !important;
-  align-items: center !important;
-  padding: 8px 0 !important;
-  border-bottom: 1px solid #f3f4f6 !important;
-  border-radius: 0 !important; /* Kategorien ohne Radius */
-  padding-left: 4px !important;
-  padding-top: 12px !important;
-}
-
-.cc-individual-cookie-settings-categories .category button {
-  margin-top: 0 !important;
-}
-
-.cc-individual-cookie-settings-categories .toggle {
-  border: none !important;
-  background: transparent !important;
-  cursor: pointer !important;
-}
-
-.cc-individual-cookie-settings-categories .toggle .fill {
-  display: inline-block !important;
-  width: 40px !important;
-  height: 22px !important;
-  background-color: #d1d5db !important;
-  border-radius: 20px !important; /* Rundung für Toggle-Schiene */
-  position: relative !important;
-  transition: background-color 0.2s ease !important;
-}
-
-.cc-individual-cookie-settings-categories .toggle .ball {
-  display: block !important;
-  width: 18px !important;
-  height: 18px !important;
-  background-color: #ffffff !important;
-  border-radius: 50% !important; /* Rundung für Toggle-Kugel */
-  position: absolute !important;
-  top: 2px !important;
-  left: 2px !important;
-  transition: transform 0.2s ease !important;
-}
-
-.cc-individual-cookie-settings-categories .toggle[data-value="all"] .fill {
-  background-color: #6ea372 !important;
-}
-
-.cc-individual-cookie-settings-categories .toggle[data-value="all"] .ball {
-  transform: translateX(18px) !important;
-}
-
-.cc-individual-cookie-settings-actions {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-  margin-top: 20px !important;
-}
-
-.cc-individual-cookie-settings-actions .btn {
-  width: 100% !important;
-  padding: 13px 16px !important;
-  border-radius: 0 !important; /* Buttons ohne Radius */
-  font-size: 18px !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  text-align: center !important;
-  border: none !important;
-
-  background-color: #6ea372 !important;
-  color: #ffffff !important;
-}
-
-.cc-individual-cookie-settings-actions .btn:hover {
-  background-color: #76b47e !important;
-  color: #eeeeee !important;
-}
-
-@media (max-width: 600px), (max-height: 800px) {
-  /* Das Hintergrund-Overlay von Jimdo unter den Banner legen */
-  .ui-widget-overlay {
-    z-index: 999990 !important;
-  }
-
-  div.ui-dialog.ui-widget,
-  body div.ui-dialog.ui-widget {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    bottom: auto !important;
-    right: auto !important;
-    transform: translate(-50%, -50%) !important;
-
-    margin: 0 !important;
-    width: 90vw !important;
-    max-width: 340px !important;
-    height: auto !important;
-    max-height: 90vh !important;
-    padding: 14px !important;
-    box-sizing: border-box !important;
-
-    z-index: 999999 !important;
-    pointer-events: auto !important;
-    overflow-y: auto !important; /* Scrollbar auf den Gesamtdialog legen */
-  }
-
-  #cc-individual-cookie-settings,
-  .cc-individual-cookie-settings {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 0 !important;
-  }
-
-  #cc-individual-cookie-settings h2 {
-    font-size: 16px !important;
-    margin-bottom: 4px !important;
-  }
-
-  #cc-individual-cookie-settings p {
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin-bottom: 8px !important;
-  }
-
-  .cc-individual-cookie-settings-categories .category-list {
-    margin: 6px 0 !important;
-  }
-
-  .cc-individual-cookie-settings-categories .category {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-  }
-
-  .cc-individual-cookie-settings-categories .name {
-    font-size: 12px !important;
-  }
-
-  .cc-individual-cookie-settings-categories .toggle .fill {
-    width: 32px !important;
-    height: 18px !important;
-  }
-
-  .cc-individual-cookie-settings-categories .toggle .ball {
-    width: 14px !important;
-    height: 14px !important;
-    top: 2px !important;
-    left: 2px !important;
-  }
-
-  .cc-individual-cookie-settings-categories .toggle[data-value="all"] .ball {
-    transform: translateX(14px) !important;
-  }
-
-  .cc-individual-cookie-settings-actions {
-    gap: 6px !important;
-    margin-top: 12px !important;
-  }
-
-  .cc-individual-cookie-settings-actions .btn {
-    padding: 9px 10px !important;
-    font-size: 13px !important;
-    pointer-events: auto !important;
   }
 }
 
