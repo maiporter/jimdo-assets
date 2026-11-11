@@ -43,25 +43,18 @@ html {
   box-sizing: border-box !important;
 }
 
-/* Alle Jimdo-Standard-Module im V2-Kontext zurücksetzen */
-.v2 .j-module {
-  padding: 0 !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-}
-
 /* --- 1. FULLWIDTH-ELEMENTE (Bis max. 1920px zentriert) --- */
 .v2 .site-header,
 .v2 .page-header,
 .v2 .page-title,
 .v2 .page-title-credo,
 .v2 .page-footer {
-  width: 100% !important;
-  max-width: 1920px !important;
-  margin-inline: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
 }
 
 /* --- 2. DEIN EIGENER WRAPPER & JIMDO-PRODUKTE (Standard-Seitenrand) --- */
@@ -151,14 +144,13 @@ body {
 h1,
 .page-header h1,
 .page-title h1 {
-  font-size: var(--font-h1) !important;
-  text-align: center !important;
-  font-weight: var(--weight-h1) !important;
-  line-height: var(--line-height-h1) !important;
+  font-size: var(--font-h1);
+  text-align: center;
+  font-weight: var(--weight-h1);
+  line-height: var(--line-height-h1);
 }
 
 h2,
-.j-module.n.j-text h2,
 .cc-shop-product-desc h2,
 .cc-shop-product-desc h2 *,
 .cc-shop-product-desc h4.fn {
@@ -169,7 +161,6 @@ h2,
 }
 
 h3,
-.j-module.n.j-text h3,
 .cc-shop-product-desc h3,
 .cc-shop-product-desc h3 *,
 .cc-shop-detail-description h3 {
@@ -180,7 +171,6 @@ h3,
 }
 
 h4,
-.j-module.n.j-text h4,
 .cc-shop-product-desc h4,
 .j-module .cc-shop-product-desc h4,
 .j-module .cc-shop-product-desc h4 *,
@@ -194,7 +184,6 @@ h4,
 
 p,
 ul li,
-.j-module.n.j-text,
 .content-options {
   font-size: var(--font-body);
   line-height: var(--line-height-body) !important;
@@ -212,27 +201,27 @@ ul li,
 }
 
 .product-lead-h1 {
-  text-align: center !important;
-  font-size: var(--font-h1) !important;
+  text-align: center;
+  font-size: var(--font-h1);
   line-height: var(--line-height-h1);
   font-weight: bold;
 }
 
 figure figcaption {
-  font-size: 1.5rem !important;
-  line-height: 1.4 !important;
-  color: #434343 !important;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #434343;
 }
 
 @media (max-width: 1023px) {
   figure figcaption {
-    font-size: 1.4rem !important;
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 719px) {
   figure figcaption {
-    font-size: 1.3rem !important;
+    font-size: 1.3rem;
   }
 }
 
@@ -270,33 +259,32 @@ p,
 }
 
 p.p2 {
-  margin-bottom: calc(var(--space-element) * 2) !important;
+  margin-bottom: calc(var(--space-element) * 2);
 }
 
 p.p3 {
-  margin-bottom: calc(var(--space-element) * 3) !important;
+  margin-bottom: calc(var(--space-element) * 3);
 }
 
 .lead-text {
-  margin-top: var(--space-element) !important;
-  margin-bottom: var(--space-element) !important;
+  margin-top: var(--space-element);
+  margin-bottom: var(--space-element);
 }
 
 .product-intro {
-  margin-top: calc(var(--space-element) * 1.5) !important;
-  margin-bottom: var(--space-element) !important;
+  margin-top: calc(var(--space-element) * 1.5);
+  margin-bottom: var(--space-element);
 }
 
 /* --- Überschriften (Abstand nach oben & unten) --- */
 h1,
 .page-header h1,
 .page-title h1 {
-  margin-top: 0 !important;
+  margin-top: 0;
   margin-bottom: calc(var(--space-element) * 0.4) !important;
 }
 
 h2,
-.j-module.n.j-text h2,
 .cc-shop-product-desc h2,
 .cc-shop-product-desc h2 *,
 .cc-shop-product-desc h4.fn {
@@ -305,7 +293,6 @@ h2,
 }
 
 h3,
-.j-module.n.j-text h3,
 .cc-shop-product-desc h3,
 .cc-shop-product-desc h3 *,
 .cc-shop-detail-description h3 {
@@ -314,7 +301,6 @@ h3,
 }
 
 h4,
-.j-module.n.j-text h4,
 .cc-shop-product-desc h4,
 .j-module .cc-shop-product-desc h4,
 .j-module .cc-shop-product-desc h4 *,
@@ -791,7 +777,6 @@ body {
      ========================================== */
 
 .v2-wrapper,
-.j-module.n.j-text,
 footer.jtpl-footer.footer-options,
 .cc-shop-product-desc,
 .unitainer {
@@ -808,19 +793,16 @@ ul {
   padding-inline: 3.3rem;
 }
 
-.j-module.n.j-text ul,
 .description ul {
   list-style-type: none;
 }
 
-.j-module.n.j-text ul li,
 .description ul li {
   list-style-position: outside;
   text-indent: -1.1em;
   margin-left: 1.1em;
 }
 
-.j-module.n.j-text ul li::before,
 .description ul li::before {
   content: "– ";
   font-weight: bold;
@@ -1652,14 +1634,6 @@ div[class*="j-"] h6 {
 #cc-m-gallery-9510761875 {
   max-width: 700px;
   margin: 0 auto;
-}
-
-.j-module.n.j-text ul:last-child {
-  margin-top: 0 !important;
-}
-
-.j-module.n.j-text:last-child ul:last-child {
-  margin-bottom: 0 !important;
 }
 
 .overview-container {
