@@ -196,7 +196,7 @@ p,
 ul li,
 .j-module.n.j-text,
 .content-options {
-  font-size: var(--font-body) !important;
+  font-size: var(--font-body);
   line-height: var(--line-height-body) !important;
 }
 
@@ -265,8 +265,8 @@ picture img {
 /* --- Absätze & Textvarianten --- */
 p,
 .j-module.n.j-text p {
-  margin-top: 0 !important;
-  margin-bottom: var(--space-element) !important;
+  margin-top: 0;
+  margin-bottom: var(--space-element);
 }
 
 p.p2 {
@@ -747,7 +747,7 @@ body {
 .main-navigation a {
   text-decoration: none !important;
   letter-spacing: 0.07em;
-  font-family: "Nunito", sans-serif;
+  font-family: "open sans", sans-serif;
   text-transform: uppercase;
   padding: 0 20px;
   line-height: 0.35;
@@ -1696,7 +1696,7 @@ div[class*="j-"] h6 {
   box-sizing: border-box !important;
   width: 100%;
   padding: 0 4px;
-  font-family: "Nunito", sans-serif;
+  font-family: "open sans", sans-serif;
   font-weight: 500;
   color: inherit;
   font-size: 17px;
@@ -1990,34 +1990,62 @@ div[class*="j-"] h6 {
      12. JIMDO ELEMENTE KORREKTUR
      ========================================== */
 /* ------------------------------------------
-   Jimdo Footer
+   Jimdo-Footer
    ------------------------------------------ */
-.jtpl-footer,
-#contentfooter {
-  font-family: "Nunito", sans-serif;
+/* 1. Haupt-Footer */
+.legal-footer {
+  font-family: "open sans", sans-serif;
   font-size: 14px;
-  color: #333333; /* Standard-Textfarbe im Footer */
-  line-height: 1.6;
+  color: #333333;
+  line-height: 2.1;
+  padding: 20px 60px;
+}
+.legal-footer .footer-container .footer-note {
+  font-size: 14px;
+  margin-block: 20px;
+}
+@media (max-width: 630px) {
+  .legal-footer {
+    font-size: 14px;
+    line-height: 2.1;
+    padding: 30px 30px;
+  }
+}
+/* 2. Text "1 inkl. MwSt." */
+.legal-footer .footer-note {
+  margin-bottom: 10px;
 }
 
-.jtpl-footer a,
-#contentfooter a {
-  color: #333333 !important; /* Wunschfarbe für Links (z. B. Schwarz/Dunkelgrau) */
-  text-decoration: none; /* Unterstreichung entfernen (optional) */
-  transition: color 0.2s ease;
+/* 3. Alle Links im Footer (löst das Blau-Problem!) */
+.legal-footer a {
+  color: #333333 !important; /* Schwarz/Dunkelgrau statt Standard-Blau */
+  text-decoration: none; /* Keine Unterstreichung */
 }
 
-.jtpl-footer a:hover,
-#contentfooter a:hover {
-  text-decoration: underline;
+.legal-footer a:hover {
+  text-decoration: underline; /* Unterstreichung nur beim Drüberfahren */
 }
 
-.jtpl-footer a.cc-button,
-#contentfooter a[href*="widerrufen"] {
-  border: 1px solid #333333;
+/* 4. Trennstriche | zwischen den Links */
+.legal-footer .divider {
+  margin: 0;
+  color: #666666;
+}
+
+/* 5. Der Button "Vertrag widerrufen" (über Ihre Klasse withdrawal-btn) */
+.legal-footer a.withdrawal-btn {
+  border: 1px solid #000; /* Blauer Rahmen wie auf Ihrem Screenshot */
+  /*! color: #0000ff !important; */ /* Blaue Schrift */
   padding: 6px 12px;
   display: inline-block;
+  margin-left: 5px;
 }
+
+.legal-footer a.withdrawal-btn:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
 /* _______________________________________________________________________ */
 
 .slide img,
@@ -2025,10 +2053,6 @@ div[class*="j-"] h6 {
   -webkit-tap-highlight-color: transparent !important;
   user-select: none;
   -webkit-touch-callout: none;
-}
-
-.jtpl-footer {
-  padding: 60px !important;
 }
 
 @media (min-width: 930px) {
