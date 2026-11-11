@@ -55,7 +55,7 @@ html {
 .v2 .page-header,
 .v2 .page-title,
 .v2 .page-title-credo,
-.v2 .site-footer {
+.v2 .page-footer {
   width: 100%;
   max-width: 1920px;
   margin-inline: auto;
@@ -767,7 +767,7 @@ body {
   font-size: 21.5px;
 }
 
-.site-footer {
+.page-footer {
   padding-bottom: 2rem;
 }
 
@@ -1485,7 +1485,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 
 .page-title-credo,
 .site-header,
-.site-footer,
+.page-footer,
 .page-title {
   display: flex;
   flex-direction: column;
@@ -1525,7 +1525,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 }
 
 .site-header .mai-line,
-.site-footer .mai-line,
+.page-footer .mai-line,
 .page-title-credo .mai-line,
 .page-title .mai-line {
   position: absolute;
@@ -1542,7 +1542,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   height: 180px;
 }
 
-.site-footer {
+.page-footer {
   height: 50px;
 }
 
@@ -1550,7 +1550,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   min-height: 90px;
 }
 
-.site-footer .main-navigation {
+.page-footer .main-navigation {
   position: relative;
   bottom: -16.3px;
 }
@@ -1813,7 +1813,7 @@ html {
 .v2 .page-header,
 .v2 .page-title,
 .v2 .page-title-credo,
-.v2 .site-footer {
+.v2 .page-footer {
   width: 100% !important;
   max-width: 1920px !important;
   margin-inline: auto !important;
@@ -2525,7 +2525,7 @@ body {
   font-size: 21.5px;
 }
 
-.site-footer {
+.page-footer {
   padding-bottom: 2rem;
 }
 
@@ -3243,7 +3243,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 
 .page-title-credo,
 .site-header,
-.site-footer,
+.page-footer,
 .page-title {
   display: flex;
   flex-direction: column;
@@ -3283,7 +3283,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 }
 
 .site-header .mai-line,
-.site-footer .mai-line,
+.page-footer .mai-line,
 .page-title-credo .mai-line,
 .page-title .mai-line {
   position: absolute;
@@ -3300,7 +3300,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   height: 180px;
 }
 
-.site-footer {
+.page-footer {
   height: 50px;
 }
 
@@ -3308,7 +3308,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   min-height: 90px;
 }
 
-.site-footer .main-navigation {
+.page-footer .main-navigation {
   position: relative;
   bottom: -16.3px;
 }
@@ -4138,16 +4138,6 @@ form select {
   opacity: 1;
   transform: scale(1);
   visibility: visible;
-}
-
-.share-widget {
-  font-size: 1.05em;
-  text-align: left;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  margin-inline: 15px;
-  line-height: 1.6;
-  display: inline-block;
 }
 
 /* Entfernt das Outline NUR bei Maus-Klicks, behält es aber für Tastatur-Tabber bei */
