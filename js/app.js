@@ -1,14 +1,16 @@
 (function () {
   const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 
-  // Erkennt, ob du gerade im Jimdo-Editor angemeldet bist (damit die Bearbeitungsleiste heil bleibt)
+  // Erkennt den Jimdo-Editor zuverlässig anhand der Domain/URL
   const isJimdoEditor =
-    document.body.classList.contains("cc-pagemode-default") || !!document.getElementById("cc-tp-padding-container");
+    window.location.hostname.includes("jimdo.com") ||
+    window.location.hostname.includes("jimdosite.com") ||
+    window.location.href.includes("/cms/");
 
   // Basis-URL: Lokal relativ zum Root, live über jsDelivr
   const BASE_URL = isLocal ? "/" : "https://cdn.jsdelivr.net/gh/maiporter/maiporter-assets@main/";
 
-  // 1. JIMDO STYLESHEETS BLOCKIEREN (nur live & außerhalb des Jimdo-Editors)
+  // 1. JIMDO STYLESHEETS BLOCKIEREN (nur auf der echten Live-Domain, NICHT lokal & NICHT im Editor)
   if (!isLocal && !isJimdoEditor) {
     const disableJimdoStyles = () => {
       document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
