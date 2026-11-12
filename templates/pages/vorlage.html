@@ -195,18 +195,29 @@
       <div id="page-footer-container"></div>
     </footer>
 
-    <!-- DYNAMISCHES NACHLADE-SKRIPT -->
+    <!-- HEADER -->
+    <header class="page-header">
+      <div id="page-header-container"></div>
+      <div id="page-nav-header"></div>
+    </header>
+
+    <div class="page-title">
+      <h1>MaiPorter Z</h1>
+      <div>
+        <svg class="mai-line line-1" width="100%" height="5">
+          <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
+        </svg>
+      </div>
+    </div>
+
     <script type="text/javascript">
       /* <![CDATA[ */
       document.addEventListener("DOMContentLoaded", function () {
         const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
-
-        // Basispfade für Vorlagen (2 Ebenen nach oben)
         const headerUrl = isLocal ? "../../templates/navigation/page-header.html" : "/navigation/header";
         const navUrl = isLocal ? "../../templates/navigation/page-navigation.html" : "/navigation/nav";
-        const footerUrl = isLocal ? "../../templates/navigation/page-footer.html" : "/navigation/footer";
 
-        // 1. Header laden
+        // Header laden
         fetch(headerUrl)
           .then((res) => res.text())
           .then((html) => {
@@ -215,43 +226,43 @@
           })
           .catch((err) => console.warn("Header-Fehler:", err));
 
-        // 2. Legal Footer laden
-        const footerPromise = fetch(footerUrl)
+        // Navigation laden und speichern
+        fetch(navUrl)
           .then((res) => res.text())
-          .then((html) => {
-            const container = document.getElementById("page-footer-container");
-            if (container) container.innerHTML = html;
-          });
-
-        // 3. Navigation 1x laden und verteilen (erst wenn der Footer bereitsteht)
-        Promise.all([fetch(navUrl).then((res) => res.text()), footerPromise])
-          .then(([navHtml]) => {
+          .then((navHtml) => {
             const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
-            const navContent = navDoc.body;
+            const navContent = navDoc.body.innerHTML;
 
+            // Im Header einfügen
             const headerTarget = document.getElementById("page-nav-header");
-            const footerTarget = document.getElementById("page-nav-footer");
-
-            // Navigation im Header einfügen
             if (headerTarget) {
-              headerTarget.innerHTML = navContent.innerHTML;
+              headerTarget.innerHTML = navContent;
+              markActiveLinks(headerTarget);
             }
 
-            // Navigation im Footer einfügen (Klonen)
-            if (footerTarget) {
-              footerTarget.innerHTML = navContent.innerHTML;
-            }
-
-            // Aktiven Link in beiden Navigationsleisten markieren
-            const current = window.location.pathname;
-            document.querySelectorAll(".main-navigation a").forEach((link) => {
-              const linkPath = link.pathname;
-              if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
-                link.classList.add("active");
+            // Hilfsfunktion für den Footer bereitstellen
+            window.injectFooterNav = function () {
+              const footerTarget = document.getElementById("page-nav-footer");
+              if (footerTarget) {
+                footerTarget.innerHTML = navContent;
+                markActiveLinks(footerTarget);
               }
-            });
+            };
+
+            // Falls der Footer schon fertig geladen ist, direkt einfügen
+            window.injectFooterNav();
           })
-          .catch((err) => console.warn("Nav/Footer-Ladefehler:", err));
+          .catch((err) => console.warn("Nav-Fehler:", err));
+
+        function markActiveLinks(scope) {
+          const current = window.location.pathname;
+          scope.querySelectorAll(".main-navigation a").forEach((link) => {
+            const linkPath = link.pathname;
+            if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
+              link.classList.add("active");
+            }
+          });
+        }
       });
       /*]]>*/
     </script>

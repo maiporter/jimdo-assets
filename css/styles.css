@@ -943,7 +943,7 @@ body {
 /* --- FOOTER-TYPOGRAFIE ENTCOPPELN & SEPARAT EINSTELLEN --- */
 
 #page-nav-footer .main-navigation a {
-  line-height: 0.6;
+  line-height: 0.5;
 }
 
 /* --- 4.5 MEDIA QUERIES (DESKTOP) --- */
@@ -961,13 +961,12 @@ body {
   .main-navigation a.active {
     font-size: 27px !important;
   }
-}
 
-@media (max-widht 899px) {
   #page-nav-footer .main-navigation a {
     line-height: 0.5;
   }
 }
+
 /* ==========================================
      5. LAYOUT & KOMPONENTEN
      ========================================== */
