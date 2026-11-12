@@ -381,7 +381,6 @@ figure.image-column {
    5. BREAKPOINTS & RESPONSIVE DESIGN (< 720px)
    ========================================== */
 @media (max-width: 719px) {
-  .unitainer,
   .split-section {
     flex-direction: column;
     /* Vertikaler Abstand via Flexbox-Gap */
@@ -389,7 +388,6 @@ figure.image-column {
     align-items: center; /* Zentriert die Spalteninhalte */
   }
 
-  .unitainer .image-column,
   .split-section .image-column {
     order: 1;
     margin: 0 auto !important; /* Zentriert den Bild-Container */
@@ -398,13 +396,12 @@ figure.image-column {
     justify-content: center; /* Zentriert das Bild bei fester max-width */
   }
 
-  .unitainer .text-column,
   .split-section .text-column {
     order: 2;
     width: 100%; /* Volle Breite für den Textblock */
   }
 
-  .j-module.n.j-htmlCode .unitainer,
+  /* ? */
   .j-module.n.j-htmlCode .split-section {
     margin-bottom: 23px !important;
   }

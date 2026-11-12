@@ -11,6 +11,6 @@ Dieses System erweitert die Jimdo Creator Webpräsenz um ein optimiertes 12-Spal
 
 Mediencontainer <figure>
 
-## Klassen, die später gelöscht werden können
+## Anmerkungen
 
-unitainer
+content_area ist ein Jimdo Wrapper
