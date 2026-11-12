@@ -193,8 +193,18 @@
     <script type="text/javascript">
       /* <![CDATA[ */
       document.addEventListener("DOMContentLoaded", function () {
-        const headerUrl = "https://DEINE-ONLINE-URL/templates/navigation/page-header.html";
-        const navUrl = "https://DEINE-ONLINE-URL/templates/navigation/page-navigation.html";
+        const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+
+        // Hier deine echte raw.githack.com-Basis-URL eintragen (wie bei vorlage.html):
+        const githackBase = "https://raw.githack.com/maiporter/maiporter-assets/main/templates/pages/vorlage.html";
+
+        const headerUrl = isLocal
+          ? "../../templates/navigation/page-header.html"
+          : `${githackBase}/templates/navigation/page-header.html`;
+
+        const navUrl = isLocal
+          ? "../../templates/navigation/page-navigation.html"
+          : `${githackBase}/templates/navigation/page-navigation.html`;
 
         // Header laden
         fetch(headerUrl)
@@ -249,7 +259,6 @@
           });
         }
       });
-      /*]]>*/
     </script>
   </body>
 </html>
