@@ -28,54 +28,66 @@ html {
 }
 
 /* ==========================================
-   0. V2 LAYOUT & WRAPPER-SYSTEM
+   1. DESIGN TOKENS & VARIABLEN
    ========================================== */
+:root {
+  --font-h1: 4.2rem;
+  --font-h2: 3.2rem;
+  --font-h3: 2.4rem;
+  --font-h4: 1.8rem;
+  --font-body: 1.8rem;
 
-/* --- HAUPT-CONTAINER RESETS (100% ohne Störungen) --- */
-.v2,
-.v2 body,
-.v2 #content_area,
-.v2 .jtpl-main,
-.v2 .jtpl-section-main {
+  --weight-h1: 300;
+  --weight-h2: 400;
+  --weight-h3: 500;
+  --weight-h4: 610;
+
+  --line-height-h1: 1.2;
+  --line-height-h2: 1.3;
+  --line-height-h3: 1.2;
+  --line-height-h4: 1.2;
+  --line-height-body: 1.6;
+
+  /* Rhythmus-System & Ränder */
+  --space-element: 1em;
+  --space-section: 12rem;
+  --margin-inline: 7vw;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --font-h1: 3.4rem;
+    --font-h2: 2.6rem;
+    --font-h3: 2rem;
+    --font-h4: 1.6rem;
+    --font-body: 1.6rem;
+
+    --space-section: 8rem;
+    --margin-inline: 4vw;
+  }
+}
+
+@media (max-width: 719px) {
+  :root {
+    --font-h1: 2.6rem;
+    --font-h2: 2.1rem;
+    --font-h3: 1.7rem;
+    --font-h4: 1.5rem;
+    --font-body: 1.5rem;
+
+    --space-section: 6rem;
+    --margin-inline: 15px;
+  }
+}
+
+/* Globaler Schrift-Standard */
+html,
+body {
+  font-family: "Open Sans", sans-serif;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* --- 1. FULLWIDTH-ELEMENTE (Bis max. 1920px zentriert) --- */
-.page-header,
-.page-title,
-.page-title-credo,
-.page-footer {
-  width: 100%;
-  max-width: 1920px;
-  margin-inline: auto;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: border-box;
-}
-
-/* --- 2. DEIN EIGENER WRAPPER & JIMDO-PRODUKTE (Standard-Seitenrand) --- */
-.v2-wrapper,
-.v2 .j-module.j-product {
-  width: 100% !important;
-  max-width: 1920px !important;
-  margin-inline: auto !important;
-  padding-inline: var(--margin-inline) !important;
-  box-sizing: border-box !important;
-}
-
-/* --- 3. BREAKOUTS INNERHALB DEINES WRAPPERS --- */
-/* (Falls innerhalb deines Wrappers Widgets/Bilder volle Breite brauchen) */
-.v2-wrapper .img-tainer-100,
-.v2-wrapper .roadtrain-widget-dt,
-.v2-wrapper .fw {
-  width: calc(100% + (var(--margin-inline) * 2)) !important;
-  max-width: none !important;
-  margin-left: calc(var(--margin-inline) * -1) !important;
-  margin-right: calc(var(--margin-inline) * -1) !important;
   box-sizing: border-box !important;
 }
 
@@ -194,18 +206,6 @@ ul li,
   line-height: 1.4;
 }
 
-.product-intro {
-  text-align: center;
-  font-size: var(--font-body);
-}
-
-.product-lead-h1 {
-  text-align: center;
-  font-size: var(--font-h1);
-  line-height: var(--line-height-h1);
-  font-weight: bold;
-}
-
 figure figcaption {
   font-size: 1.5rem;
   line-height: 1.4;
@@ -224,7 +224,6 @@ figure figcaption {
   }
 }
 
-.sprueche-gruen,
 .pull-quote {
   text-align: center;
   font-style: italic;
@@ -251,8 +250,7 @@ picture img {
    ========================================== */
 
 /* --- Absätze & Textvarianten --- */
-p,
-.j-module.n.j-text p {
+p {
   margin-top: 0;
   margin-bottom: var(--space-element);
 }
@@ -267,11 +265,6 @@ p.p3 {
 
 .lead-text {
   margin-top: var(--space-element);
-  margin-bottom: var(--space-element);
-}
-
-.product-intro {
-  margin-top: calc(var(--space-element) * 1.5);
   margin-bottom: var(--space-element);
 }
 
@@ -308,11 +301,6 @@ h4,
   margin-bottom: calc(var(--space-element) * 0.3) !important;
 }
 
-.product-lead-h1 {
-  margin-block: calc(var(--space-element) * 1.8) !important;
-  padding-inline: 0.5em;
-}
-
 /* ==========================================
    4. BILDER & MODUL-SEKTIONEN
    ========================================== */
@@ -331,7 +319,6 @@ figure figcaption {
   margin-bottom: 0 !important;
 }
 
-.unitainer,
 .split-section {
   display: flex;
   gap: calc(var(--space-element) * 1.2) !important;
@@ -339,12 +326,8 @@ figure figcaption {
   margin-bottom: var(--space-element) !important;
 }
 
-.unitainer.text-left,
-.unitainer-text-left,
 .split-section.text-left,
 .split-section-text-left,
-.unitainer.text-right,
-.unitainer-text-right,
 .split-section.text-right,
 .split-section-text-right {
   flex-direction: row;
@@ -373,25 +356,25 @@ figure.image-column {
 /* Inneres Reset für Split-Section */
 .split-section figure.image-column,
 .split-section figure {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 }
 
 /* Typografie-Offset für exakte Bündigkeit der 1. Zeile */
 .split-section .text-column p:first-child {
-  margin-top: -0.45em !important;
+  margin-top: -0.45em;
 }
 
 /* Entfernt den überflüssigen Margin des letzten Absatzes in der Section */
 .split-section .text-column p:last-child {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   display: block;
 }
 
 .text-column > h2:first-child,
 .text-column > h3:first-child,
 .text-column > h4:first-child {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 /* ==========================================
@@ -428,16 +411,15 @@ figure.image-column {
 }
 
 /* Sonder-Module & Akkordeon */
-.sprueche-gruen,
 .pull-quote {
-  margin-block: var(--space-section) !important;
+  margin-block: var(--space-section);
   margin-inline: var(--margin-inline);
 }
 
 .akkordeon-text dd,
 .akkordeon-text-easteregg dd {
-  margin-top: 0 !important;
-  margin-bottom: 5rem !important;
+  margin-top: 0;
+  margin-bottom: 5rem;
 }
 
 /* ------------------------------------------
@@ -466,8 +448,6 @@ html,
 body,
 .jtpl-content,
 .jtpl-content__inner,
-#content_area,
-.fw-column,
 .jtpl-main {
   width: 100%;
   max-width: none;
@@ -476,21 +456,11 @@ body,
   font-weight: 400 !important;
 }
 
-.cc-imagewrapper,
-.cc-m-image-align-1 {
-  margin-top: 80px !important;
-}
-
 .jtpl-section-main {
   width: 100%;
   max-width: none;
   margin: 0;
   padding: 0;
-}
-
-header.jtpl-header {
-  margin-bottom: 0;
-  margin-top: 0 !important;
 }
 
 /* FIX: Seitenrand dynamisch über --margin-inline wiederherstellen */
@@ -512,186 +482,218 @@ body {
   position: relative;
 }
 
-.j-module b,
-.j-module strong,
-.j-static-page b,
-.j-static-page strong {
-  font-weight: 600 !important;
+/* ==========================================
+   2. LAYOUT & WRAPPER-SYSTEM (GRID BASED)
+   ========================================== */
+
+/* Fullwidth-Rahmen (Header, Titel, Footer) */
+.page-header,
+.page-title,
+.page-title-credo,
+.page-footer {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+
+/* Der Haupt-Container als modernes 14-Spalten-Grid */
+.page-content {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  box-sizing: border-box;
+
+  /* ESSENTIELL: Schaltet das Raster für alle direkten Kinder ein */
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--margin-inline), 1fr)
+    [content-start] repeat(12, 1fr) [content-end]
+    minmax(var(--margin-inline), 1fr) [full-end];
+  column-gap: 20px;
 }
 
 /* ==========================================
-     3.1 GRID & SPALTEN-SYSTEM (12 Spalten)
-     ========================================== */
+   2. LAYOUT & WRAPPER-SYSTEM (GRID BASED)
+   ========================================== */
 
-#content_area {
-  max-width: 1920px !important;
+/* Fullwidth-Rahmen für Header, Title & Footer */
+.page-header,
+.page-title,
+.page-title-credo,
+.page-footer {
   width: 100%;
-  margin: 0 auto !important;
-  padding-left: 20px;
-  padding-right: 20px;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+/* ==========================================
+   2. LAYOUT & WRAPPER-SYSTEM (BEST PRACTICE GRID)
+   ========================================== */
+
+/* Fullwidth-Rahmen */
+.page-header,
+.page-title,
+.page-title-credo,
+.page-footer {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
 }
 
+/* Der Haupt-Container: Rein über CSS Grid gesteuert */
+.page-content {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 0 !important; /* KEIN Padding – Grid regelt den Abstand */
+  box-sizing: border-box;
+
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  column-gap: 20px;
+}
+
+/* ==========================================
+   3.1 GRID & SPALTEN-SYSTEM (NATIV CSS GRID)
+   ========================================== */
+
+/* --- 1. DEFAULT LOGIK: 10 SPALTEN ZENTRIERT (Spalte 1 & 12 sind Schutzränder) --- */
+.page-content > * {
+  grid-column: 2 / span 10 !important;
+  margin-top: 0;
+  width: auto;
+
+  /* Sicherheits-Bremse gegen Ausbrecher */
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* --- 2. MULTI-SPALTEN CONTAINER --- */
 .grid-12 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
+  column-gap: 20px;
+  row-gap: 30px;
   width: 100%;
   box-sizing: border-box;
+  grid-column: 1 / span 12 !important;
 }
 
-.col-12 {
+/* --- 3. UTILITY-KLASSEN --- */
+
+/* Volle 12 Spalten (Nutzt auch die äußeren 2 Spalten) */
+.page-content > .col-12,
+.page-content > .roadtrain-widget-dt {
+  grid-column: 1 / span 12 !important;
   width: 100%;
-  margin-inline: auto;
-}
-.col-11 {
-  width: 91.666%;
-  margin-inline: auto;
-}
-.col-10 {
-  width: 83.333%;
-  margin-inline: auto;
-}
-.col-09,
-.col-9 {
-  width: 75%;
-  margin-inline: auto;
-}
-.col-08,
-.col-8 {
-  width: 66.666%;
-  margin-inline: auto;
-}
-.col-07,
-.col-7 {
-  width: 58.333%;
-  margin-inline: auto;
-}
-.col-06,
-.col-6 {
-  width: 50%;
-  margin-inline: auto;
-}
-.col-05,
-.col-5 {
-  width: 41.666%;
-  margin-inline: auto;
-}
-.col-04,
-.col-4 {
-  width: 33.333%;
-  margin-inline: auto;
-}
-.col-03,
-.col-3 {
-  width: 25%;
-  margin-inline: auto;
-}
-.col-02,
-.col-2 {
-  width: 16.666%;
-  margin-inline: auto;
-}
-.col-01,
-.col-1 {
-  width: 8.333%;
-  margin-inline: auto;
 }
 
+/* Zentrierte Spalten-Varianten */
+.page-content > .col-10 {
+  grid-column: 2 / span 10 !important;
+}
+.page-content > .col-08,
+.page-content > .col-8 {
+  grid-column: 3 / span 8 !important;
+}
+.page-content > .col-06,
+.page-content > .col-6 {
+  grid-column: 4 / span 6 !important;
+}
+.page-content > .col-04,
+.page-content > .col-4 {
+  grid-column: 5 / span 4 !important;
+}
+
+/* Linksbündige Varianten */
+.page-content > .col-10-left {
+  grid-column: 1 / span 10 !important;
+}
+.page-content > .col-8-left {
+  grid-column: 1 / span 8 !important;
+}
+.page-content > .col-6-left {
+  grid-column: 1 / span 6 !important;
+}
+
+/* --- 4. PLATZIERUNG INNERHALB VON .GRID-12 --- */
 .grid-12 > .col-12 {
   grid-column: span 12;
-  width: 100%;
 }
 .grid-12 > .col-11 {
   grid-column: span 11;
-  width: 100%;
 }
 .grid-12 > .col-10 {
   grid-column: span 10;
-  width: 100%;
 }
 .grid-12 > .col-09,
 .grid-12 > .col-9 {
   grid-column: span 9;
-  width: 100%;
 }
 .grid-12 > .col-08,
 .grid-12 > .col-8 {
   grid-column: span 8;
-  width: 100%;
 }
 .grid-12 > .col-07,
 .grid-12 > .col-7 {
   grid-column: span 7;
-  width: 100%;
 }
 .grid-12 > .col-06,
 .grid-12 > .col-6 {
   grid-column: span 6;
-  width: 100%;
 }
 .grid-12 > .col-05,
 .grid-12 > .col-5 {
   grid-column: span 5;
-  width: 100%;
 }
 .grid-12 > .col-04,
 .grid-12 > .col-4 {
   grid-column: span 4;
-  width: 100%;
 }
 .grid-12 > .col-03,
 .grid-12 > .col-3 {
   grid-column: span 3;
-  width: 100%;
 }
 .grid-12 > .col-02,
 .grid-12 > .col-2 {
   grid-column: span 2;
-  width: 100%;
 }
 .grid-12 > .col-01,
 .grid-12 > .col-1 {
   grid-column: span 1;
-  width: 100%;
 }
 
-@media (max-width: 1440px) {
-  .col-08,
-  .col-8 {
-    width: 75%;
-  }
-  .col-06,
-  .col-6 {
-    width: 65%;
-  }
+/* ==========================================
+   RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   ========================================== */
+
+@media (max-width: 1024px) {
   .grid-12 > .col-04,
   .grid-12 > .col-4 {
     grid-column: span 6;
   }
 }
 
-@media (max-width: 1024px) {
-  .col-08,
-  .col-8 {
-    width: 85%;
-  }
-  .col-06,
-  .col-6 {
-    width: 75%;
-  }
-}
-
 @media (max-width: 719px) {
-  #content_area {
-    padding-left: 0;
-    padding-right: 0;
+  /* Auf Mobilgeräten schalten wir ein 20px Padding für Bildschirmränder ein */
+  .page-content {
+    padding-inline: 20px !important;
   }
 
-  [class*="col-"],
+  .page-content > * {
+    grid-column: 1 / span 12 !important;
+  }
+
   .grid-12 > [class*="col-"] {
-    width: 100% !important;
-    grid-column: span 12 !important;
+    grid-column: span 12;
   }
 
   .text-block {
@@ -700,7 +702,6 @@ body {
     box-sizing: border-box;
   }
 }
-
 /* ==========================================
    4. NAVIGATION, TITEL & FOOTER
    ========================================== */
@@ -1261,8 +1262,8 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 }
 
 .is-morpher .slide-track {
-  display: grid !important;
-  grid-template-areas: "stack" !important;
+  display: grid;
+  grid-template-areas: "stack";
   min-height: 1px;
 }
 
@@ -1270,21 +1271,21 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
   grid-area: stack;
   opacity: 0;
   z-index: 1;
-  transition: opacity 1s linear !important;
+  transition: opacity 1s linear;
 }
 
 .is-morpher .slide.active {
-  opacity: 1 !important;
-  z-index: 10 !important;
+  opacity: 1;
+  z-index: 10;
 }
 
 .is-morpher .slide.last-active {
-  opacity: 1 !important;
-  z-index: 5 !important;
+  opacity: 1;
+  z-index: 5;
 }
 
 .is-standard .slide-track {
-  display: flex !important;
+  display: flex;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -1368,11 +1369,11 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 
 /* --- FULLWIDTH-ELEMENTE (AUSSERHALB DES WRAPPERS) --- */
 .mai-line {
-  width: 100% !important;
-  max-width: 1920px !important;
-  margin-inline: auto !important;
-  padding-inline: 5px !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 5px;
+  box-sizing: border-box;
 }
 
 /* ==========================================
@@ -1382,7 +1383,7 @@ div.cc-product-infolink.j-product__info__link > p.cc-product-tax-and-shipping-in
 .akkordeon-text dt a,
 .akkordeon-text-easteregg dt a {
   display: inline-block;
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 .akkordeon-schalter-klein {
@@ -1473,6 +1474,9 @@ div[class*="j-"] h6 {
   max-width: 700px;
   margin: 0 auto;
 }
+/* ==========================================
+   4. UI-KOMPONENTEN & CARDS (OVERVIEW-SYSTEM)
+   ========================================== */
 
 .overview-container {
   display: flex;
@@ -1486,6 +1490,7 @@ div[class*="j-"] h6 {
 }
 
 .overview-item {
+  position: relative; /* Anker für das ::after Overlay */
   flex: 1 1 calc(33.333% - (2 * 32px) / 3);
   max-width: 424px;
   min-width: 250px;
@@ -1498,6 +1503,7 @@ div[class*="j-"] h6 {
   height: auto;
   display: block;
   margin-bottom: 11px;
+  transition: opacity 0.25s ease; /* Sanfter Hover-Übergang */
 }
 
 .textlinks-bilder,
@@ -1508,12 +1514,30 @@ div[class*="j-"] h6 {
   box-sizing: border-box !important;
   width: 100%;
   padding: 0 4px;
-  font-family: "open sans", sans-serif;
+  font-family: "nunito", sans-serif;
   font-weight: 500;
-  color: inherit;
+  color: #4c4c4c;
   font-size: 17px;
   line-height: 1.4;
   text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: text-decoration 0.25s ease;
+}
+
+/* Unsichtbares Overlay über die gesamte Karte (Bild + Lücke + Text) */
+.overview-container__textlink::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Subtiles Hover-Feedback (Edel & Dezent) */
+.overview-item:hover img {
+  opacity: 0.95; /* Bild wird minimal weicher */
 }
 
 .overview-container .textlinks-bilder,
@@ -1540,6 +1564,10 @@ div[class*="j-"] h6 {
   color: #666;
 }
 
+/* ==========================================
+   BREAKPOINTS (OVERVIEW-SYSTEM)
+   ========================================== */
+
 @media (max-width: 1100px) {
   .overview-item {
     flex: 1 1 calc(50% - 16px);
@@ -1563,7 +1591,6 @@ div[class*="j-"] h6 {
     width: 100%;
   }
 }
-
 /* ==========================================
      12. JIMDO ELEMENTE KORREKTUR
      ========================================== */
