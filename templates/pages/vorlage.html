@@ -1,121 +1,111 @@
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MaiPorter - SEITENTITEL</title>
-  </head>
-  <body>
-    <!-- 1. HEADER (Wird komplett inkl. #page-nav-header aus page-header.html geladen) -->
-    <div id="page-header-container"></div>
+<!-- 1. HEADER (Wird komplett inkl. #page-nav-header aus page-header.html geladen) -->
+<div id="page-header-container"></div>
 
-    <!-- 2. SEITENTITEL -->
-    <div class="page-title">
-      <h1>VORLAGE2</h1>
-      <div>
-        <svg class="mai-line line-1" width="100%" height="5">
-          <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
-        </svg>
-      </div>
-    </div>
+<!-- 2. SEITENTITEL -->
+<div class="page-title">
+  <h1>VORLAGE2</h1>
+  <div>
+    <svg class="mai-line line-1" width="100%" height="5">
+      <line class="svg-line" x1="0" y1="4.5" x2="100%" y2="4.5"></line>
+    </svg>
+  </div>
+</div>
 
-    <!-- 3. SEITENINHALT -->
-    <div class="page-content">
-      <!-- Hier kommt der eigentliche Inhalt rein -->
-    </div>
+<!-- 3. SEITENINHALT -->
+<div class="page-content">
+  <!-- Hier kommt der eigentliche Inhalt rein -->
+</div>
 
-    <!-- 4. FOOTER (Ziel für Legal Footer inkl. innerem Nav-Ziel #page-nav-footer) -->
-    <footer class="page-footer">
-      <div id="page-footer-container"></div>
-    </footer>
+<!-- 4. FOOTER (Ziel für Legal Footer inkl. innerem Nav-Ziel #page-nav-footer) -->
+<footer class="page-footer">
+  <div id="page-footer-container"></div>
+</footer>
 
-    <!-- DYNAMISCHES NACHLADE- & ISOLIERUNGS-SKRIPT -->
-    <script type="text/javascript">
-      /* <![CDATA[ */
-      (function () {
-        const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+<!-- DYNAMISCHES NACHLADE- & ISOLIERUNGS-SKRIPT -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  (function () {
+    const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 
-        // 1. JIMDO STYLESHEETS BLOCKIEREN (nur auf der Live-Seite)
-        if (!isLocal) {
-          const disableJimdoStyles = () => {
-            document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
-              const href = (link.getAttribute("href") || "").toLowerCase();
-              if (
-                !href.includes("maiporter") &&
-                (href.includes("styles") || href.includes("css") || href.includes("layout") || href.includes("jimdo"))
-              ) {
-                link.disabled = true;
-              }
-            });
-          };
-          disableJimdoStyles();
-          document.addEventListener("DOMContentLoaded", disableJimdoStyles);
-        }
-
-        // 2. EIGENES STYLESHEET LADEN (Lokal vs. GitHub/jsDelivr)
-        const cssUrl = isLocal
-          ? "../../css/styles.css"
-          : "https://cdn.jsdelivr.net/gh/maiporter/maiporter-assets@main/css/styles.css";
-
-        const customCss = document.createElement("link");
-        customCss.rel = "stylesheet";
-        customCss.href = cssUrl;
-        document.head.appendChild(customCss);
-
-        // 3. TEMPLATES NACHLADEN
-        document.addEventListener("DOMContentLoaded", function () {
-          const headerUrl = isLocal ? "../../templates/navigation/page-header.html" : "/navigation/header";
-          const navUrl = isLocal ? "../../templates/navigation/main-navigation.html" : "/navigation/nav";
-          const footerUrl = isLocal ? "../../templates/navigation/page-footer.html" : "/navigation/footer";
-
-          // Header laden
-          const headerPromise = fetch(headerUrl)
-            .then((res) => res.text())
-            .then((html) => {
-              const container = document.getElementById("page-header-container");
-              if (container) container.innerHTML = html;
-            })
-            .catch((err) => console.warn("Header-Fehler:", err));
-
-          // Legal Footer laden
-          const footerPromise = fetch(footerUrl)
-            .then((res) => res.text())
-            .then((html) => {
-              const container = document.getElementById("page-footer-container");
-              if (container) container.innerHTML = html;
-            })
-            .catch((err) => console.warn("Footer-Fehler:", err));
-
-          // Navigation 1x laden und verteilen (wartet auf Header UND Footer)
-          Promise.all([fetch(navUrl).then((res) => res.text()), headerPromise, footerPromise])
-            .then(([navHtml]) => {
-              const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
-              const navContent = navDoc.body;
-
-              const headerTarget = document.getElementById("page-nav-header");
-              const footerTarget = document.getElementById("page-nav-footer");
-
-              if (headerTarget) {
-                headerTarget.innerHTML = navContent.innerHTML;
-              }
-
-              if (footerTarget) {
-                footerTarget.innerHTML = navContent.innerHTML;
-              }
-
-              // Aktiven Link markieren
-              const current = window.location.pathname;
-              document.querySelectorAll(".main-navigation a").forEach((link) => {
-                const linkPath = link.pathname;
-                if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
-                  link.classList.add("active");
-                }
-              });
-            })
-            .catch((err) => console.warn("Nav-Ladefehler:", err));
+    // 1. JIMDO STYLESHEETS BLOCKIEREN (nur auf der Live-Seite)
+    if (!isLocal) {
+      const disableJimdoStyles = () => {
+        document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
+          const href = (link.getAttribute("href") || "").toLowerCase();
+          if (
+            !href.includes("maiporter") &&
+            (href.includes("styles") || href.includes("css") || href.includes("layout") || href.includes("jimdo"))
+          ) {
+            link.disabled = true;
+          }
         });
-      })();
-      /*]]>*/
-    </script>
-  </body>
-</html>
+      };
+      disableJimdoStyles();
+      document.addEventListener("DOMContentLoaded", disableJimdoStyles);
+    }
+
+    // 2. EIGENES STYLESHEET LADEN (Lokal vs. GitHub/jsDelivr)
+    const cssUrl = isLocal
+      ? "../../css/styles.css"
+      : "https://cdn.jsdelivr.net/gh/maiporter/maiporter-assets@main/css/styles.css";
+
+    const customCss = document.createElement("link");
+    customCss.rel = "stylesheet";
+    customCss.href = cssUrl;
+    document.head.appendChild(customCss);
+
+    // 3. TEMPLATES NACHLADEN
+    document.addEventListener("DOMContentLoaded", function () {
+      const headerUrl = isLocal ? "../../templates/navigation/page-header.html" : "/navigation/header";
+      const navUrl = isLocal ? "../../templates/navigation/main-navigation.html" : "/navigation/nav";
+      const footerUrl = isLocal ? "../../templates/navigation/page-footer.html" : "/navigation/footer";
+
+      // Header laden
+      const headerPromise = fetch(headerUrl)
+        .then((res) => res.text())
+        .then((html) => {
+          const container = document.getElementById("page-header-container");
+          if (container) container.innerHTML = html;
+        })
+        .catch((err) => console.warn("Header-Fehler:", err));
+
+      // Legal Footer laden
+      const footerPromise = fetch(footerUrl)
+        .then((res) => res.text())
+        .then((html) => {
+          const container = document.getElementById("page-footer-container");
+          if (container) container.innerHTML = html;
+        })
+        .catch((err) => console.warn("Footer-Fehler:", err));
+
+      // Navigation 1x laden und verteilen (wartet auf Header UND Footer)
+      Promise.all([fetch(navUrl).then((res) => res.text()), headerPromise, footerPromise])
+        .then(([navHtml]) => {
+          const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
+          const navContent = navDoc.body;
+
+          const headerTarget = document.getElementById("page-nav-header");
+          const footerTarget = document.getElementById("page-nav-footer");
+
+          if (headerTarget) {
+            headerTarget.innerHTML = navContent.innerHTML;
+          }
+
+          if (footerTarget) {
+            footerTarget.innerHTML = navContent.innerHTML;
+          }
+
+          // Aktiven Link markieren
+          const current = window.location.pathname;
+          document.querySelectorAll(".main-navigation a").forEach((link) => {
+            const linkPath = link.pathname;
+            if (current === linkPath || (linkPath !== "/" && current.startsWith(linkPath + "/"))) {
+              link.classList.add("active");
+            }
+          });
+        })
+        .catch((err) => console.warn("Nav-Ladefehler:", err));
+    });
+  })();
+  /*]]>*/
+</script>
