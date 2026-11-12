@@ -190,11 +190,6 @@
       </div>
     </main> -->
 
-    <!-- 4. FOOTER (Ziel für Legal Footer inkl. innerem Nav-Ziel #page-nav-footer) -->
-    <footer class="page-footer">
-      <div id="page-footer-container"></div>
-    </footer>
-
     <script type="text/javascript">
       /* <![CDATA[ */
       document.addEventListener("DOMContentLoaded", function () {
@@ -211,18 +206,31 @@
           })
           .catch((err) => console.warn("Header-Fehler:", err));
 
-        // Navigation laden und im Header einfügen
+        // Navigation laden und speichern
         fetch(navUrl)
           .then((res) => res.text())
           .then((navHtml) => {
             const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
             const navContent = navDoc.body.innerHTML;
 
+            // Im Header einfügen
             const headerTarget = document.getElementById("page-nav-header");
             if (headerTarget) {
               headerTarget.innerHTML = navContent;
               markActiveLinks(headerTarget);
             }
+
+            // Hilfsfunktion für den Footer bereitstellen
+            window.injectFooterNav = function () {
+              const footerTarget = document.getElementById("page-nav-footer");
+              if (footerTarget) {
+                footerTarget.innerHTML = navContent;
+                markActiveLinks(footerTarget);
+              }
+            };
+
+            // Falls der Footer schon fertig geladen ist, direkt einfügen
+            window.injectFooterNav();
           })
           .catch((err) => console.warn("Nav-Fehler:", err));
 
