@@ -193,13 +193,15 @@
     <script type="text/javascript">
       /* <![CDATA[ */
       document.addEventListener("DOMContentLoaded", function () {
-        const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
-        const headerUrl = isLocal ? "../../templates/navigation/page-header.html" : "/navigation/header";
-        const navUrl = isLocal ? "../../templates/navigation/page-navigation.html" : "/navigation/nav";
+        const headerUrl = "https://DEINE-ONLINE-URL/templates/navigation/page-header.html";
+        const navUrl = "https://DEINE-ONLINE-URL/templates/navigation/page-navigation.html";
 
         // Header laden
         fetch(headerUrl)
-          .then((res) => res.text())
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP-Fehler: " + res.status);
+            return res.text();
+          })
           .then((html) => {
             const container = document.getElementById("page-header-container");
             if (container) container.innerHTML = html;
@@ -208,7 +210,10 @@
 
         // Navigation laden und speichern
         fetch(navUrl)
-          .then((res) => res.text())
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP-Fehler: " + res.status);
+            return res.text();
+          })
           .then((navHtml) => {
             const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
             const navContent = navDoc.body.innerHTML;
