@@ -1,12 +1,12 @@
 (function () {
   const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 
-  // Erkennt den Jimdo-Editor auch innerhalb des Jimdo-Vorschau-iFrames
+  // Erkennt NUR den echten Jimdo-Editor (nicht Besucher auf www.maiporter.de!)
   const isInIframe = window.self !== window.top;
   const referrerIsJimdo = (document.referrer || "").includes("jimdo.com");
   const hasEditorDom =
-    document.body.classList.contains("cc-pagemode-default") ||
-    !!document.getElementById("cc-tp-padding-container") ||
+    document.body.classList.contains("cc-pagemode-edit") ||
+    document.body.classList.contains("cc-pagemode-admin") ||
     !!document.querySelector(".j-admin");
 
   const isJimdoEditor =
@@ -20,7 +20,6 @@
 
   // IM JIMDO-EDITOR SOFORT STOPPEN
   if (isJimdoEditor) {
-    console.info("MaiPorter App: Jimdo-Editor erkannt – Skript pausiert.");
     return;
   }
 
