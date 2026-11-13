@@ -7,11 +7,17 @@
     window.location.hostname.includes("jimdosite.com") ||
     window.location.href.includes("/cms/");
 
+  // IM JIMDO-EDITOR SOFORT STOPPEN: Weder eigene Styles laden noch Jimdo-UI anfassen!
+  if (isJimdoEditor) {
+    console.info("MaiPorter App: Jimdo-Editor erkannt – Skript pausiert.");
+    return;
+  }
+
   // Basis-URL: Lokal relativ zum Root, live über jsDelivr
   const BASE_URL = isLocal ? "/" : "https://cdn.jsdelivr.net/gh/maiporter/maiporter-assets@main/";
 
-  // 1. JIMDO STYLESHEETS BLOCKIEREN (nur auf der echten Live-Domain, NICHT lokal & NICHT im Editor)
-  if (!isLocal && !isJimdoEditor) {
+  // 1. JIMDO STYLESHEETS BLOCKIEREN (nur auf der echten Live-Domain)
+  if (!isLocal) {
     const disableJimdoStyles = () => {
       document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
         const href = (link.getAttribute("href") || "").toLowerCase();
