@@ -1,13 +1,24 @@
 (function () {
   const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 
-  // Erkennt den Jimdo-Editor zuverlässig anhand der Domain/URL
-  const isJimdoEditor =
-    window.location.hostname.includes("jimdo.com") ||
-    window.location.hostname.includes("jimdosite.com") ||
-    window.location.href.includes("/cms/");
+  // Erkennt den Jimdo-Editor auch innerhalb des Jimdo-Vorschau-iFrames
+  const isInIframe = window.self !== window.top;
+  const referrerIsJimdo = (document.referrer || "").includes("jimdo.com");
+  const hasEditorDom =
+    document.body.classList.contains("cc-pagemode-default") ||
+    !!document.getElementById("cc-tp-padding-container") ||
+    !!document.querySelector(".j-admin");
 
-  // IM JIMDO-EDITOR SOFORT STOPPEN: Weder eigene Styles laden noch Jimdo-UI anfassen!
+  const isJimdoEditor =
+    !isLocal &&
+    (window.location.hostname.includes("jimdo.com") ||
+      window.location.hostname.includes("jimdosite.com") ||
+      window.location.href.includes("/cms/") ||
+      isInIframe ||
+      referrerIsJimdo ||
+      hasEditorDom);
+
+  // IM JIMDO-EDITOR SOFORT STOPPEN
   if (isJimdoEditor) {
     console.info("MaiPorter App: Jimdo-Editor erkannt – Skript pausiert.");
     return;
@@ -75,7 +86,7 @@
       })
       .catch((err) => console.warn("Footer-Fehler:", err));
 
-    // Navigation laden und in Header + Footer einhängen, sobald beide bereitstehen
+    // Navigation laden und in Header + Footer einhängen
     Promise.all([fetch(navUrl).then((res) => res.text()), headerPromise, footerPromise, contentPromise])
       .then(([navHtml]) => {
         const navDoc = new DOMParser().parseFromString(navHtml, "text/html");
